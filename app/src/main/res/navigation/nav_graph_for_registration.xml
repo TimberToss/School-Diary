@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_for_registration"
+    app:startDestination="@id/chooseClassFragment">
+    <fragment
+        android:id="@+id/chooseClassFragment"
+        android:name="com.example.schooldiary.registration.ChooseClassFragment"
+        android:label="fragment_choose_class"
+        tools:layout="@layout/fragment_choose_class" >
+        <action
+            android:id="@+id/action_chooseClassFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.schooldiary.registration.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" />
+</navigation>
