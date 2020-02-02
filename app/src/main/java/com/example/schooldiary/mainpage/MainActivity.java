@@ -14,17 +14,17 @@ import com.example.schooldiary.registration.RegistrationActivity;
 public class MainActivity extends AppCompatActivity implements
         MainPageFragment.OnFragmentInteractionListener {
 
+    CheckLogInUser checkLogInUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SharedPreferences sharedPref = getPreferences(MODE_PRIVATE);
-        boolean isStart = sharedPref.getBoolean("isStart", false);
-        Log.d("TAG", isStart + "");
-        if (!isStart) {
-            Log.d("TAG", "OK");
+        checkLogInUser = CheckLogInUser.getInstance();
+        if (checkLogInUser.isLoggedInUser()) {
+            Log.d("isLoggedInUser", String.valueOf(checkLogInUser.isLoggedInUser()));
             Intent intent = new Intent(this, RegistrationActivity.class);
             startActivity(intent);
             finish();
