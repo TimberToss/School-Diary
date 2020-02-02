@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements
             Log.d("TAG", "OK");
             Intent intent = new Intent(this, RegistrationActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
