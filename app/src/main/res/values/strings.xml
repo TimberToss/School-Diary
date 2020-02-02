@@ -7,5 +7,17 @@
     <string name="main_page_fragment">Main Page</string>
     <string name="registration_fragment">Registration</string>
     <string name="choose_class_fragment">Choose class</string>
-    <string name="registrate">Registrate</string>
+
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+
+    <string name="auth_failed">Authentication failed</string>
+    <string name="email_password_status">email/password status</string>
+    <string name="detail_status">detail status</string>
+    <string name="signed_out">Signed Out</string>
+
+    <string name="firebase_status_fmt">Firebase UID: %s</string>
+    <string name="emailpassword_status_fmt">Email User: %1$s (verified: %2$b)</string>
 </resources>

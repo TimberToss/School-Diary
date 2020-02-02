@@ -1,5 +1,6 @@
 package com.example.schooldiary.registration;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,20 +82,12 @@ public class RegistrationFragment extends Fragment {
 
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
-        final SharedPreferences sharedPref = view.getContext().getPreferences(MODE_PRIVATE);
 
-        Button registrateButton = view.findViewById(R.id.registrate_btn);
-        registrateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences.Editor e = sharedPref.edit();
-                e.putBoolean("isStart", true);
-                e.commit();
+        Button signInButton = view.findViewById(R.id.sign_in_btn);
+        signInButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.logInFragment));
 
-                Intent intent = new Intent(view.getContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        Button signUpButton = view.findViewById(R.id.sign_up_btn);
+        signUpButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.createUserFragment));
     }
 
 
