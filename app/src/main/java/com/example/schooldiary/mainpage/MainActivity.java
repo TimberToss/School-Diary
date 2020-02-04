@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
 
         checkLogInUser = CheckLogInUser.getInstance();
-        if (checkLogInUser.isLoggedInUser()) {
+        if (!checkLogInUser.isLoggedInUser()) {
             Log.d("isLoggedInUser", String.valueOf(checkLogInUser.isLoggedInUser()));
             Intent intent = new Intent(this, RegistrationActivity.class);
             startActivity(intent);
