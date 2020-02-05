@@ -9,5 +9,22 @@
         android:id="@+id/mainPageFragment"
         android:name="com.example.schooldiary.mainpage.MainPageFragment"
         android:label="fragment_main_page"
-        tools:layout="@layout/fragment_main_page" />
+        tools:layout="@layout/fragment_main_page" >
+        <action
+            android:id="@+id/action_mainPageFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_mainPageFragment_to_marksFragment"
+            app:destination="@id/marksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaryFragment"
+        android:name="com.example.schooldiary.DiaryFragment"
+        android:label="fragment_diary"
+        tools:layout="@layout/fragment_diary" />
+    <fragment
+        android:id="@+id/marksFragment"
+        android:name="com.example.schooldiary.MarksFragment"
+        android:label="fragment_marks"
+        tools:layout="@layout/fragment_marks" />
 </navigation>

@@ -1,6 +1,10 @@
 package com.example.schooldiary.mainpage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.NavHostController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,11 +14,13 @@ import android.util.Log;
 
 import com.example.schooldiary.R;
 import com.example.schooldiary.registration.RegistrationActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements
         MainPageFragment.OnFragmentInteractionListener {
 
     CheckLogInUser checkLogInUser;
+    BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -29,6 +35,19 @@ public class MainActivity extends AppCompatActivity implements
             startActivity(intent);
             finish();
         }
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()){
+                case R.id.action_diary:
+                    return true;
+                case R.id.action_marks:
+                    return true;
+                case R.id.action_more:
+                    return true;
+            }
+            return false;
+        });
     }
 
     @Override
