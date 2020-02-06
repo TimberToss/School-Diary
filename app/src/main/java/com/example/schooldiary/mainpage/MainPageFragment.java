@@ -5,12 +5,17 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.NavHostController;
+import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.schooldiary.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 /**
@@ -69,6 +74,26 @@ public class MainPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main_page, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        NavController navController = NavHostFragment.findNavController(this);
+        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation);
+        Log.d("Bottom nav", (bottomNavigationView == null) + "");
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()){
+                case R.id.action_diary:
+                    navController.navigate(R.id.diaryFragment);
+                    return true;
+                case R.id.action_marks:
+                    navController.navigate(R.id.marksFragment);
+                    return true;
+                case R.id.action_more:
+                    return true;
+            }
+            return false;
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

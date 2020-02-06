@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/diaryFragment"
-        android:name="com.example.schooldiary.DiaryFragment"
+        android:name="com.example.schooldiary.mainpage.DiaryFragment"
         android:label="fragment_diary"
         tools:layout="@layout/fragment_diary" />
     <fragment
         android:id="@+id/marksFragment"
-        android:name="com.example.schooldiary.MarksFragment"
+        android:name="com.example.schooldiary.mainpage.MarksFragment"
         android:label="fragment_marks"
         tools:layout="@layout/fragment_marks" />
 </navigation>
