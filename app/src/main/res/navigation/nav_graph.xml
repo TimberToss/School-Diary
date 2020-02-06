@@ -11,11 +11,8 @@
         android:label="fragment_main_page"
         tools:layout="@layout/fragment_main_page" >
         <action
-            android:id="@+id/action_mainPageFragment_to_diaryFragment"
-            app:destination="@id/diaryFragment" />
-        <action
-            android:id="@+id/action_mainPageFragment_to_marksFragment"
-            app:destination="@id/marksFragment" />
+            android:id="@+id/action_mainPageFragment_to_newsfeedFragment"
+            app:destination="@id/newsfeedFragment" />
     </fragment>
     <fragment
         android:id="@+id/diaryFragment"
@@ -27,4 +24,24 @@
         android:name="com.example.schooldiary.mainpage.MarksFragment"
         android:label="fragment_marks"
         tools:layout="@layout/fragment_marks" />
+    <fragment
+        android:id="@+id/timetableOfLessonsFragment"
+        android:name="com.example.schooldiary.mainpage.TimetableOfLessonsFragment"
+        android:label="fragment_timetable_of_lessons"
+        tools:layout="@layout/fragment_timetable_of_lessons" />
+    <fragment
+        android:id="@+id/timetableOfVacationFragment"
+        android:name="com.example.schooldiary.mainpage.TimetableOfVacationFragment"
+        android:label="fragment_timetable_of_vacation"
+        tools:layout="@layout/fragment_timetable_of_vacation" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.schooldiary.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/newsfeedFragment"
+        android:name="com.example.schooldiary.NewsfeedFragment"
+        android:label="fragment_newsfeed"
+        tools:layout="@layout/fragment_newsfeed" />
 </navigation>

@@ -7,13 +7,19 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.schooldiary.NewsfeedFragment;
 import com.example.schooldiary.R;
+import com.example.schooldiary.SettingsFragment;
 import com.example.schooldiary.registration.RegistrationActivity;
 
 public class MainActivity extends AppCompatActivity implements
         MainPageFragment.OnFragmentInteractionListener,
+        NewsfeedFragment.OnFragmentInteractionListener,
         DiaryFragment.OnFragmentInteractionListener,
-        MarksFragment.OnFragmentInteractionListener {
+        MarksFragment.OnFragmentInteractionListener,
+        TimetableOfLessonsFragment.OnFragmentInteractionListener,
+        TimetableOfVacationFragment.OnFragmentInteractionListener,
+        SettingsFragment.OnFragmentInteractionListener {
 
     CheckLogInUser checkLogInUser;
 

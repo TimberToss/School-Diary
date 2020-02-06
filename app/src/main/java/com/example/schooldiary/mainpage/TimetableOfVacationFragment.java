@@ -5,29 +5,23 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.NavHostController;
-import androidx.navigation.fragment.NavHostFragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.schooldiary.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MainPageFragment.OnFragmentInteractionListener} interface
+ * {@link TimetableOfVacationFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link MainPageFragment#newInstance} factory method to
+ * Use the {@link TimetableOfVacationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainPageFragment extends Fragment {
+public class TimetableOfVacationFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,7 +33,7 @@ public class MainPageFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public MainPageFragment() {
+    public TimetableOfVacationFragment() {
         // Required empty public constructor
     }
 
@@ -49,11 +43,11 @@ public class MainPageFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MainPageFragment.
+     * @return A new instance of fragment TimetableOfVacationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MainPageFragment newInstance(String param1, String param2) {
-        MainPageFragment fragment = new MainPageFragment();
+    public static TimetableOfVacationFragment newInstance(String param1, String param2) {
+        TimetableOfVacationFragment fragment = new TimetableOfVacationFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -74,35 +68,7 @@ public class MainPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_page, container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-
-        NavController navController = NavHostFragment.findNavController(this);
-        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
-            switch (menuItem.getItemId()){
-                case R.id.action_newsfeed:
-                    navController.navigate(R.id.newsfeedFragment);
-                case R.id.action_diary:
-                    navController.navigate(R.id.diaryFragment);
-                    return true;
-                case R.id.action_marks:
-                    navController.navigate(R.id.marksFragment);
-                    return true;
-                case R.id.action_timetable:
-                    navController.navigate(R.id.timetableOfLessonsFragment);
-                    return true;
-                case R.id.action_settings:
-                    navController.navigate(R.id.settingsFragment);
-                    return true;
-            }
-            return false;
-        });
+        return inflater.inflate(R.layout.fragment_timetable_of_vacation, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
