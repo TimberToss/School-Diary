@@ -6,10 +6,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavHostController;
 import androidx.navigation.fragment.NavHostFragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,29 +78,7 @@ public class MainPageFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        NavController navController = NavHostFragment.findNavController(this);
-        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
-            switch (menuItem.getItemId()){
-                case R.id.action_newsfeed:
-                    navController.navigate(R.id.newsfeedFragment);
-                case R.id.action_diary:
-                    navController.navigate(R.id.diaryFragment);
-                    return true;
-                case R.id.action_marks:
-                    navController.navigate(R.id.marksFragment);
-                    return true;
-                case R.id.action_timetable:
-                    navController.navigate(R.id.timetableOfLessonsFragment);
-                    return true;
-                case R.id.action_settings:
-                    navController.navigate(R.id.settingsFragment);
-                    return true;
-            }
-            return false;
-        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

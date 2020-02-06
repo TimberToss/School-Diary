@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_newsfeed"
-        android:title="@string/main_page_fragment"
-        android:icon="@drawable/newsfeed_24dp" />
+    <item android:id="@+id/action_news"
+        android:title="@string/news"
+        android:icon="@drawable/news_24dp" />
     <item android:id="@+id/action_diary"
         android:title="@string/diary"
         android:icon="@drawable/diary_24dp" />

@@ -3,17 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainPageFragment">
+    app:startDestination="@id/newsFragment">
 
     <fragment
         android:id="@+id/mainPageFragment"
         android:name="com.example.schooldiary.mainpage.MainPageFragment"
         android:label="fragment_main_page"
-        tools:layout="@layout/fragment_main_page" >
-        <action
-            android:id="@+id/action_mainPageFragment_to_newsfeedFragment"
-            app:destination="@id/newsfeedFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_main_page" />
     <fragment
         android:id="@+id/diaryFragment"
         android:name="com.example.schooldiary.mainpage.DiaryFragment"
@@ -36,12 +32,12 @@
         tools:layout="@layout/fragment_timetable_of_vacation" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.schooldiary.SettingsFragment"
+        android:name="com.example.schooldiary.mainpage.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
-        android:id="@+id/newsfeedFragment"
-        android:name="com.example.schooldiary.NewsfeedFragment"
-        android:label="fragment_newsfeed"
-        tools:layout="@layout/fragment_newsfeed" />
+        android:id="@+id/newsFragment"
+        android:name="com.example.schooldiary.mainpage.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
 </navigation>
