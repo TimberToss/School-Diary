@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements
             switch (menuItem.getItemId()){
                 case R.id.action_news:
                     navController.navigate(R.id.newsFragment);
+                    return true;
                 case R.id.action_diary:
                     navController.navigate(R.id.diaryFragment);
                     return true;
