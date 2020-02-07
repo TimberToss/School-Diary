@@ -16,7 +16,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
 public class MainActivity extends AppCompatActivity implements
-        MainPageFragment.OnFragmentInteractionListener,
         NewsFragment.OnFragmentInteractionListener,
         DiaryFragment.OnFragmentInteractionListener,
         MarksFragment.OnFragmentInteractionListener,

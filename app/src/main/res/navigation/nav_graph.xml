@@ -6,11 +6,6 @@
     app:startDestination="@id/newsFragment">
 
     <fragment
-        android:id="@+id/mainPageFragment"
-        android:name="com.example.schooldiary.mainpage.MainPageFragment"
-        android:label="fragment_main_page"
-        tools:layout="@layout/fragment_main_page" />
-    <fragment
         android:id="@+id/diaryFragment"
         android:name="com.example.schooldiary.mainpage.DiaryFragment"
         android:label="fragment_diary"
