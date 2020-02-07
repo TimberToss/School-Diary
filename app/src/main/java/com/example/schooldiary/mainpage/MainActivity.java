@@ -1,6 +1,7 @@
 package com.example.schooldiary.mainpage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 
 import com.example.schooldiary.R;
 import com.example.schooldiary.registration.RegistrationActivity;
@@ -24,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements
         SettingsFragment.OnFragmentInteractionListener {
 
     CheckLogInUser checkLogInUser;
+    Toolbar toolbar;
+    NavController navController;
+    BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -38,8 +43,8 @@ public class MainActivity extends AppCompatActivity implements
             startActivity(intent);
             finish();
         }
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
@@ -62,8 +67,21 @@ public class MainActivity extends AppCompatActivity implements
             }
             return false;
         });
+
+        // Find the toolbar view inside the activity layout
+        toolbar = findViewById(R.id.toolbar);
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        // Make sure the toolbar exists in the activity and is not null
+        setSupportActionBar(toolbar);
     }
 
+    // Menu icons are inflated just as they were with actionbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
     @Override
     public void onFragmentInteraction(Uri uri) {}
 }
