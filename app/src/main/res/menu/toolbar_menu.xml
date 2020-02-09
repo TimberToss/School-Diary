@@ -1,9 +1,0 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/more"
-        android:icon="@drawable/more_vert_24dp"
-        app:showAsAction="ifRoom|withText"
-        android:title="@string/more">
-    </item>
-</menu>

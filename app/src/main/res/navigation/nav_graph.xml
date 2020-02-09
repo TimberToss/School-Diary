@@ -7,32 +7,37 @@
 
     <fragment
         android:id="@+id/diaryFragment"
-        android:name="com.example.schooldiary.mainpage.DiaryFragment"
+        android:name="com.example.schooldiary.mainpage.bottomNavigation.DiaryFragment"
         android:label="fragment_diary"
         tools:layout="@layout/fragment_diary" />
     <fragment
         android:id="@+id/marksFragment"
-        android:name="com.example.schooldiary.mainpage.MarksFragment"
+        android:name="com.example.schooldiary.mainpage.bottomNavigation.MarksFragment"
         android:label="fragment_marks"
         tools:layout="@layout/fragment_marks" />
     <fragment
         android:id="@+id/timetableOfLessonsFragment"
-        android:name="com.example.schooldiary.mainpage.TimetableOfLessonsFragment"
+        android:name="com.example.schooldiary.mainpage.toolbar.TimetableOfLessonsFragment"
         android:label="fragment_timetable_of_lessons"
         tools:layout="@layout/fragment_timetable_of_lessons" />
     <fragment
         android:id="@+id/timetableOfVacationFragment"
-        android:name="com.example.schooldiary.mainpage.TimetableOfVacationFragment"
+        android:name="com.example.schooldiary.mainpage.toolbar.TimetableOfVacationFragment"
         android:label="fragment_timetable_of_vacation"
         tools:layout="@layout/fragment_timetable_of_vacation" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.schooldiary.mainpage.SettingsFragment"
+        android:name="com.example.schooldiary.mainpage.toolbar.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.schooldiary.mainpage.NewsFragment"
+        android:name="com.example.schooldiary.mainpage.bottomNavigation.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/finalGradesFragment"
+        android:name="com.example.schooldiary.mainpage.toolbar.FinalGradesFragment"
+        android:label="fragment_final_grades"
+        tools:layout="@layout/fragment_final_grades" />
 </navigation>

@@ -51,7 +51,7 @@ public class LogInFragment extends Fragment {
     private TextInputEditText mPasswordField;
 
     @VisibleForTesting
-    public ProgressBar mProgressBar;
+    private ProgressBar mProgressBar;
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -113,6 +113,8 @@ public class LogInFragment extends Fragment {
         mEmailField = getActivity().findViewById(R.id.sign_in_text_input_email);
         mPasswordField = getActivity().findViewById(R.id.sign_in_text_input_password);
         setProgressBar(R.id.sign_in_progress_bar);
+        // hide here, otherwise bar will spin
+        hideProgressBar();
 
         // [START initialize_auth]
         // Initialize Firebase Auth
@@ -121,11 +123,8 @@ public class LogInFragment extends Fragment {
 
 
         Button signUp = view.findViewById(R.id.sign_in_btn_2);
-        signUp.setOnClickListener(v -> {
-            signInWithEmailAndPassword(view, mEmailField.getText().toString(), mPasswordField.getText().toString());
-//            Intent intent = new Intent(getActivity(), MainActivity.class);
-//            startActivity(intent);
-        });
+        signUp.setOnClickListener(v ->
+                signInWithEmailAndPassword(view, mEmailField.getText().toString(), mPasswordField.getText().toString()));
     }
 
     private void signInWithEmailAndPassword(View view, String email, String password) {
@@ -156,6 +155,7 @@ public class LogInFragment extends Fragment {
                     if (!task.isSuccessful()) {
                         mStatusTextView.setText(R.string.auth_failed);
                     }
+                    // when auth is fail hide on time, but when auth is success hide much earlier than a new activity begins
                     hideProgressBar();
                     // [END_EXCLUDE]
                 });
@@ -201,23 +201,26 @@ public class LogInFragment extends Fragment {
     }
 
     private void updateUI(FirebaseUser user) {
-        hideProgressBar();
         if (user != null) {
-            mStatusTextView.setText(getString(R.string.emailpassword_status_fmt,
-                    user.getEmail(), user.isEmailVerified()));
-            mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
+//            mStatusTextView.setText(getString(R.string.emailpassword_status_fmt,
+//                    user.getEmail(), user.isEmailVerified()));
+//            mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
+//
+//            getActivity().findViewById(R.id.sign_in_btn_2).setVisibility(View.GONE);
+//            getActivity().findViewById(R.id.sign_in_text_input_email).setVisibility(View.GONE);
+//            getActivity().findViewById(R.id.sign_in_input_password).setVisibility(View.GONE);
 
-            getActivity().findViewById(R.id.sign_in_btn_2).setVisibility(View.GONE);
-            getActivity().findViewById(R.id.sign_in_text_input_email).setVisibility(View.GONE);
-            getActivity().findViewById(R.id.sign_in_input_password).setVisibility(View.GONE);
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
+            getActivity().finish();
 
         } else {
             mStatusTextView.setText(R.string.signed_out);
             mDetailTextView.setText(null);
 
-            getActivity().findViewById(R.id.sign_in_btn_2).setVisibility(View.VISIBLE);
-            getActivity().findViewById(R.id.sign_in_text_input_email).setVisibility(View.VISIBLE);
-            getActivity().findViewById(R.id.sign_in_text_input_password).setVisibility(View.VISIBLE);
+//            getActivity().findViewById(R.id.sign_in_btn_2).setVisibility(View.VISIBLE);
+//            getActivity().findViewById(R.id.sign_in_text_input_email).setVisibility(View.VISIBLE);
+//            getActivity().findViewById(R.id.sign_in_text_input_password).setVisibility(View.VISIBLE);
         }
     }
 
