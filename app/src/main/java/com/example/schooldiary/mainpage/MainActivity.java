@@ -18,7 +18,7 @@ import com.example.schooldiary.mainpage.bottomNavigation.MarksFragment;
 import com.example.schooldiary.mainpage.bottomNavigation.NewsFragment;
 import com.example.schooldiary.mainpage.toolbar.FinalGradesFragment;
 import com.example.schooldiary.mainpage.toolbar.SettingsFragment;
-import com.example.schooldiary.mainpage.toolbar.TimetableOfLessonsFragment;
+import com.example.schooldiary.mainpage.toolbar.TimetableOfRingsFragment;
 import com.example.schooldiary.mainpage.toolbar.TimetableOfVacationFragment;
 import com.example.schooldiary.registration.RegistrationActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements
         NewsFragment.OnFragmentInteractionListener,
         DiaryFragment.OnFragmentInteractionListener,
         MarksFragment.OnFragmentInteractionListener,
-        TimetableOfLessonsFragment.OnFragmentInteractionListener,
+        TimetableOfRingsFragment.OnFragmentInteractionListener,
         TimetableOfVacationFragment.OnFragmentInteractionListener,
         FinalGradesFragment.OnFragmentInteractionListener,
         SettingsFragment.OnFragmentInteractionListener {
@@ -89,10 +89,13 @@ public class MainActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_timetable_of_rings:
-                navController.navigate(R.id.timetableOfLessonsFragment);
+                navController.navigate(R.id.timetableOfRingsFragment);
                 break;
             case R.id.action_timetable_of_vacation:
                 navController.navigate(R.id.timetableOfVacationFragment);
+                break;
+            case R.id.action_final_grades:
+                navController.navigate(R.id.finalGradesFragment);
                 break;
             case R.id.action_settings:
                 navController.navigate(R.id.settingsFragment);

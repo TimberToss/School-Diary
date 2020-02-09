@@ -12,6 +12,6 @@
         android:textSize="40sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/vacation_timetable" />
+        android:text="@string/timetable_of_vacation" />
 
 </FrameLayout>

@@ -16,10 +16,10 @@
         android:label="fragment_marks"
         tools:layout="@layout/fragment_marks" />
     <fragment
-        android:id="@+id/timetableOfLessonsFragment"
-        android:name="com.example.schooldiary.mainpage.toolbar.TimetableOfLessonsFragment"
-        android:label="fragment_timetable_of_lessons"
-        tools:layout="@layout/fragment_timetable_of_lessons" />
+        android:id="@+id/timetableOfRingsFragment"
+        android:name="com.example.schooldiary.mainpage.toolbar.TimetableOfRingsFragment"
+        android:label="fragment_timetable_of_rings"
+        tools:layout="@layout/fragment_timetable_of_rings" />
     <fragment
         android:id="@+id/timetableOfVacationFragment"
         android:name="com.example.schooldiary.mainpage.toolbar.TimetableOfVacationFragment"
