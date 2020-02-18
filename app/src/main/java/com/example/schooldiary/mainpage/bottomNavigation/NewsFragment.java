@@ -9,8 +9,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.schooldiary.R;
+import com.example.schooldiary.mainpage.data.GlideApp;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 
 /**
@@ -69,6 +73,22 @@ public class NewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_news, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        // Reference to an image file in Cloud Storage
+        StorageReference storageReference = storage.getReferenceFromUrl("gs://school-diary-83cee.appspot.com/school.jpg");
+
+// ImageView in your Activity
+        ImageView imageView = getActivity().findViewById(R.id.news_image);
+
+// Download directly from StorageReference using Glide
+// (See MyAppGlideModule for Loader registration)
+        GlideApp.with(getActivity())
+                .load(storageReference)
+                .into(imageView);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

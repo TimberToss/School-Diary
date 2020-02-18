@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -22,7 +24,6 @@ import com.example.schooldiary.mainpage.toolbar.TimetableOfRingsFragment;
 import com.example.schooldiary.mainpage.toolbar.TimetableOfVacationFragment;
 import com.example.schooldiary.registration.RegistrationActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements
@@ -51,30 +52,22 @@ public class MainActivity extends AppCompatActivity implements
             startRegistrationActivity();
         }
 
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
-            switch (menuItem.getItemId()){
-                case R.id.action_news:
-                    navController.navigate(R.id.newsFragment);
-                    return true;
-                case R.id.action_diary:
-                    navController.navigate(R.id.diaryFragment);
-                    return true;
-                case R.id.action_marks:
-                    navController.navigate(R.id.marksFragment);
-                    return true;
-            }
-            return false;
-        });
-
         // Find the toolbar_items view inside the activity layout
         toolbar = findViewById(R.id.toolbar);
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         // Make sure the toolbar_items exists in the activity and is not null
         setSupportActionBar(toolbar);
+
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_news, R.id.navigation_diary, R.id.navigation_marks)
+                .build();
+
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
     }
 
     // Menu icons are inflated just as they were with actionbar
@@ -89,16 +82,16 @@ public class MainActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_timetable_of_rings:
-                navController.navigate(R.id.timetableOfRingsFragment);
+                navController.navigate(R.id.navigation_timetable_of_rings);
                 break;
             case R.id.action_timetable_of_vacation:
-                navController.navigate(R.id.timetableOfVacationFragment);
+                navController.navigate(R.id.navigation_timetable_of_vacation);
                 break;
             case R.id.action_final_grades:
-                navController.navigate(R.id.finalGradesFragment);
+                navController.navigate(R.id.navigation_final_grades);
                 break;
             case R.id.action_settings:
-                navController.navigate(R.id.settingsFragment);
+                navController.navigate(R.id.navigation_settings);
                 break;
             case R.id.action_sign_out:
                 FirebaseAuth mAuth = FirebaseAuth.getInstance();
