@@ -7,11 +7,10 @@
     android:background="@color/white">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/news_image"
         android:layout_gravity="center_horizontal|center_vertical"
-        android:textSize="40sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/news" />
+        android:layout_height="wrap_content" />
 
 </FrameLayout>
