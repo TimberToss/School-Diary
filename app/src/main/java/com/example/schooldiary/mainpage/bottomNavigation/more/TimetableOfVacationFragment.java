@@ -1,4 +1,4 @@
-package com.example.schooldiary.mainpage.toolbar;
+package com.example.schooldiary.mainpage.bottomNavigation.more;
 
 import android.content.Context;
 import android.net.Uri;
@@ -16,12 +16,12 @@ import com.example.schooldiary.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link TimetableOfRingsFragment.OnFragmentInteractionListener} interface
+ * {@link TimetableOfVacationFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link TimetableOfRingsFragment#newInstance} factory method to
+ * Use the {@link TimetableOfVacationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TimetableOfRingsFragment extends Fragment {
+public class TimetableOfVacationFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -33,7 +33,7 @@ public class TimetableOfRingsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public TimetableOfRingsFragment() {
+    public TimetableOfVacationFragment() {
         // Required empty public constructor
     }
 
@@ -43,11 +43,11 @@ public class TimetableOfRingsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment TimetableOfRingsFragment.
+     * @return A new instance of fragment TimetableOfVacationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TimetableOfRingsFragment newInstance(String param1, String param2) {
-        TimetableOfRingsFragment fragment = new TimetableOfRingsFragment();
+    public static TimetableOfVacationFragment newInstance(String param1, String param2) {
+        TimetableOfVacationFragment fragment = new TimetableOfVacationFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -68,7 +68,7 @@ public class TimetableOfRingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_timetable_of_rings, container, false);
+        return inflater.inflate(R.layout.fragment_timetable_of_vacation, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

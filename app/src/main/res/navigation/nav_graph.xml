@@ -22,22 +22,27 @@
         tools:layout="@layout/fragment_marks" />
     <fragment
         android:id="@+id/navigation_timetable_of_rings"
-        android:name="com.example.schooldiary.mainpage.toolbar.TimetableOfRingsFragment"
+        android:name="com.example.schooldiary.mainpage.bottomNavigation.more.TimetableOfRingsFragment"
         android:label="Timetable of rings"
         tools:layout="@layout/fragment_timetable_of_rings" />
     <fragment
         android:id="@+id/navigation_timetable_of_vacation"
-        android:name="com.example.schooldiary.mainpage.toolbar.TimetableOfVacationFragment"
+        android:name="com.example.schooldiary.mainpage.bottomNavigation.more.TimetableOfVacationFragment"
         android:label="Timetable of vacation"
         tools:layout="@layout/fragment_timetable_of_vacation" />
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.schooldiary.mainpage.toolbar.SettingsFragment"
+        android:name="com.example.schooldiary.mainpage.bottomNavigation.more.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/navigation_final_grades"
-        android:name="com.example.schooldiary.mainpage.toolbar.FinalGradesFragment"
+        android:name="com.example.schooldiary.mainpage.bottomNavigation.more.FinalGradesFragment"
         android:label="Final grades"
         tools:layout="@layout/fragment_final_grades" />
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="com.example.schooldiary.mainpage.bottomNavigation.MoreFragment"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more" />
 </navigation>

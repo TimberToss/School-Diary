@@ -1,4 +1,4 @@
-package com.example.schooldiary.mainpage.toolbar;
+package com.example.schooldiary.mainpage.bottomNavigation.more;
 
 import android.content.Context;
 import android.net.Uri;
