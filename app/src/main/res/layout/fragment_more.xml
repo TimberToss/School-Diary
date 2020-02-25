@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".mainpage.bottomNavigation.MoreFragment"
-    app:menu="@menu/main_page_navigation_items">
+    android:orientation="vertical"
+    tools:context=".mainpage.bottomNavigation.MoreFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ImageView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/more_fragments_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        app:menu="@menu/main_page_navigation_items"/>
+        android:layout_height="wrap_content"/>
 
-</FrameLayout>
+
+</LinearLayout>

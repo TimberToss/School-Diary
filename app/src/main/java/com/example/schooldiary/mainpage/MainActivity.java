@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import com.example.schooldiary.R;
 import com.example.schooldiary.mainpage.bottomNavigation.DiaryFragment;
 import com.example.schooldiary.mainpage.bottomNavigation.MarksFragment;
+import com.example.schooldiary.mainpage.bottomNavigation.MoreFragment;
 import com.example.schooldiary.mainpage.bottomNavigation.NewsFragment;
 import com.example.schooldiary.mainpage.bottomNavigation.more.FinalGradesFragment;
 import com.example.schooldiary.mainpage.bottomNavigation.more.SettingsFragment;
@@ -31,13 +32,13 @@ public class MainActivity extends AppCompatActivity implements
         NewsFragment.OnFragmentInteractionListener,
         DiaryFragment.OnFragmentInteractionListener,
         MarksFragment.OnFragmentInteractionListener,
+        MoreFragment.OnFragmentInteractionListener,
         TimetableOfRingsFragment.OnFragmentInteractionListener,
         TimetableOfVacationFragment.OnFragmentInteractionListener,
         FinalGradesFragment.OnFragmentInteractionListener,
         SettingsFragment.OnFragmentInteractionListener {
 
     CheckLogInUser checkLogInUser;
-    Toolbar toolbar;
     NavController navController;
     BottomNavigationView bottomNavigationView;
 
@@ -53,56 +54,17 @@ public class MainActivity extends AppCompatActivity implements
             startRegistrationActivity();
         }
 
-        // Find the toolbar_items view inside the activity layout
-        toolbar = findViewById(R.id.toolbar);
-        // Sets the Toolbar to act as the ActionBar for this Activity window.
-        // Make sure the toolbar_items exists in the activity and is not null
-        setSupportActionBar(toolbar);
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_news, R.id.navigation_diary, R.id.navigation_marks)
+                R.id.navigation_news, R.id.navigation_diary, R.id.navigation_marks, R.id.navigation_more)
                 .build();
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-    }
-
-    // Menu icons are inflated just as they were with actionbar
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.toolbar_items, menu);
-//        return true;
-//    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_timetable_of_rings:
-                navController.navigate(R.id.navigation_timetable_of_rings);
-                break;
-            case R.id.action_timetable_of_vacation:
-                navController.navigate(R.id.navigation_timetable_of_vacation);
-                break;
-            case R.id.action_final_grades:
-                navController.navigate(R.id.navigation_final_grades);
-                break;
-            case R.id.action_settings:
-                navController.navigate(R.id.navigation_settings);
-                break;
-            case R.id.action_sign_out:
-                FirebaseAuth mAuth = FirebaseAuth.getInstance();
-                mAuth.signOut();
-                startRegistrationActivity();
-                break;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void startRegistrationActivity() {

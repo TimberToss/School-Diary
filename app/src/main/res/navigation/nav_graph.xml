@@ -41,8 +41,8 @@
         android:label="Final grades"
         tools:layout="@layout/fragment_final_grades" />
     <fragment
-        android:id="@+id/moreFragment"
+        android:id="@+id/navigation_more"
         android:name="com.example.schooldiary.mainpage.bottomNavigation.MoreFragment"
-        android:label="fragment_more"
+        android:label="More"
         tools:layout="@layout/fragment_more" />
 </navigation>
