@@ -1,5 +1,6 @@
 package com.example.schooldiary.registration.login;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -202,25 +203,15 @@ public class LogInFragment extends Fragment {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-//            mStatusTextView.setText(getString(R.string.emailpassword_status_fmt,
-//                    user.getEmail(), user.isEmailVerified()));
-//            mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
-//
-//            getActivity().findViewById(R.id.sign_in_btn_2).setVisibility(View.GONE);
-//            getActivity().findViewById(R.id.sign_in_text_input_email).setVisibility(View.GONE);
-//            getActivity().findViewById(R.id.sign_in_input_password).setVisibility(View.GONE);
 
-            Intent intent = new Intent(getActivity(), MainActivity.class);
+            Activity activity = getActivity();
+            Intent intent = new Intent(activity, MainActivity.class);
             startActivity(intent);
-            getActivity().finish();
+            activity.finish();
 
         } else {
             mStatusTextView.setText(R.string.signed_out);
             mDetailTextView.setText(null);
-
-//            getActivity().findViewById(R.id.sign_in_btn_2).setVisibility(View.VISIBLE);
-//            getActivity().findViewById(R.id.sign_in_text_input_email).setVisibility(View.VISIBLE);
-//            getActivity().findViewById(R.id.sign_in_text_input_password).setVisibility(View.VISIBLE);
         }
     }
 
