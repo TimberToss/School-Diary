@@ -1,19 +1,26 @@
 package com.example.schooldiary.mainpage;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.schooldiary.R;
 import com.example.schooldiary.mainpage.bottomNavigation.DiaryFragment;
@@ -24,9 +31,20 @@ import com.example.schooldiary.mainpage.bottomNavigation.more.FinalGradesFragmen
 import com.example.schooldiary.mainpage.bottomNavigation.more.SettingsFragment;
 import com.example.schooldiary.mainpage.bottomNavigation.more.TimetableOfRingsFragment;
 import com.example.schooldiary.mainpage.bottomNavigation.more.TimetableOfVacationFragment;
+import com.example.schooldiary.mainpage.model.News;
+import com.example.schooldiary.mainpage.ui.FirestoreRecyclerAdapter;
+import com.example.schooldiary.mainpage.ui.FirestoreRecyclerOptions;
+import com.example.schooldiary.mainpage.ui.NewsHolder;
 import com.example.schooldiary.registration.RegistrationActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements
         NewsFragment.OnFragmentInteractionListener,
@@ -38,9 +56,13 @@ public class MainActivity extends AppCompatActivity implements
         FinalGradesFragment.OnFragmentInteractionListener,
         SettingsFragment.OnFragmentInteractionListener {
 
-    CheckLogInUser checkLogInUser;
-    NavController navController;
-    BottomNavigationView bottomNavigationView;
+    private CheckLogInUser checkLogInUser;
+    private NavController navController;
+    private BottomNavigationView bottomNavigationView;
+    private FirebaseFirestore firestore;
+    private Query query;
+    private RecyclerView newsRecyclerView;
+    private FirestoreRecyclerAdapter adapter;
 
 
     @Override
@@ -65,7 +87,66 @@ public class MainActivity extends AppCompatActivity implements
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
+
+//        firestore = FirebaseFirestore.getInstance();
+//        query = firestore.collection("news")
+//                .orderBy("serialNumber", Query.Direction.DESCENDING);
+//
+//        query.addSnapshotListener(new EventListener<QuerySnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable QuerySnapshot snapshot,
+//                                @Nullable FirebaseFirestoreException e) {
+//                if (e != null) {
+//                    Log.d("Fire", "All bad");
+//                    return;
+//                }
+//
+//                // Convert query snapshot to a list of news
+//                List<News> listOfNews = snapshot.toObjects(News.class);
+//
+//                // Update UI
+//                // ...
+//            }
+//        });
+//
+//        FirestoreRecyclerOptions<News> options = new FirestoreRecyclerOptions.Builder<News>()
+//                .setQuery(query, News.class)
+//                .build();
+//
+//        adapter = new FirestoreRecyclerAdapter<News, NewsHolder>(options) {
+//            @Override
+//            public void onBindViewHolder(NewsHolder holder, int position, News model) {
+//                holder.bindData(model);
+//            }
+//
+//            @Override
+//            public NewsHolder onCreateViewHolder(ViewGroup group, int i) {
+//                // Create a new instance of the ViewHolder, in this case we are using a custom
+//                // layout called R.layout.message for each item
+//                View view = LayoutInflater.from(group.getContext())
+//                        .inflate(R.layout.iem_news, group, false);
+//
+//                return new NewsHolder(view);
+//            }
+//        };
+//
+//        newsRecyclerView = findViewById(R.id.news_recycler_view);
+//        newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        newsRecyclerView.setAdapter(adapter);
     }
+
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        adapter.startListening();
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        adapter.stopListening();
+//    }
 
     private void startRegistrationActivity() {
         Intent intent = new Intent(this, RegistrationActivity.class);
