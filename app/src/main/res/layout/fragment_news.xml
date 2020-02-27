@@ -9,10 +9,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/news_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-<!--    <ImageView-->
-<!--        android:id="@+id/news_image"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"/>-->
+        android:layout_height="match_parent"
+        android:layout_marginBottom="70dp"/>
+
 
 </LinearLayout>
