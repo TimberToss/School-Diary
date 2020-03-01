@@ -13,10 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.example.schooldiary.R;
-import com.example.schooldiary.mainpage.data.GlideApp;
 import com.example.schooldiary.mainpage.model.News;
 import com.example.schooldiary.mainpage.ui.FirestoreRecyclerAdapter;
 import com.example.schooldiary.mainpage.ui.FirestoreRecyclerOptions;
@@ -26,8 +24,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
@@ -97,18 +93,6 @@ public class NewsFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-//        FirebaseStorage storage = FirebaseStorage.getInstance();
-//        // Reference to an image file in Cloud Storage
-//        StorageReference storageReference = storage.getReferenceFromUrl("gs://school-diary-83cee.appspot.com/school.jpg");
-//
-//// ImageView in your Activity
-//        ImageView imageView = getActivity().findViewById(R.id.news_image);
-//
-//// Download directly from StorageReference using Glide
-//// (See MyAppGlideModule for Loader registration)
-//        GlideApp.with(getActivity())
-//                .load(storageReference)
-//                .into(imageView);
 
         firestore = FirebaseFirestore.getInstance();
         query = firestore.collection("news")
@@ -144,9 +128,9 @@ public class NewsFragment extends Fragment {
             @Override
             public NewsHolder onCreateViewHolder(ViewGroup group, int i) {
                 // Create a new instance of the ViewHolder, in this case we are using a custom
-                // layout called R.layout.message for each item
+                // layout called R.layout.item_news for each item
                 View view = LayoutInflater.from(group.getContext())
-                        .inflate(R.layout.iem_news, group, false);
+                        .inflate(R.layout.item_news, group, false);
 
                 return new NewsHolder(view);
             }

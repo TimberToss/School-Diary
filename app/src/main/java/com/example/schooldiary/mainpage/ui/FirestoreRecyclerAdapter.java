@@ -14,7 +14,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * RecyclerView adapter that listens to a {@link FirestoreArray} and displays its data in real
+ * RecyclerView adapter that s to a {@link FirestoreArray} and displays its data in real
  * time.
  *
  * @param <T>  model class, for parsing {@link DocumentSnapshot}s.

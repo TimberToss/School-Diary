@@ -86,67 +86,7 @@ public class MainActivity extends AppCompatActivity implements
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
-
-
-//        firestore = FirebaseFirestore.getInstance();
-//        query = firestore.collection("news")
-//                .orderBy("serialNumber", Query.Direction.DESCENDING);
-//
-//        query.addSnapshotListener(new EventListener<QuerySnapshot>() {
-//            @Override
-//            public void onEvent(@Nullable QuerySnapshot snapshot,
-//                                @Nullable FirebaseFirestoreException e) {
-//                if (e != null) {
-//                    Log.d("Fire", "All bad");
-//                    return;
-//                }
-//
-//                // Convert query snapshot to a list of news
-//                List<News> listOfNews = snapshot.toObjects(News.class);
-//
-//                // Update UI
-//                // ...
-//            }
-//        });
-//
-//        FirestoreRecyclerOptions<News> options = new FirestoreRecyclerOptions.Builder<News>()
-//                .setQuery(query, News.class)
-//                .build();
-//
-//        adapter = new FirestoreRecyclerAdapter<News, NewsHolder>(options) {
-//            @Override
-//            public void onBindViewHolder(NewsHolder holder, int position, News model) {
-//                holder.bindData(model);
-//            }
-//
-//            @Override
-//            public NewsHolder onCreateViewHolder(ViewGroup group, int i) {
-//                // Create a new instance of the ViewHolder, in this case we are using a custom
-//                // layout called R.layout.message for each item
-//                View view = LayoutInflater.from(group.getContext())
-//                        .inflate(R.layout.iem_news, group, false);
-//
-//                return new NewsHolder(view);
-//            }
-//        };
-//
-//        newsRecyclerView = findViewById(R.id.news_recycler_view);
-//        newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        newsRecyclerView.setAdapter(adapter);
     }
-
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        adapter.startListening();
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        adapter.stopListening();
-//    }
 
     private void startRegistrationActivity() {
         Intent intent = new Intent(this, RegistrationActivity.class);
