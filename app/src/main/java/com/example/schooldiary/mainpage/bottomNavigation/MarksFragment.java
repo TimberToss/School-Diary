@@ -87,37 +87,18 @@ public class MarksFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_marks, container, false);
+        marksRecyclerView = root.findViewById(R.id.marks_recycler_view);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_marks, container, false);
+        return root;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         firestore = FirebaseFirestore.getInstance();
-        query = firestore.collection("marks")
-                .document("8mxGjZgqFyS2pQaBqstC")
-                .collection("subjects")
-                .orderBy("subjectName", Query.Direction.ASCENDING);
-
-        query.addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot snapshot,
-                                @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    Log.d("Fire", "All bad");
-                    return;
-                }
-
-                // Convert query snapshot to a list of Marks
-                List<Marks> listOfMarks = snapshot.toObjects(Marks.class);
-
-                Log.d("Fire","onEvent");
-
-                // Update UI
-                // ...
-            }
-        });
+        query = firestore.collection("subjects")
+                .orderBy("name", Query.Direction.ASCENDING);
 
         FirestoreRecyclerOptions<Marks> options = new FirestoreRecyclerOptions.Builder<Marks>()
                 .setQuery(query, Marks.class)
@@ -127,7 +108,6 @@ public class MarksFragment extends Fragment {
             @Override
             public void onBindViewHolder(MarksHolder holder, int position, Marks model) {
                 holder.bindData(model);
-                Log.d("Fire","onBind");
             }
 
             @Override
@@ -136,16 +116,31 @@ public class MarksFragment extends Fragment {
                 // layout called R.layout.item_marks for each item
                 View view = LayoutInflater.from(group.getContext())
                         .inflate(R.layout.item_mark, group, false);
-                Log.d("Fire","onCreate");
 
                 return new MarksHolder(view);
             }
+
+            @Override
+            public int getItemCount() {
+                return super.getItemCount();
+            }
         };
 
-        marksRecyclerView = getActivity().findViewById(R.id.marks_recycler_view);
-        marksRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         marksRecyclerView.setAdapter(adapter);
+        marksRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 
     // TODO: Rename method, update argument and hook method into UI event

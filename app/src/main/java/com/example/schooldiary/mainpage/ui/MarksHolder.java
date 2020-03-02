@@ -1,6 +1,5 @@
 package com.example.schooldiary.mainpage.ui;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -12,7 +11,7 @@ import com.example.schooldiary.mainpage.model.Marks;
 public class MarksHolder extends RecyclerView.ViewHolder {
 
     private View itemView;
-    private TextView subjectName;
+    private TextView name;
     private TextView marks;
 
     public MarksHolder(View itemView) {
@@ -26,12 +25,10 @@ public class MarksHolder extends RecyclerView.ViewHolder {
 
     public void bindData(Marks mark) {
 
-        subjectName = getItemView().findViewById(R.id.subject_name);
+        name = getItemView().findViewById(R.id.subject_name);
         marks = getItemView().findViewById(R.id.subject_marks);
 
-        Log.d("Fire",mark.getMarks());
-        Log.d("Fire",mark.getSubjectName());
-        subjectName.setText(mark.getMarks());
-        marks.setText(mark.getSubjectName());
+        name.setText(mark.getName());
+        marks.setText(mark.getMarks());
     }
 }

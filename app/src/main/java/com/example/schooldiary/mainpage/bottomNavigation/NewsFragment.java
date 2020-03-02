@@ -87,8 +87,9 @@ public class NewsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_news, container, false);
+        View root = inflater.inflate(R.layout.fragment_news, container, false);
+        newsRecyclerView = root.findViewById(R.id.news_recycler_view);
+        return root;
     }
 
     @Override
@@ -97,23 +98,6 @@ public class NewsFragment extends Fragment {
         firestore = FirebaseFirestore.getInstance();
         query = firestore.collection("news")
                 .orderBy("serialNumber", Query.Direction.DESCENDING);
-
-        query.addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot snapshot,
-                                @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    Log.d("Fire", "All bad");
-                    return;
-                }
-
-                // Convert query snapshot to a list of news
-                List<News> listOfNews = snapshot.toObjects(News.class);
-
-                // Update UI
-                // ...
-            }
-        });
 
         FirestoreRecyclerOptions<News> options = new FirestoreRecyclerOptions.Builder<News>()
                 .setQuery(query, News.class)
@@ -136,7 +120,6 @@ public class NewsFragment extends Fragment {
             }
         };
 
-        newsRecyclerView = getActivity().findViewById(R.id.news_recycler_view);
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         newsRecyclerView.setAdapter(adapter);
     }

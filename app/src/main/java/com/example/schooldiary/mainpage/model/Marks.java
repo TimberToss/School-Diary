@@ -2,22 +2,22 @@ package com.example.schooldiary.mainpage.model;
 
 public class Marks {
 
-    private String subjectName;
+    private String name;
     private String marks;
 
     public Marks() {}
 
-    public Marks(String subjectName, String marks) {
-        this.subjectName = subjectName;
+    public Marks(String name, String marks) {
+        this.name = name;
         this.marks = marks;
     }
 
-    public String getSubjectName() {
-        return subjectName;
+    public String getName() {
+        return name;
     }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMarks() {
