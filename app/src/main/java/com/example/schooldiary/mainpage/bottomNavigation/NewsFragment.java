@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,11 +16,12 @@ import com.example.schooldiary.R;
 import com.example.schooldiary.mainpage.model.News;
 import com.example.schooldiary.mainpage.ui.FirestoreRecyclerAdapter;
 import com.example.schooldiary.mainpage.ui.FirestoreRecyclerOptions;
+import com.example.schooldiary.mainpage.ui.NewsFragmentAdapter;
 import com.example.schooldiary.mainpage.ui.NewsHolder;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class NewsFragment extends Fragment {
+public class NewsFragment extends Fragment implements NewsHolder.NewsClickListener {
 
     private RecyclerView newsRecyclerView;
     private FirestoreRecyclerAdapter adapter;
@@ -42,23 +45,7 @@ public class NewsFragment extends Fragment {
                 .setQuery(query, News.class)
                 .build();
 
-        adapter = new FirestoreRecyclerAdapter<News, NewsHolder>(options) {
-            @Override
-            public void onBindViewHolder(@NonNull NewsHolder holder, int position, @NonNull News model) {
-                holder.bindData(model);
-            }
-
-            @NonNull
-            @Override
-            public NewsHolder onCreateViewHolder(ViewGroup group, int i) {
-                // Create a new instance of the ViewHolder, in this case we are using a custom
-                // layout called R.layout.item_news for each item
-                View view = LayoutInflater.from(group.getContext())
-                        .inflate(R.layout.item_news, group, false);
-
-                return new NewsHolder(view);
-            }
-        };
+        adapter = new NewsFragmentAdapter(options, this);
 
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         newsRecyclerView.setAdapter(adapter);
@@ -74,5 +61,15 @@ public class NewsFragment extends Fragment {
     public void onStop() {
         super.onStop();
         adapter.stopListening();
+    }
+
+    @Override
+    public void openFragment(int id, String photo, String title, String text) {
+        Bundle bundle = new Bundle();
+        bundle.putString("Photo", photo);
+        bundle.putString("Title", title);
+        bundle.putString("Text", text);
+        NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+        navController.navigate(id, bundle);
     }
 }

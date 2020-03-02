@@ -14,12 +14,18 @@ import com.example.schooldiary.mainpage.model.News;
 public class NewsHolder extends RecyclerView.ViewHolder {
 
     private View itemView;
+    private NewsClickListener listener;
     private ImageView photo;
     private TextView title;
 
-    public NewsHolder(View itemView) {
+    public interface NewsClickListener {
+        void openFragment(int id, String newsPhoto, String newsTitle, String text);
+    }
+
+    public NewsHolder(View itemView, NewsClickListener listener) {
         super(itemView);
         this.itemView = itemView;
+        this.listener = listener;
     }
 
     private View getItemView() {
@@ -36,5 +42,8 @@ public class NewsHolder extends RecyclerView.ViewHolder {
                 .into(photo);
 
         title.setText(news.getTitle());
+
+        getItemView().setOnClickListener(view -> listener.openFragment(R.id.show_news_fragment,
+                news.getPhoto(), news.getTitle(), news.getText()));
     }
 }

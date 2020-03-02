@@ -45,4 +45,9 @@
         android:name="com.example.schooldiary.mainpage.bottomNavigation.MoreFragment"
         android:label="More"
         tools:layout="@layout/fragment_more" />
+    <fragment
+        android:id="@+id/show_news_fragment"
+        android:name="com.example.schooldiary.mainpage.bottomNavigation.ShowNewsFragment"
+        android:label="fragment_show_news"
+        tools:layout="@layout/fragment_show_news" />
 </navigation>
