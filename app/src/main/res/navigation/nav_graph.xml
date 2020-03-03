@@ -48,6 +48,5 @@
     <fragment
         android:id="@+id/show_news_fragment"
         android:name="com.example.schooldiary.ui.bottomNavigation.ShowNewsFragment"
-        android:label="fragment_show_news"
         tools:layout="@layout/fragment_show_news" />
 </navigation>
