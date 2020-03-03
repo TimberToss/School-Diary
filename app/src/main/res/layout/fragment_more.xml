@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".mainpage.bottomNavigation.MoreFragment">
+    tools:context=".ui.bottomNavigation.mainfragments.MoreFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/more_fragments_recycler_view"
