@@ -15,8 +15,6 @@ public class NewsHolder extends RecyclerView.ViewHolder {
 
     private View itemView;
     private NewsClickListener listener;
-    private ImageView photo;
-    private TextView title;
 
     public interface NewsClickListener {
         void openFragment(int id, String newsPhoto, String newsTitle, String text);
@@ -34,8 +32,8 @@ public class NewsHolder extends RecyclerView.ViewHolder {
 
     public void bindData(News news) {
 
-        photo = getItemView().findViewById(R.id.news_item_photo);
-        title = getItemView().findViewById(R.id.news_item_title);
+        ImageView photo = getItemView().findViewById(R.id.news_item_photo);
+        TextView title = getItemView().findViewById(R.id.news_item_title);
 
         Glide.with(photo.getContext())
                 .load(news.getPhoto())
