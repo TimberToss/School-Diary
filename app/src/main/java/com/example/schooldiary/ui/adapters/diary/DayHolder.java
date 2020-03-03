@@ -52,10 +52,12 @@ public class DayHolder extends RecyclerView.ViewHolder {
             }
 
             List<Subject> subjects = snapshot.toObjects(Subject.class);
+            Log.d("Query", subjects.size()+ "");
+
 
             SubjectAdapter adapter = new SubjectAdapter(subjects);
             subjectsRecyclerView.setAdapter(adapter);
-            subjectsRecyclerView.setLayoutManager(new LinearLayoutManager(getItemView().getContext()));
+            subjectsRecyclerView.setLayoutManager(new LinearLayoutManager(subjectsRecyclerView.getContext()));
             subjectsRecyclerView.setNestedScrollingEnabled(false); //disable scrolling
         });
     }

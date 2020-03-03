@@ -28,7 +28,9 @@ public class SubjectHolder extends RecyclerView.ViewHolder{
         TextView subjectName = getItemView().findViewById(R.id.subject_name);
         TextView subjectAuditory = getItemView().findViewById(R.id.subject_auditory);
 
-        subjectSerialNumber.setText(subject.getSerialNumber());
+
+        // these information doesn't caching and permanently loading from firebase
+        subjectSerialNumber.setText(Integer.toString(subject.getSerialNumber()));
         subjectTime.setText("09:30 - 10:20");
         subjectName.setText(subject.getName());
         subjectAuditory.setText("238");
