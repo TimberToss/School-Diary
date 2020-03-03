@@ -21,8 +21,7 @@ public class DiaryFragmentAdapter extends FirestoreRecyclerAdapter<Day, DayHolde
     @NonNull
     @Override
     public DayHolder onCreateViewHolder(ViewGroup group, int i) {
-        // Create a new instance of the ViewHolder, in this case we are using a custom
-        // layout called R.layout.item_news for each item
+
         View view = LayoutInflater.from(group.getContext())
                 .inflate(R.layout.item_day, group, false);
 

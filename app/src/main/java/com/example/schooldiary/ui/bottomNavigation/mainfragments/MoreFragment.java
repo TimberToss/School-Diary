@@ -23,27 +23,24 @@ import java.util.List;
 public class MoreFragment extends Fragment implements FragmentViewHolder.StudentsClickListener {
 
     private RecyclerView recyclerView;
-    private LinearLayoutManager linearLayoutManager;
-    private FragmentAdapter fragmentAdapter;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_more, container, false);
+        View root = inflater.inflate(R.layout.fragment_more, container, false);
+        recyclerView = root.findViewById(R.id.more_fragments_recycler_view);
+        return root;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        recyclerView = getActivity().findViewById(R.id.more_fragments_recycler_view);
-
-        linearLayoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
-        fragmentAdapter = new FragmentAdapter(this, createItemFragmentsList());
+        FragmentAdapter fragmentAdapter = new FragmentAdapter(this, createItemFragmentsList());
         recyclerView.setAdapter(fragmentAdapter);
     }
 

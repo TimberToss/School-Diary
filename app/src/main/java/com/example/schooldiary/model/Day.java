@@ -1,18 +1,16 @@
 package com.example.schooldiary.model;
 
-import java.util.List;
 
 public class Day {
 
     private String name;
     private int serialNumber;
-    private List<Subject> subjects;
 
     public Day() {}
 
-    public Day(String name, List<Subject> subjects) {
+    public Day(String name, int serialNumber) {
         this.name = name;
-        this.subjects = subjects;
+        this.serialNumber = serialNumber;
     }
 
     public String getName() {
@@ -23,11 +21,11 @@ public class Day {
         this.name = name;
     }
 
-    public List<Subject> getSubjects() {
-        return subjects;
+    public int getSerialNumber() {
+        return serialNumber;
     }
 
-    public void setSubjects(List<Subject> subjects) {
-        this.subjects = subjects;
+    public void setSerialNumber(int serialNumber) {
+        this.serialNumber = serialNumber;
     }
 }

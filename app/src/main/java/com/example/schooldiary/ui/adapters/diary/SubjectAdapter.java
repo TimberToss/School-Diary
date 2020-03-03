@@ -5,24 +5,26 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schooldiary.R;
 import com.example.schooldiary.model.Subject;
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter;
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions;
+
+import java.util.List;
 
 
-public class SubjectAdapter extends FirestoreRecyclerAdapter<Subject, SubjectHolder> {
+public class SubjectAdapter extends RecyclerView.Adapter<SubjectHolder> {
 
-    public SubjectAdapter(@NonNull FirestoreRecyclerOptions options) {
-        super(options);
+    private List<Subject> subjects;
+
+    public SubjectAdapter(List<Subject> subjects) {
+        this.subjects = subjects;
     }
 
     @NonNull
     @Override
     public SubjectHolder onCreateViewHolder(ViewGroup group, int i) {
-        // Create a new instance of the ViewHolder, in this case we are using a custom
-        // layout called R.layout.item_news for each item
+
         View view = LayoutInflater.from(group.getContext())
                 .inflate(R.layout.item_subject, group, false);
 
@@ -30,7 +32,12 @@ public class SubjectAdapter extends FirestoreRecyclerAdapter<Subject, SubjectHol
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull SubjectHolder holder, int position, @NonNull Subject model) {
-        holder.bindData(model);
+    public void onBindViewHolder(@NonNull SubjectHolder holder, int position) {
+        holder.bindData(subjects.get(position));
+    }
+
+    @Override
+    public int getItemCount() {
+        return subjects.size();
     }
 }

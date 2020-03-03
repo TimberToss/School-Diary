@@ -3,6 +3,8 @@ package com.example.schooldiary.ui.adapters.diary;
 import android.view.View;
 import android.widget.TextView;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.schooldiary.R;
 import com.example.schooldiary.model.Day;
 import com.example.schooldiary.model.Subject;
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.List;
 
@@ -30,17 +33,30 @@ public class DayHolder extends RecyclerView.ViewHolder {
 
     public void bindData(Day day) {
 
-        List<Subject> subjects = day.getSubjects();
-
         TextView dayName = getItemView().findViewById(R.id.day_name);
         RecyclerView subjectsRecyclerView = getItemView().findViewById(R.id.subjects_recycler_view);
 
         dayName.setText(day.getName());
+        Log.d("DayName", day.getName());
 
-//        FirestoreRecyclerAdapter adapter = new DiaryFragmentAdapter();
-//
-//        newsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        newsRecyclerView.setAdapter(adapter);
+        Query query = FirebaseFirestore.getInstance()
+                .collection("days")
+                .document(day.getName())
+                .collection("subjects")
+                .orderBy("serialNumber");
 
+        query.addSnapshotListener((snapshot, e) -> {
+            if (e != null) {
+                Log.d("QueryError",e.getMessage());
+                return;
+            }
+
+            List<Subject> subjects = snapshot.toObjects(Subject.class);
+
+            SubjectAdapter adapter = new SubjectAdapter(subjects);
+            subjectsRecyclerView.setAdapter(adapter);
+            subjectsRecyclerView.setLayoutManager(new LinearLayoutManager(getItemView().getContext()));
+            subjectsRecyclerView.setNestedScrollingEnabled(false); //disable scrolling
+        });
     }
 }
