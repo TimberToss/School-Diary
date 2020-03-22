@@ -99,7 +99,6 @@ public class LogInFragment extends Fragment {
                         Log.w(TAG, "signInWithEmail:failure", task.getException());
                         Toast.makeText(view.getContext(), "Authentication failed.",
                                 Toast.LENGTH_SHORT).show();
-                        updateUI(null);
                     }
 
                     // [START_EXCLUDE]

@@ -77,8 +77,7 @@ public class CreateUserFragment extends Fragment {
         Button signUp = view.findViewById(R.id.sign_up_btn_2);
         signUp.setOnClickListener(v -> {
             createAccount(view, mEmailField.getText().toString(), mPasswordField.getText().toString());
-            Intent intent = new Intent(getActivity(), MainActivity.class);
-            startActivity(intent);
+
         });
     }
 
@@ -101,9 +100,8 @@ public class CreateUserFragment extends Fragment {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(view.getContext(), "Authentication failed.",
+                            Toast.makeText(view.getContext(), "Registration failed.",
                                     Toast.LENGTH_SHORT).show();
-                            updateUI(null);
                         }
 
                         // [START_EXCLUDE]
