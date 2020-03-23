@@ -1,9 +1,8 @@
 package com.example.schooldiary.ui.adapters.diary;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +13,8 @@ import com.example.schooldiary.model.Day;
 import com.example.schooldiary.model.Subject;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.Source;
 
 import java.util.List;
 
@@ -45,20 +46,31 @@ public class DayHolder extends RecyclerView.ViewHolder {
                 .collection("subjects")
                 .orderBy("serialNumber");
 
-        query.addSnapshotListener((snapshot, e) -> {
-            if (e != null) {
-                Log.d("QueryError",e.getMessage());
-                return;
-            }
+        int i = 1;
 
-            List<Subject> subjects = snapshot.toObjects(Subject.class);
-            Log.d("Query", subjects.size()+ "");
+        query.get(Source.CACHE) // this data don't disappear by clear cache, but by clear data of app
+                .addOnCompleteListener(task -> {
+                    QuerySnapshot querySnapshot = task.getResult();
+                    if (!querySnapshot.isEmpty()) {
+                        inflateAdapter(querySnapshot, subjectsRecyclerView);
+                    } else {
+                        query.get(Source.SERVER)
+                                .addOnCompleteListener(newTask -> {
+                                    QuerySnapshot documentSnapshot = newTask.getResult();
+                                    inflateAdapter(documentSnapshot, subjectsRecyclerView);
+                                });
+                    }
+                });
+    }
+
+    private void inflateAdapter(QuerySnapshot querySnapshot, RecyclerView subjectsRecyclerView) {
+        List<Subject> subjects = querySnapshot.toObjects(Subject.class);
+        Log.d("Query on subjects", subjects.size() + "");
 
 
-            SubjectAdapter adapter = new SubjectAdapter(subjects);
-            subjectsRecyclerView.setAdapter(adapter);
-            subjectsRecyclerView.setLayoutManager(new LinearLayoutManager(subjectsRecyclerView.getContext()));
-            subjectsRecyclerView.setNestedScrollingEnabled(false); //disable scrolling
-        });
+        SubjectAdapter adapter = new SubjectAdapter(subjects);
+        subjectsRecyclerView.setAdapter(adapter);
+        subjectsRecyclerView.setLayoutManager(new LinearLayoutManager(subjectsRecyclerView.getContext()));
+        subjectsRecyclerView.setNestedScrollingEnabled(false); //disable scrolling
     }
 }
