@@ -46,8 +46,6 @@ public class DayHolder extends RecyclerView.ViewHolder {
                 .collection("subjects")
                 .orderBy("serialNumber");
 
-        int i = 1;
-
         query.get(Source.CACHE) // this data don't disappear by clear cache, but by clear data of app
                 .addOnCompleteListener(task -> {
                     QuerySnapshot querySnapshot = task.getResult();
