@@ -34,5 +34,5 @@
         android:id="@+id/logInFragment"
         android:name="com.example.schooldiary.ui.registration.login.LogInFragment"
         android:label="fragment_log_in"
-        tools:layout="@layout/fragment_log_in" />
+        tools:layout="@layout/fragment_log_in"/>
 </navigation>

@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 
-public class LogInFragment extends Fragment {
+public class LogInFragmentOld extends Fragment {
 
     private static final String TAG = "EmailPassword";
 
