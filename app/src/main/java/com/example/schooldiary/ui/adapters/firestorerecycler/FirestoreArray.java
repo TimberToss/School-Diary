@@ -1,5 +1,8 @@
 package com.example.schooldiary.ui.adapters.firestorerecycler;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.schooldiary.common.ChangeEventType;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -13,9 +16,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /**
  * Exposes a Firestore query as an observable list of objects.

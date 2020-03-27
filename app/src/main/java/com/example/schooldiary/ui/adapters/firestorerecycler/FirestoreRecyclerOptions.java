@@ -1,11 +1,11 @@
 package com.example.schooldiary.ui.adapters.firestorerecycler;
 
-import com.google.firebase.firestore.MetadataChanges;
-import com.google.firebase.firestore.Query;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleOwner;
+
+import com.google.firebase.firestore.MetadataChanges;
+import com.google.firebase.firestore.Query;
 
 import static com.example.schooldiary.common.Preconditions.assertNonNull;
 import static com.example.schooldiary.common.Preconditions.assertNull;

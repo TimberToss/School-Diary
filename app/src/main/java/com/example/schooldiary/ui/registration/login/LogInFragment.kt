@@ -21,6 +21,9 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class LogInFragment : Fragment() {
 
@@ -73,34 +76,43 @@ class LogInFragment : Fragment() {
     }
 
     private fun signInWithEmailAndPassword(view: View, email: String, password: String) {
-        Log.d(TAG, "createAccount:$email")
+        Log.d(TAG, "signAccount:$email")
         if (!validateForm()) {
             return
         }
         showProgressBar()
 
         // [START create_user_with_email]
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task: Task<AuthResult?> ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "signInWithEmail:success")
-                        val user = mAuth.currentUser
-                        updateUI(user)
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(TAG, "signInWithEmail:failure", task.exception)
-                        Toast.makeText(view.context, "Authentication failed.",
-                                Toast.LENGTH_SHORT).show()
-                    }
+        GlobalScope.launch(Dispatchers.IO) {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task: Task<AuthResult?> ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success")
+                            val user = mAuth.currentUser
+                            GlobalScope.launch(Dispatchers.Main) {
+                                updateUI(user)
+                            }
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.exception)
+                            GlobalScope.launch(Dispatchers.Main) {
+                                Toast.makeText(view.context, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show()
+                            }
+                        }
 
-                    // [START_EXCLUDE]
-                    if (!task.isSuccessful) {
-                        statusTextView.setText(R.string.auth_failed)
+                        // [START_EXCLUDE]
+                        if (!task.isSuccessful) {
+                            GlobalScope.launch(Dispatchers.Main) {
+                                statusTextView.setText(R.string.auth_failed)
+                            }
+                        }
+                        // when auth is fail hide on time, but when auth is success hide much earlier than a new activity begins
+//                        Log.d(TAG,"mAuth")
+//                        hideProgressBar()
                     }
-                    // when auth is fail hide on time, but when auth is success hide much earlier than a new activity begins
-                    hideProgressBar()
-                }
+        }
         // [END sign_in_with_email]
     }
 
@@ -135,6 +147,8 @@ class LogInFragment : Fragment() {
         if (user != null) {
             val activity: Activity? = activity
             val intent = Intent(activity, MainActivity::class.java)
+            Log.d(TAG,"updateUI")
+//            hideProgressBar()
             startActivity(intent)
             activity!!.finish()
         } else {

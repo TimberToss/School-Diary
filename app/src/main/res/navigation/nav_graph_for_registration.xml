@@ -8,7 +8,7 @@
         android:id="@+id/registrationFragment"
         android:name="com.example.schooldiary.ui.registration.RegistrationFragment"
         android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" >
+        tools:layout="@layout/fragment_registration">
         <action
             android:id="@+id/action_registrationFragment_to_logInFragment"
             app:destination="@id/logInFragment" />
@@ -25,5 +25,5 @@
         android:id="@+id/logInFragment"
         android:name="com.example.schooldiary.ui.registration.login.LogInFragment"
         android:label="fragment_log_in"
-        tools:layout="@layout/fragment_log_in"/>
+        tools:layout="@layout/fragment_log_in" />
 </navigation>

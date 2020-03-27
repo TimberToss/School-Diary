@@ -1,11 +1,11 @@
 package com.example.schooldiary.ui.adapters.firestorerecycler;
 
 
+import androidx.annotation.NonNull;
+
 import com.example.schooldiary.common.BaseCachingSnapshotParser;
 import com.example.schooldiary.common.BaseSnapshotParser;
 import com.google.firebase.firestore.DocumentSnapshot;
-
-import androidx.annotation.NonNull;
 
 /**
  * Implementation of {@link BaseCachingSnapshotParser} for {@link DocumentSnapshot}.

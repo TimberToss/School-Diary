@@ -21,6 +21,9 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class CreateUserFragment : Fragment() {
     private var _binding: FragmentCreateUserBinding? = null
@@ -77,28 +80,37 @@ class CreateUserFragment : Fragment() {
         }
         showProgressBar()
 
-        // [START create_user_with_email]
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task: Task<AuthResult?> ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "createUserWithEmail:success")
-                        val user = auth.currentUser
-                        updateUI(user)
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(view.context, "Registration failed.",
-                                Toast.LENGTH_SHORT).show()
-                    }
+        GlobalScope.launch(Dispatchers.IO) {
+            auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task: Task<AuthResult?> ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success")
+                            val user = auth.currentUser
+                            GlobalScope.launch(Dispatchers.Main) {
+                                updateUI(user)
+                            }
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                            GlobalScope.launch(Dispatchers.Main) {
+                                Toast.makeText(view.context, "Registration failed.",
+                                        Toast.LENGTH_SHORT).show()
+                            }
+                        }
 
-                    // [START_EXCLUDE]
-                    // when auth is fail hide on time, but when auth is success hide much earlier than a new activity begins
-                    hideProgressBar()
-                }
-        // [END create_user_with_email]
+                        // when auth is fail hide on time, but when auth is success hide much earlier than a new activity begins
+
+//                        GlobalScope.launch(Dispatchers.Main) {
+//                            hideProgressBar()
+//                        }
+                    }
+        }
     }
 
+    private fun createUser(view: View, email: String, password: String) {
+
+    }
 
     private fun showProgressBar() {
         progressBar.visibility = View.VISIBLE

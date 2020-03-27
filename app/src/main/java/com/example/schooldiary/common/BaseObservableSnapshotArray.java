@@ -1,11 +1,11 @@
 package com.example.schooldiary.common;
 
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+
 import java.util.AbstractList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
 
 /**
  * Exposes a collection of {@link S} items in a database as a {@link List} of {@link T} objects. To
@@ -94,7 +94,9 @@ public abstract class BaseObservableSnapshotArray<S, E, L extends BaseChangeEven
             listener.onDataChanged();
         }
 
-        if (!wasListening) { onCreate(); }
+        if (!wasListening) {
+            onCreate();
+        }
 
         return listener;
     }
@@ -112,7 +114,9 @@ public abstract class BaseObservableSnapshotArray<S, E, L extends BaseChangeEven
 
         mListeners.remove(listener);
 
-        if (!isListening() && wasListening) { onDestroy(); }
+        if (!isListening() && wasListening) {
+            onDestroy();
+        }
     }
 
     /**
@@ -130,7 +134,8 @@ public abstract class BaseObservableSnapshotArray<S, E, L extends BaseChangeEven
      * the Firebase database.
      */
     @CallSuper
-    protected void onCreate() {}
+    protected void onCreate() {
+    }
 
     /**
      * Called when the {@link BaseObservableSnapshotArray} is inactive and should stop listening to

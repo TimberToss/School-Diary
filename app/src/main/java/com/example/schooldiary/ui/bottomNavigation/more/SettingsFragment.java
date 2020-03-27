@@ -16,7 +16,6 @@ import com.example.schooldiary.ui.registration.RegistrationActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-
 public class SettingsFragment extends Fragment {
 
 

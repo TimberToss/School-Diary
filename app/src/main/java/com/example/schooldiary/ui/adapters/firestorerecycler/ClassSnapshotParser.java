@@ -1,9 +1,9 @@
 package com.example.schooldiary.ui.adapters.firestorerecycler;
 
+import androidx.annotation.NonNull;
+
 import com.example.schooldiary.common.Preconditions;
 import com.google.firebase.firestore.DocumentSnapshot;
-
-import androidx.annotation.NonNull;
 
 /**
  * An implementation of {@link SnapshotParser} that converts {@link DocumentSnapshot} to

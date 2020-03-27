@@ -1,15 +1,14 @@
 package com.example.schooldiary.ui.bottomNavigation.mainfragments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.schooldiary.R;
 import com.example.schooldiary.model.Day;
@@ -23,7 +22,7 @@ public class DiaryFragment extends Fragment {
 
     private RecyclerView diaryRecyclerView;
     private FirestoreRecyclerAdapter adapter;
-    
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

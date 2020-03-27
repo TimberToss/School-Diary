@@ -5,7 +5,8 @@ public class Marks {
     private String name;
     private String marks;
 
-    public Marks() {}
+    public Marks() {
+    }
 
     public Marks(String name, String marks) {
         this.name = name;

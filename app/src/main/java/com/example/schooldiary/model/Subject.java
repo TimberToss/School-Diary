@@ -6,7 +6,8 @@ public class Subject {
     private String homework;
     private int serialNumber;
 
-    public Subject() {}
+    public Subject() {
+    }
 
     public Subject(String name, String homework, int serialNumber) {
         this.name = name;

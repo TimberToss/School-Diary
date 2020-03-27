@@ -1,11 +1,11 @@
 package com.example.schooldiary.ui.adapters.firestorerecycler;
 
+import androidx.annotation.NonNull;
+
 import com.example.schooldiary.common.BaseCachingSnapshotParser;
 import com.example.schooldiary.common.BaseObservableSnapshotArray;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-
-import androidx.annotation.NonNull;
 
 /**
  * Subclass of {@link BaseObservableSnapshotArray} for Firestore data.

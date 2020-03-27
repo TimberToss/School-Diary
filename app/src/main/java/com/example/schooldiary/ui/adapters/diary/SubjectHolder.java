@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.schooldiary.R;
 import com.example.schooldiary.model.Subject;
 
-public class SubjectHolder extends RecyclerView.ViewHolder{
+public class SubjectHolder extends RecyclerView.ViewHolder {
 
     private View itemView;
 

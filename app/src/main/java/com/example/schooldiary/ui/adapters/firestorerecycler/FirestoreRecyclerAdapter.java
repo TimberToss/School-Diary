@@ -2,16 +2,16 @@ package com.example.schooldiary.ui.adapters.firestorerecycler;
 
 import android.util.Log;
 
-import com.example.schooldiary.common.ChangeEventType;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.schooldiary.common.ChangeEventType;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 /**
  * RecyclerView adapter that s to a {@link FirestoreArray} and displays its data in real

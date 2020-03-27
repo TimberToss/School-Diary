@@ -6,7 +6,8 @@ public class News {
     private String photo;
     private int serialNumber;
 
-    public News() {}
+    public News() {
+    }
 
     public News(String title, String text, String photo, int serialNumber) {
         this.title = title;

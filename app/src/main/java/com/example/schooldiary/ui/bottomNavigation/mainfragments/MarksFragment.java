@@ -19,7 +19,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 
-
 public class MarksFragment extends Fragment {
 
     private RecyclerView marksRecyclerView;
