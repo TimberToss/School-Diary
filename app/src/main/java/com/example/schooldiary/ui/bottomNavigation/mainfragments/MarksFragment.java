@@ -46,13 +46,13 @@ public class MarksFragment extends Fragment {
 
         adapter = new FirestoreRecyclerAdapter<Marks, MarksHolder>(options) {
             @Override
-            public void onBindViewHolder(MarksHolder holder, int position, Marks model) {
+            public void onBindViewHolder(@NonNull MarksHolder holder, int position, @NonNull Marks model) {
                 holder.bindData(model);
             }
 
             @NonNull
             @Override
-            public MarksHolder onCreateViewHolder(ViewGroup group, int i) {
+            public MarksHolder onCreateViewHolder(@NonNull ViewGroup group, int i) {
                 // Create a new instance of the ViewHolder, in this case we are using a custom
                 // layout called R.layout.item_marks for each item
                 View view = LayoutInflater.from(group.getContext())
