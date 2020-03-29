@@ -1,4 +1,4 @@
-package com.example.schooldiary.ui.registration.createAccount
+package com.example.schooldiary.ui.registration
 
 import android.app.Activity
 import android.content.Intent
@@ -14,7 +14,7 @@ import android.widget.Toast
 import androidx.annotation.VisibleForTesting
 import androidx.fragment.app.Fragment
 import com.example.schooldiary.R
-import com.example.schooldiary.databinding.FragmentCreateUserBinding
+import com.example.schooldiary.databinding.FragmentLogInBinding
 import com.example.schooldiary.ui.MainActivity
 import com.google.android.gms.tasks.Task
 import com.google.android.material.textfield.TextInputEditText
@@ -25,10 +25,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class CreateUserFragment : Fragment() {
-    private var _binding: FragmentCreateUserBinding? = null
+class LogInFragment : Fragment() {
+
+    private var _binding: FragmentLogInBinding? = null
     private val binding
         get() = _binding!!
+    //I create this property 'cause another thread could have changed the value of _binding to null
+    //between initialization and return binding.root in onCreateView.
 
     private lateinit var statusTextView: TextView
     private lateinit var detailTextView: TextView
@@ -38,78 +41,79 @@ class CreateUserFragment : Fragment() {
     @VisibleForTesting
     private lateinit var progressBar: ProgressBar
 
-    private lateinit var auth: FirebaseAuth
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+        val currentUser = mAuth.currentUser
+        // this function invokes after onViewCreated where auth initializes
         updateUI(currentUser)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_create_user, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_log_in, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        _binding = FragmentCreateUserBinding.bind(view)
+        _binding = FragmentLogInBinding.bind(view)
+        statusTextView = binding.signInDetailStatus
 
-        statusTextView = binding.registrationEmailPasswordStatus
-        detailTextView = binding.registrationDetailStatus
-        emailField = binding.registrationTextInputEmail
-        passwordField = binding.registrationTextInputPassword
-        progressBar = binding.registrationProgressBar
+        detailTextView = binding.signInDetailStatus
+        emailField = binding.signInTextInputEmail
+        passwordField = binding.signInTextInputPassword
+        progressBar = binding.signInProgressBar
         // hide here, otherwise bar will spin
         hideProgressBar()
 
+        mAuth = FirebaseAuth.getInstance()
 
-        auth = FirebaseAuth.getInstance()
-
-        val signUp = binding.signUpBtn2
+        val signUp = binding.signInBtn2
         signUp.setOnClickListener {
-            createAccount(view, emailField.text.toString(), passwordField.text.toString())
+            signInWithEmailAndPassword(view, emailField.text.toString(), passwordField.text.toString())
         }
     }
 
-    private fun createAccount(view: View, email: String, password: String) {
-        Log.d(TAG, "createAccount:$email")
+    private fun signInWithEmailAndPassword(view: View, email: String, password: String) {
+        Log.d(TAG, "signAccount:$email")
         if (!validateForm()) {
             return
         }
         showProgressBar()
 
+        // [START create_user_with_email]
         GlobalScope.launch(Dispatchers.IO) {
-            auth.createUserWithEmailAndPassword(email, password)
+            mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task: Task<AuthResult?> ->
                         if (task.isSuccessful) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success")
-                            val user = auth.currentUser
+                            Log.d(TAG, "signInWithEmail:success")
+                            val user = mAuth.currentUser
                             GlobalScope.launch(Dispatchers.Main) {
                                 updateUI(user)
                             }
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                            Log.w(TAG, "signInWithEmail:failure", task.exception)
                             GlobalScope.launch(Dispatchers.Main) {
-                                Toast.makeText(view.context, "Registration failed.",
+                                Toast.makeText(view.context, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show()
                             }
                         }
 
+                        // [START_EXCLUDE]
+                        if (!task.isSuccessful) {
+                            GlobalScope.launch(Dispatchers.Main) {
+                                statusTextView.setText(R.string.auth_failed)
+                            }
+                        }
                         // when auth is fail hide on time, but when auth is success hide much earlier than a new activity begins
-
-//                        GlobalScope.launch(Dispatchers.Main) {
-//                            hideProgressBar()
-//                        }
+//                        Log.d(TAG,"mAuth")
+//                        hideProgressBar()
                     }
         }
-    }
-
-    private fun createUser(view: View, email: String, password: String) {
-
+        // [END sign_in_with_email]
     }
 
     private fun showProgressBar() {
@@ -141,13 +145,15 @@ class CreateUserFragment : Fragment() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            statusTextView.text = getString(R.string.emailpassword_status_fmt,
-                    user.email, user.isEmailVerified)
-            detailTextView.text = getString(R.string.firebase_status_fmt, user.uid)
             val activity: Activity? = activity
             val intent = Intent(activity, MainActivity::class.java)
+            Log.d(TAG,"updateUI")
+//            hideProgressBar()
             startActivity(intent)
             activity!!.finish()
+        } else {
+            statusTextView.setText(R.string.signed_out)
+            detailTextView.text = null
         }
     }
 
