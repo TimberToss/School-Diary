@@ -11,8 +11,6 @@ import com.example.schooldiary.model.Marks;
 public class MarksHolder extends RecyclerView.ViewHolder {
 
     private View itemView;
-    private TextView name;
-    private TextView marks;
 
     public MarksHolder(View itemView) {
         super(itemView);
@@ -25,8 +23,8 @@ public class MarksHolder extends RecyclerView.ViewHolder {
 
     public void bindData(Marks mark) {
 
-        name = getItemView().findViewById(R.id.subject_name);
-        marks = getItemView().findViewById(R.id.subject_marks);
+        TextView name = getItemView().findViewById(R.id.subject_name);
+        TextView marks = getItemView().findViewById(R.id.subject_marks);
 
         name.setText(mark.getName());
         marks.setText(mark.getMarks());
