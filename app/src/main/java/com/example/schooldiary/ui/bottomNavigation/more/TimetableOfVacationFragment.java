@@ -37,7 +37,8 @@ public class TimetableOfVacationFragment extends Fragment {
         RecyclerView HolidaysRecyclerView = binding.holidaysRecyclerView;
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        Query query = firestore.collection("Holidays");
+        Query query = firestore.collection("holidays")
+                .orderBy("serialNumber");
 
         FirestoreRecyclerOptions<Dates> options = new FirestoreRecyclerOptions.Builder<Dates>()
                 .setQuery(query, Dates.class)
@@ -82,5 +83,4 @@ public class TimetableOfVacationFragment extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
-}
 }

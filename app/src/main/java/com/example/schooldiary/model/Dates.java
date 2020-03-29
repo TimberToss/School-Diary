@@ -3,7 +3,8 @@ package com.example.schooldiary.model;
 public class Dates {
 
     private String name;
-    private String date;
+    private String time;
+    private int serialNumber;
 
     public Dates() {}
 
@@ -15,11 +16,19 @@ public class Dates {
         this.name = name;
     }
 
-    public String getDate() {
-        return date;
+    public String getTime() {
+        return time;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public int getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(int serialNumber) {
+        this.serialNumber = serialNumber;
     }
 }

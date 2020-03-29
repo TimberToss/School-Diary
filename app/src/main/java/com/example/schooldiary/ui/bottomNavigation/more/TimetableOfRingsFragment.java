@@ -13,16 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.schooldiary.R;
 import com.example.schooldiary.databinding.FragmentTimetableOfRingsBinding;
 import com.example.schooldiary.model.Dates;
-import com.example.schooldiary.model.Marks;
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter;
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions;
-import com.example.schooldiary.ui.adapters.marks.MarksHolder;
 import com.example.schooldiary.ui.adapters.rings.RingsHolder;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class TimetableOfRingsFragment extends Fragment {
 
+public class TimetableOfRingsFragment extends Fragment {
 
     private FirestoreRecyclerAdapter adapter;
 
@@ -39,7 +37,8 @@ public class TimetableOfRingsFragment extends Fragment {
         RecyclerView ringsRecyclerView = binding.ringsRecyclerView;
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        Query query = firestore.collection("rings");
+        Query query = firestore.collection("rings")
+                .orderBy("serialNumber");
 
         FirestoreRecyclerOptions<Dates> options = new FirestoreRecyclerOptions.Builder<Dates>()
                 .setQuery(query, Dates.class)

@@ -26,6 +26,6 @@ public class RingsHolder extends RecyclerView.ViewHolder {
         TextView time = getItemView().findViewById(R.id.rings_time);
 
         name.setText(dates.getName());
-        time.setText(dates.getDate());
+        time.setText(dates.getTime());
     }
 }

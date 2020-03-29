@@ -32,10 +32,10 @@ public class FinalGradesHolder extends RecyclerView.ViewHolder {
         TextView fifth_mark = getItemView().findViewById(R.id.fifth_mark);
 
         name.setText(mark.getName());
-        first_mark.setText(grades[0]);
-        second_mark.setText(grades[1]);
-        third_mark.setText(grades[2]);
-        forth_mark.setText(grades[3]);
-        fifth_mark.setText(grades[4]);
+        first_mark.setText(String.valueOf(grades[0]));
+        second_mark.setText(String.valueOf(grades[1]));
+        third_mark.setText(String.valueOf(grades[2]));
+        forth_mark.setText(String.valueOf(grades[3]));
+        fifth_mark.setText(String.valueOf(grades[4]));
     }
 }

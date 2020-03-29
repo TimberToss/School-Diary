@@ -26,6 +26,6 @@ public class HolidaysHolder extends RecyclerView.ViewHolder {
         TextView date = getItemView().findViewById(R.id.holidays_date);
 
         name.setText(dates.getName());
-        date.setText(dates.getDate());
+        date.setText(dates.getTime());
     }
 }
