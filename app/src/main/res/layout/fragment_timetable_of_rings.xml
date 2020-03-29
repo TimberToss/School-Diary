@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.bottomNavigation.more.TimetableOfRingsFragment"
-    android:background="@color/white">
+    tools:context=".ui.bottomNavigation.more.TimetableOfRingsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rings_recycler_view"

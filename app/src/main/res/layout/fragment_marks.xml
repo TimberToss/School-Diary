@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.bottomNavigation.mainfragments.MarksFragment"
-    android:background="@color/white">
+    tools:context=".ui.bottomNavigation.mainfragments.MarksFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/marks_recycler_view"

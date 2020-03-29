@@ -4,10 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.bottomNavigation.more.SettingsFragment"
-    android:background="@color/white"
     android:paddingBottom="56dp">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <Button
         android:id="@+id/sign_out_btn"
         android:layout_gravity="center_horizontal|center_vertical"
