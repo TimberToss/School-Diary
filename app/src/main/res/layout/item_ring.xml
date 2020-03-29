@@ -11,15 +11,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="6"
-        android:textSize="25sp"
-        android:hint="Science:" />
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:hint="1st lesson:" />
 
     <TextView
         android:id="@+id/rings_time"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="5"
-        android:textSize="25sp"
-        android:hint="11111" />
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:hint="08:00 - 08:45" />
 
 </LinearLayout>

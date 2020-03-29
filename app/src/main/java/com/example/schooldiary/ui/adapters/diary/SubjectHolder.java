@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.schooldiary.R;
+import com.example.schooldiary.databinding.ItemSubjectBinding;
 import com.example.schooldiary.model.Subject;
 
 public class SubjectHolder extends RecyclerView.ViewHolder {
@@ -23,16 +23,17 @@ public class SubjectHolder extends RecyclerView.ViewHolder {
     }
 
     public void bindData(Subject subject) {
-        TextView subjectSerialNumber = getItemView().findViewById(R.id.subject_serial_number);
-        TextView subjectTime = getItemView().findViewById(R.id.subject_time);
-        TextView subjectName = getItemView().findViewById(R.id.subject_name);
-        TextView subjectAuditory = getItemView().findViewById(R.id.subject_auditory);
+
+        ItemSubjectBinding binding = ItemSubjectBinding.bind(getItemView());
+        TextView subjectSerialNumber = binding.subjectSerialNumber;
+        TextView subjectName = binding.subjectName;
+        TextView subjectHomework = binding.subjectHomework;
+        TextView subjectAuditory = binding.subjectAuditory;
 
 
-        // these information doesn't caching and permanently loading from firebase
-        subjectSerialNumber.setText(Integer.toString(subject.getSerialNumber()));
-        subjectTime.setText("09:30 - 10:20");
+        subjectSerialNumber.setText(String.format("%d.", subject.getSerialNumber()));
         subjectName.setText(subject.getName());
+        subjectHomework.setText(subject.getHomework());
         subjectAuditory.setText("238");
     }
 }

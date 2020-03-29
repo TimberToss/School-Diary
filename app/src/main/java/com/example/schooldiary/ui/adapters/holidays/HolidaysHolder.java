@@ -22,10 +22,14 @@ public class HolidaysHolder extends RecyclerView.ViewHolder {
 
     public void bindData(Dates dates) {
 
+        String[] date = dates.getTime().split(" ");
+
         TextView name = getItemView().findViewById(R.id.holidays_name);
-        TextView date = getItemView().findViewById(R.id.holidays_date);
+        TextView start = getItemView().findViewById(R.id.holidays_start);
+        TextView end = getItemView().findViewById(R.id.holidays_end);
 
         name.setText(dates.getName());
-        date.setText(dates.getTime());
+        start.setText(date[0]);
+        end.setText(date[2]);
     }
 }
