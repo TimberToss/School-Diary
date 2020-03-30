@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.VisibleForTesting
 import androidx.fragment.app.Fragment
@@ -33,8 +32,6 @@ class LogInFragment : Fragment() {
     //I create this property 'cause another thread could have changed the value of _binding to null
     //between initialization and return binding.root in onCreateView.
 
-    private lateinit var statusTextView: TextView
-    private lateinit var detailTextView: TextView
     private lateinit var emailField: TextInputEditText
     private lateinit var passwordField: TextInputEditText
 
