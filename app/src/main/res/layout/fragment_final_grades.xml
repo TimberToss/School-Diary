@@ -35,7 +35,7 @@
             android:gravity="center_horizontal"
             android:textSize="18sp"
             android:textColor="@android:color/darker_gray"
-            android:text="I" />
+            android:text="@string/first_semester" />
 
         <View
             android:layout_width="1dp"
@@ -51,7 +51,7 @@
             android:gravity="center_horizontal"
             android:textSize="18sp"
             android:textColor="@android:color/darker_gray"
-            android:text="II" />
+            android:text="@string/second_semester" />
 
         <View
             android:layout_width="1dp"
@@ -67,7 +67,7 @@
             android:gravity="center_horizontal"
             android:textSize="18sp"
             android:textColor="@android:color/darker_gray"
-            android:text="III" />
+            android:text="@string/third_semester" />
 
         <View
             android:layout_width="1dp"
@@ -83,7 +83,7 @@
             android:gravity="center_horizontal"
             android:textSize="18sp"
             android:textColor="@android:color/darker_gray"
-            android:text="IV" />
+            android:text="@string/forth_semester" />
 
         <View
             android:layout_width="1dp"
@@ -99,7 +99,7 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:textColor="@android:color/darker_gray"
-            android:text="Final" />
+            android:text="@string/final_semester" />
 
     </LinearLayout>
 

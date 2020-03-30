@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.schooldiary.R;
+import com.example.schooldiary.databinding.ItemDayBinding;
 import com.example.schooldiary.model.Day;
 import com.example.schooldiary.model.Subject;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,12 +32,14 @@ public class DayHolder extends RecyclerView.ViewHolder {
         return itemView;
     }
 
-    public void bindData(Day day) {
+    public synchronized void bindData(Day day) {
 
-        TextView dayName = getItemView().findViewById(R.id.day_name);
-        RecyclerView subjectsRecyclerView = getItemView().findViewById(R.id.subjects_recycler_view);
+        ItemDayBinding binding = ItemDayBinding.bind(itemView);
 
-        dayName.setText(day.getName());
+        TextView dayName = binding.dayName;
+        RecyclerView subjectsRecyclerView = binding.subjectsRecyclerView;
+
+        dayName.setText(new StringBuilder().append(day.getName()).append(", 16 September").toString());
         Log.d("DayName", day.getName());
 
         Query query = FirebaseFirestore.getInstance()
