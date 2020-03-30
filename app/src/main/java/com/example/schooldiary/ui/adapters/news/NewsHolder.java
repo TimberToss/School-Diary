@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.schooldiary.R;
+import com.example.schooldiary.databinding.ItemNewsBinding;
 import com.example.schooldiary.model.News;
 
 
@@ -32,14 +33,17 @@ public class NewsHolder extends RecyclerView.ViewHolder {
 
     public void bindData(News news) {
 
-        ImageView photo = getItemView().findViewById(R.id.news_item_photo);
-        TextView title = getItemView().findViewById(R.id.news_item_title);
+        ItemNewsBinding binding = ItemNewsBinding.bind(itemView);
+        ImageView photo = binding.newsItemPhoto;
+        TextView title = binding.newsItemTitle;
+        TextView date = binding.newsItemDate;
 
         Glide.with(photo.getContext())
                 .load(news.getPhoto())
                 .into(photo);
 
         title.setText(news.getTitle());
+        date.setText(news.getTime());
 
         getItemView().setOnClickListener(view -> listener.openFragment(R.id.show_news_fragment,
                 news.getPhoto(), news.getTitle(), news.getText()));

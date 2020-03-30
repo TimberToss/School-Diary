@@ -4,17 +4,10 @@ public class News {
     private String title;
     private String text;
     private String photo;
+    private String time;
     private int serialNumber;
 
-    public News() {
-    }
-
-    public News(String title, String text, String photo, int serialNumber) {
-        this.title = title;
-        this.text = text;
-        this.photo = photo;
-        this.serialNumber = serialNumber;
-    }
+    public News() {}
 
     public String getTitle() {
         return title;
@@ -38,6 +31,14 @@ public class News {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public int getSerialNumber() {

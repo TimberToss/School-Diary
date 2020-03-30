@@ -9,6 +9,7 @@
         android:id="@+id/news_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#e8e8e8"
         android:paddingBottom="56dp"/>
 
 
