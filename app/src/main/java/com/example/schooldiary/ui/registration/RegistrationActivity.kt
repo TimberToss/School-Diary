@@ -6,6 +6,7 @@ import com.example.schooldiary.R
 
 class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.RegistrationTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
     }
