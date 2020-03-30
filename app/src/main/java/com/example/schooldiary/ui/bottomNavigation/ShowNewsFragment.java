@@ -11,33 +11,36 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.schooldiary.R;
+import com.example.schooldiary.databinding.FragmentShowNewsBinding;
 
 public class ShowNewsFragment extends Fragment {
-
-    private ImageView newsPhoto;
-    private TextView newsTitle;
-    private TextView newsText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_show_news, container, false);
-        newsPhoto = root.findViewById(R.id.news_photo);
-        newsTitle = root.findViewById(R.id.news_title);
-        newsText = root.findViewById(R.id.news_text);
-        return root;
+        return inflater.inflate(R.layout.fragment_show_news, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        FragmentShowNewsBinding binding = FragmentShowNewsBinding.bind(view);
+        ImageView newsPhoto = binding.newsPhoto;
+        TextView newsTime = binding.newsTime;
+        TextView newsTitle = binding.newsTitle;
+        TextView newsText = binding.newsText;
+
         Bundle bundle = this.getArguments();
         if (bundle != null) {
 
             String photo = bundle.getString("Photo");
-//            Glide.with(newsPhoto.getContext())
-//                    .load(photo)
-//                    .into(newsPhoto);
+            Glide.with(newsPhoto.getContext())
+                    .load(photo)
+                    .into(newsPhoto);
+
+            String time = bundle.getString("Time");
+            newsTime.setText(time);
 
             String title = bundle.getString("Title");
             newsTitle.setText(title);
