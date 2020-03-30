@@ -107,11 +107,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:text="@string/sign_in"
+                android:textColor="@color/white"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sign_in_input_password"
-                app:layout_constraintVertical_bias="0.50" />
+                app:layout_constraintVertical_bias="0.50"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                app:cornerRadius="15dp"
+                android:elevation="3dp"
+                app:rippleColor="@color/colorPrimaryNewDark"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -126,7 +132,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/inner_layout"
-            app:layout_constraintVertical_bias="0.5"/>
+            app:layout_constraintVertical_bias="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
