@@ -27,10 +27,6 @@ public class NewsHolder extends RecyclerView.ViewHolder {
         this.listener = listener;
     }
 
-    private View getItemView() {
-        return itemView;
-    }
-
     public void bindData(News news) {
 
         ItemNewsBinding binding = ItemNewsBinding.bind(itemView);
@@ -45,7 +41,7 @@ public class NewsHolder extends RecyclerView.ViewHolder {
         title.setText(news.getTitle());
         date.setText(news.getTime());
 
-        getItemView().setOnClickListener(view -> listener.openFragment(R.id.show_news_fragment,
+        itemView.setOnClickListener(view -> listener.openFragment(R.id.show_news_fragment,
                 news.getPhoto(), news.getTime(), news.getTitle(), news.getText()));
     }
 }

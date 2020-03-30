@@ -28,11 +28,7 @@ public class DayHolder extends RecyclerView.ViewHolder {
         this.itemView = itemView;
     }
 
-    private View getItemView() {
-        return itemView;
-    }
-
-    public synchronized void bindData(Day day) {
+    public void bindData(Day day) {
 
         ItemDayBinding binding = ItemDayBinding.bind(itemView);
 
@@ -63,10 +59,9 @@ public class DayHolder extends RecyclerView.ViewHolder {
                 });
     }
 
-    private void inflateAdapter(QuerySnapshot querySnapshot, RecyclerView subjectsRecyclerView) {
+    private synchronized void inflateAdapter(QuerySnapshot querySnapshot, RecyclerView subjectsRecyclerView) {
         List<Subject> subjects = querySnapshot.toObjects(Subject.class);
         Log.d("Query on subjects", subjects.size() + "");
-
 
         SubjectAdapter adapter = new SubjectAdapter(subjects);
         subjectsRecyclerView.setAdapter(adapter);

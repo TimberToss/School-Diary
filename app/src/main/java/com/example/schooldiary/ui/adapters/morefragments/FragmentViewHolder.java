@@ -7,15 +7,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.schooldiary.R;
+import com.example.schooldiary.databinding.ItemMoreFragmentsBinding;
 import com.example.schooldiary.model.ItemFragment;
 
 public class FragmentViewHolder extends RecyclerView.ViewHolder {
 
     private View itemView;
     private StudentsClickListener listener;
-    private ImageView iconFragment;
-    private TextView nameFragment;
 
     public interface StudentsClickListener {
         void openFragment(int id);
@@ -27,18 +25,15 @@ public class FragmentViewHolder extends RecyclerView.ViewHolder {
         this.listener = listener;
     }
 
-    private View getItemView() {
-        return itemView;
-    }
-
     public void bindData(ItemFragment itemFragment) {
 
-        iconFragment = getItemView().findViewById(R.id.icon_fragment);
-        nameFragment = getItemView().findViewById(R.id.name_fragment);
+        ItemMoreFragmentsBinding binding = ItemMoreFragmentsBinding.bind(itemView);
+        ImageView iconFragment = binding.iconFragment;
+        TextView nameFragment = binding.nameFragment;
         iconFragment.setImageDrawable(itemFragment.getIconFragment());
         nameFragment.setText(itemFragment.getTitleFragment());
 
-        getItemView().setOnClickListener(view -> listener.openFragment(itemFragment.getId()));
+        itemView.setOnClickListener(view -> listener.openFragment(itemFragment.getId()));
 
     }
 }

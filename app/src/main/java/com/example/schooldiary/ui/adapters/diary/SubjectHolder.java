@@ -1,5 +1,6 @@
 package com.example.schooldiary.ui.adapters.diary;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -28,7 +29,6 @@ public class SubjectHolder extends RecyclerView.ViewHolder {
         TextView startTime = binding.subjectStartTime;
         TextView subjectName = binding.subjectName;
         TextView subjectAuditory = binding.subjectAuditory;
-
 
         startTime.setText(calculateTime(subject.getSerialNumber()));
         subjectName.setText(subject.getName());
