@@ -32,4 +32,6 @@
     <string name="timetable_of_vacation">Vacation\'s timetable</string>
     <string name="school_diary">School Diary</string>
     <string name="registration_bottom_text">Official app of Gymnasium 77</string>
+    <string name="subject">Subject</string>
+    <string name="average">Average</string>
 </resources>

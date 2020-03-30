@@ -9,17 +9,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp">
+        android:paddingHorizontal="10dp">
 
         <TextView
             android:id="@+id/subject_name"
-            android:layout_width="98dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="3"
             android:textSize="15sp"
             android:textColor="@android:color/darker_gray"
             android:paddingTop="10dp"
-            android:text="Subject" />
+            android:text="@string/subject"/>
 
         <View
             android:layout_width="1dp"
@@ -31,11 +31,11 @@
             android:id="@+id/subject_marks"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="5"
             android:textSize="15sp"
             android:textColor="@android:color/darker_gray"
             android:paddingTop="10dp"
-            android:text="Marks" />
+            android:text="@string/marks" />
 
         <View
             android:layout_width="1dp"
@@ -45,12 +45,13 @@
 
         <TextView
             android:id="@+id/subject_average_mark"
-            android:layout_width="60dp"
+            android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:layout_weight="1"
+            android:textSize="14sp"
             android:textColor="@android:color/darker_gray"
             android:paddingTop="10dp"
-            android:text="Average" />
+            android:text="@string/average" />
 
 
     </LinearLayout>
