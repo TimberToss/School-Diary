@@ -58,9 +58,6 @@ class LogInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         _binding = FragmentLogInBinding.bind(view)
-        statusTextView = binding.signInDetailStatus
-
-        detailTextView = binding.signInDetailStatus
         emailField = binding.signInTextInputEmail
         passwordField = binding.signInTextInputPassword
         progressBar = binding.signInProgressBar
@@ -69,7 +66,7 @@ class LogInFragment : Fragment() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        val signUp = binding.signInBtn2
+        val signUp = binding.signInButton
         signUp.setOnClickListener {
             signInWithEmailAndPassword(view, emailField.text.toString(), passwordField.text.toString())
         }
@@ -99,13 +96,7 @@ class LogInFragment : Fragment() {
                             GlobalScope.launch(Dispatchers.Main) {
                                 Toast.makeText(view.context, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show()
-                            }
-                        }
-
-                        // [START_EXCLUDE]
-                        if (!task.isSuccessful) {
-                            GlobalScope.launch(Dispatchers.Main) {
-                                statusTextView.setText(R.string.auth_failed)
+                                hideProgressBar()
                             }
                         }
                         // when auth is fail hide on time, but when auth is success hide much earlier than a new activity begins
@@ -151,9 +142,6 @@ class LogInFragment : Fragment() {
 //            hideProgressBar()
             startActivity(intent)
             activity!!.finish()
-        } else {
-            statusTextView.setText(R.string.signed_out)
-            detailTextView.text = null
         }
     }
 
