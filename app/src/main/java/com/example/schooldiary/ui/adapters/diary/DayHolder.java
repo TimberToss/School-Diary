@@ -4,7 +4,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,12 +22,12 @@ public class DayHolder extends RecyclerView.ViewHolder {
 
     private View itemView;
 
-    public DayHolder(@NonNull View itemView) {
+    public DayHolder(View itemView) {
         super(itemView);
         this.itemView = itemView;
     }
 
-    public void bindData(Day day) {
+    public void bindData(Day day, SubjectHolder.SubjectClickListener listener) {
 
         ItemDayBinding binding = ItemDayBinding.bind(itemView);
 
@@ -48,22 +47,23 @@ public class DayHolder extends RecyclerView.ViewHolder {
                 .addOnCompleteListener(task -> {
                     QuerySnapshot querySnapshot = task.getResult();
                     if (!querySnapshot.isEmpty()) {
-                        inflateAdapter(querySnapshot, subjectsRecyclerView);
+                        inflateAdapter(querySnapshot, subjectsRecyclerView, listener);
                     } else {
                         query.get(Source.SERVER)
                                 .addOnCompleteListener(newTask -> {
                                     QuerySnapshot documentSnapshot = newTask.getResult();
-                                    inflateAdapter(documentSnapshot, subjectsRecyclerView);
+                                    inflateAdapter(documentSnapshot, subjectsRecyclerView, listener);
                                 });
                     }
                 });
     }
 
-    private synchronized void inflateAdapter(QuerySnapshot querySnapshot, RecyclerView subjectsRecyclerView) {
+    private void inflateAdapter(QuerySnapshot querySnapshot, RecyclerView subjectsRecyclerView,
+                                SubjectHolder.SubjectClickListener listener) {
         List<Subject> subjects = querySnapshot.toObjects(Subject.class);
         Log.d("Query on subjects", subjects.size() + "");
 
-        SubjectAdapter adapter = new SubjectAdapter(subjects);
+        SubjectAdapter adapter = new SubjectAdapter(subjects, listener);
         subjectsRecyclerView.setAdapter(adapter);
         subjectsRecyclerView.setLayoutManager(new LinearLayoutManager(subjectsRecyclerView.getContext()));
         subjectsRecyclerView.setNestedScrollingEnabled(false); //disable scrolling

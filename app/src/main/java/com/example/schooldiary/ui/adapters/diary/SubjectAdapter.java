@@ -16,9 +16,11 @@ import java.util.List;
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectHolder> {
 
     private List<Subject> subjects;
+    private SubjectHolder.SubjectClickListener listener;
 
-    public SubjectAdapter(List<Subject> subjects) {
+    public SubjectAdapter(List<Subject> subjects, SubjectHolder.SubjectClickListener listener) {
         this.subjects = subjects;
+        this.listener = listener;
     }
 
     @NonNull
@@ -28,7 +30,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectHolder> {
         View view = LayoutInflater.from(group.getContext())
                 .inflate(R.layout.item_subject, group, false);
 
-        return new SubjectHolder(view);
+        return new SubjectHolder(view, listener);
     }
 
     @Override

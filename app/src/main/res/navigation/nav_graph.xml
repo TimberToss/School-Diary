@@ -49,4 +49,8 @@
         android:id="@+id/show_news_fragment"
         android:name="com.example.schooldiary.ui.bottomNavigation.ShowNewsFragment"
         tools:layout="@layout/fragment_show_news" />
+    <fragment
+        android:id="@+id/show_subject_fragment"
+        android:name="com.example.schooldiary.ui.bottomNavigation.ShowSubjectFragment"
+        tools:layout="@layout/fragment_show_subject" />
 </navigation>

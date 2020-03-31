@@ -14,8 +14,11 @@ import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOp
 
 public class DiaryFragmentAdapter extends FirestoreRecyclerAdapter<Day, DayHolder> {
 
-    public DiaryFragmentAdapter(@NonNull FirestoreRecyclerOptions options) {
+    private SubjectHolder.SubjectClickListener listener;
+
+    public DiaryFragmentAdapter(@NonNull FirestoreRecyclerOptions options, SubjectHolder.SubjectClickListener listener) {
         super(options);
+        this.listener = listener;
     }
 
     @NonNull
@@ -30,6 +33,6 @@ public class DiaryFragmentAdapter extends FirestoreRecyclerAdapter<Day, DayHolde
 
     @Override
     protected void onBindViewHolder(@NonNull DayHolder holder, int position, @NonNull Day model) {
-        holder.bindData(model);
+        holder.bindData(model, listener);
     }
 }
