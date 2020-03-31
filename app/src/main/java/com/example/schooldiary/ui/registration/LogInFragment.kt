@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.annotation.VisibleForTesting
 import androidx.fragment.app.Fragment
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentLogInBinding
@@ -20,30 +19,20 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class LogInFragment : Fragment() {
-
-    private var _binding: FragmentLogInBinding? = null
-    private val binding
-        get() = _binding!!
-    //I create this property 'cause another thread could have changed the value of _binding to null
-    //between initialization and return binding.root in onCreateView.
 
     private lateinit var emailField: TextInputEditText
     private lateinit var passwordField: TextInputEditText
 
-    @VisibleForTesting
     private lateinit var progressBar: ProgressBar
 
-    private lateinit var mAuth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = mAuth.currentUser
+        val currentUser = auth.currentUser
         // this function invokes after onViewCreated where auth initializes
         updateUI(currentUser)
     }
@@ -54,14 +43,14 @@ class LogInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        _binding = FragmentLogInBinding.bind(view)
+        val binding = FragmentLogInBinding.bind(view)
         emailField = binding.signInTextInputEmail
         passwordField = binding.signInTextInputPassword
         progressBar = binding.signInProgressBar
         // hide here, otherwise bar will spin
         hideProgressBar()
 
-        mAuth = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
 
         val signUp = binding.signInButton
         signUp.setOnClickListener {
@@ -76,25 +65,20 @@ class LogInFragment : Fragment() {
         }
         showProgressBar()
 
-        GlobalScope.launch(Dispatchers.IO) {
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener { task: Task<AuthResult?> ->
-                        if (task.isSuccessful) {
-                            Log.d(TAG, "signInWithEmail:success")
-                            val user = mAuth.currentUser
-                            GlobalScope.launch(Dispatchers.Main) {
-                                updateUI(user)
-                            }
-                        } else {
-                            Log.w(TAG, "signInWithEmail:failure", task.exception)
-                            GlobalScope.launch(Dispatchers.Main) {
-                                Toast.makeText(view.context, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show()
-                                hideProgressBar()
-                            }
-                        }
-                    }
-        }
+        
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task: Task<AuthResult?> ->
+                    if (task.isSuccessful) {
+                        Log.d(TAG, "signInWithEmail:success")
+                        val user = auth.currentUser
+                        updateUI(user)
+                    } else {
+                        Log.w(TAG, "signInWithEmail:failure", task.exception)
+                        Toast.makeText(view.context, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show()
+                        hideProgressBar()
+                    } 
+                }
     }
 
     private fun showProgressBar() {
