@@ -5,13 +5,7 @@ public class Marks {
     private String name;
     private String marks;
 
-    public Marks() {
-    }
-
-    public Marks(String name, String marks) {
-        this.name = name;
-        this.marks = marks;
-    }
+    public Marks() {}
 
     public String getName() {
         return name;

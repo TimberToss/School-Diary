@@ -6,13 +6,7 @@ public class Day {
     private String name;
     private int serialNumber;
 
-    public Day() {
-    }
-
-    public Day(String name, int serialNumber) {
-        this.name = name;
-        this.serialNumber = serialNumber;
-    }
+    public Day() {}
 
     public String getName() {
         return name;
