@@ -1,4 +1,4 @@
-package com.example.schooldiary.data
+package com.example.schooldiary.model
 
 import android.content.Context
 import com.bumptech.glide.Glide

@@ -26,7 +26,6 @@ public class FinalGradesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_final_grades, container, false);
     }
 
@@ -52,8 +51,6 @@ public class FinalGradesFragment extends Fragment {
             @NonNull
             @Override
             public FinalGradesHolder onCreateViewHolder(@NonNull ViewGroup group, int i) {
-                // Create a new instance of the ViewHolder, in this case we are using a custom
-                // layout called R.layout.item_marks for each item
                 View view = LayoutInflater.from(group.getContext())
                         .inflate(R.layout.item_final_grade, group, false);
 

@@ -53,8 +53,6 @@ public class TimetableOfVacationFragment extends Fragment {
             @NonNull
             @Override
             public HolidaysHolder onCreateViewHolder(@NonNull ViewGroup group, int i) {
-                // Create a new instance of the ViewHolder, in this case we are using a custom
-                // layout called R.layout.item_marks for each item
                 View view = LayoutInflater.from(group.getContext())
                         .inflate(R.layout.item_holidays, group, false);
 

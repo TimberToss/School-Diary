@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.schooldiary.R;
+import com.example.schooldiary.databinding.ItemHolidaysBinding;
 import com.example.schooldiary.model.Dates;
 
 public class HolidaysHolder extends RecyclerView.ViewHolder {
@@ -16,17 +16,15 @@ public class HolidaysHolder extends RecyclerView.ViewHolder {
         this.itemView = itemView;
     }
 
-    private View getItemView() {
-        return itemView;
-    }
-
     public void bindData(Dates dates) {
 
         String[] date = dates.getTime().split(" ");
 
-        TextView name = getItemView().findViewById(R.id.holidays_name);
-        TextView start = getItemView().findViewById(R.id.holidays_start);
-        TextView end = getItemView().findViewById(R.id.holidays_end);
+        ItemHolidaysBinding binding = ItemHolidaysBinding.bind(itemView);
+
+        TextView name = binding.holidaysName;
+        TextView start = binding.holidaysStart;
+        TextView end = binding.holidaysEnd;
 
         name.setText(dates.getName());
         start.setText(date[0]);

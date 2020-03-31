@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.schooldiary.R;
+import com.example.schooldiary.databinding.ItemRingBinding;
 import com.example.schooldiary.model.Dates;
 
 public class RingsHolder extends RecyclerView.ViewHolder {
@@ -16,14 +16,12 @@ public class RingsHolder extends RecyclerView.ViewHolder {
         this.itemView = itemView;
     }
 
-    private View getItemView() {
-        return itemView;
-    }
-
     public void bindData(Dates dates) {
 
-        TextView name = getItemView().findViewById(R.id.rings_name);
-        TextView time = getItemView().findViewById(R.id.rings_time);
+        ItemRingBinding binding = ItemRingBinding.bind(itemView);
+
+        TextView name = binding.ringsName;
+        TextView time = binding.ringsTime;
 
         name.setText(dates.getName());
         time.setText(dates.getTime());

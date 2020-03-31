@@ -17,10 +17,6 @@ public class MarksHolder extends RecyclerView.ViewHolder {
         this.itemView = itemView;
     }
 
-    private View getItemView() {
-        return itemView;
-    }
-
     public void bindData(Marks mark) {
 
         ItemMarkBinding binding = ItemMarkBinding.bind(itemView);

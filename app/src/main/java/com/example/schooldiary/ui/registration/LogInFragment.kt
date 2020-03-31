@@ -76,19 +76,16 @@ class LogInFragment : Fragment() {
         }
         showProgressBar()
 
-        // [START create_user_with_email]
         GlobalScope.launch(Dispatchers.IO) {
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task: Task<AuthResult?> ->
                         if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success")
                             val user = mAuth.currentUser
                             GlobalScope.launch(Dispatchers.Main) {
                                 updateUI(user)
                             }
                         } else {
-                            // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.exception)
                             GlobalScope.launch(Dispatchers.Main) {
                                 Toast.makeText(view.context, "Authentication failed.",
@@ -96,12 +93,8 @@ class LogInFragment : Fragment() {
                                 hideProgressBar()
                             }
                         }
-                        // when auth is fail hide on time, but when auth is success hide much earlier than a new activity begins
-//                        Log.d(TAG,"mAuth")
-//                        hideProgressBar()
                     }
         }
-        // [END sign_in_with_email]
     }
 
     private fun showProgressBar() {
@@ -136,7 +129,6 @@ class LogInFragment : Fragment() {
             val activity: Activity? = activity
             val intent = Intent(activity, MainActivity::class.java)
             Log.d(TAG,"updateUI")
-//            hideProgressBar()
             startActivity(intent)
             activity!!.finish()
         }
