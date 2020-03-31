@@ -2,7 +2,6 @@ package com.example.schooldiary.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -19,12 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("MainActivity","launch");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
-            Log.d("isLoggedInUser", "NO");
             startRegistrationActivity();
         }
 

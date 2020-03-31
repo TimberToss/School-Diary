@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.schooldiary.R;
 import com.example.schooldiary.databinding.FragmentShowNewsBinding;
 
+
 public class ShowNewsFragment extends Fragment {
 
     @Override
@@ -25,6 +26,7 @@ public class ShowNewsFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         FragmentShowNewsBinding binding = FragmentShowNewsBinding.bind(view);
         ImageView newsPhoto = binding.newsPhoto;
         TextView newsTime = binding.newsTime;
