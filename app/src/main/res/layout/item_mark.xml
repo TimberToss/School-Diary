@@ -19,7 +19,7 @@
         android:layout_width="1dp"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="10dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="@color/gray_dark"/>
 
     <TextView
         android:id="@+id/subject_marks"
@@ -35,7 +35,7 @@
         android:layout_width="1dp"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="10dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="@color/gray_dark"/>
 
     <TextView
         android:id="@+id/subject_average_mark"

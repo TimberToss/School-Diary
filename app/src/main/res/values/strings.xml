@@ -46,4 +46,6 @@
     <string name="teacher">Teacher</string>
     <string name="classroom">Classroom</string>
     <string name="homework">Homework</string>
+    <string name="theme">Theme</string>
+    <string name="school_name">Gymnasuim 77</string>
 </resources>

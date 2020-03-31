@@ -17,8 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="6"
             android:textSize="20sp"
-            android:textColor="@color/black"
-            android:hint="1st lesson:" />
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/rings_time"
@@ -26,14 +25,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:textSize="20sp"
-            android:textColor="@color/black"
-            android:hint="08:00 - 08:45" />
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="@color/gray_dark"/>
 
 </LinearLayout>

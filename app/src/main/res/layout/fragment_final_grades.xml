@@ -18,14 +18,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:textSize="18sp"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/colorPrimary"
             android:text="@string/subject" />
 
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@color/gray_dark"/>
 
         <TextView
             android:id="@+id/first_mark"
@@ -34,14 +34,14 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:textSize="18sp"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/colorPrimary"
             android:text="@string/first_semester" />
 
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@color/gray_dark"/>
 
         <TextView
             android:id="@+id/second_mark"
@@ -50,14 +50,14 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:textSize="18sp"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/colorPrimary"
             android:text="@string/second_semester" />
 
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@color/gray_dark"/>
 
         <TextView
             android:id="@+id/third_mark"
@@ -66,14 +66,14 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:textSize="18sp"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/colorPrimary"
             android:text="@string/third_semester" />
 
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@color/gray_dark"/>
 
         <TextView
             android:id="@+id/forth_mark"
@@ -82,14 +82,14 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:textSize="18sp"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/colorPrimary"
             android:text="@string/forth_semester" />
 
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@color/gray_dark"/>
 
         <TextView
             android:id="@+id/fifth_mark"
@@ -98,7 +98,7 @@
             android:gravity="center_horizontal"
             android:layout_weight="1"
             android:textSize="18sp"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/colorPrimary"
             android:text="@string/final_semester" />
 
     </LinearLayout>
@@ -106,7 +106,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="@color/gray_dark"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/final_grades_recycler_view"
