@@ -40,7 +40,7 @@
             app:layout_constraintVertical_bias="0.4">
 
             <ProgressBar
-                android:id="@+id/sign_in_progress_bar"
+                android:id="@+id/progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@id/sign_in_input_email"
@@ -50,12 +50,12 @@
                 app:layout_constraintVertical_bias="1" />
 
             <com.google.android.material.textfield.TextInputLayout
-                app:boxBackgroundColor="@color/white"
-                app:boxStrokeColor="@color/colorPrimaryLight"
-                android:layout_marginHorizontal="40dp"
                 android:id="@+id/sign_in_input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/colorPrimaryLight"
+                android:layout_marginHorizontal="40dp"
                 android:hint="@string/e_mail"
                 app:endIconMode="clear_text"
                 app:layout_constraintBottom_toTopOf="@id/sign_in_input_password"
@@ -66,7 +66,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/sign_in_text_input_email"
+                    android:id="@+id/email_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -75,12 +75,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                app:boxBackgroundColor="@color/white"
-                app:boxStrokeColor="@color/colorPrimaryLight"
-                android:layout_marginHorizontal="40dp"
                 android:id="@+id/sign_in_input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/colorPrimaryLight"
+                android:layout_marginHorizontal="40dp"
                 android:hint="@string/password"
                 app:endIconMode="password_toggle"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -91,7 +91,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/sign_in_text_input_password"
+                    android:id="@+id/password_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -100,11 +100,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:backgroundTint="@color/colorPrimaryLight"
-                android:layout_marginHorizontal="100dp"
-                android:id="@+id/sign_in_button"
+                android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryLight"
+                android:layout_marginHorizontal="100dp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:text="@string/sign_in"
                 android:textColor="@color/white"

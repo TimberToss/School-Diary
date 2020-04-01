@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
             startRegistrationActivity();
         }
 
-
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 

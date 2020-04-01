@@ -8,25 +8,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentLogInBinding
 import com.example.schooldiary.ui.MainActivity
 import com.google.android.gms.tasks.Task
-import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 class LogInFragment : Fragment() {
 
-    private lateinit var emailField: TextInputEditText
-    private lateinit var passwordField: TextInputEditText
-
-    private lateinit var progressBar: ProgressBar
-
+    private var _binding: FragmentLogInBinding? = null
+    private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
 
     override fun onStart() {
@@ -38,24 +32,25 @@ class LogInFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_log_in, container, false)
+        _binding = FragmentLogInBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val binding = FragmentLogInBinding.bind(view)
-        emailField = binding.signInTextInputEmail
-        passwordField = binding.signInTextInputPassword
-        progressBar = binding.signInProgressBar
         // hide here, otherwise bar will spin
         hideProgressBar()
-
         auth = FirebaseAuth.getInstance()
 
-        val signUp = binding.signInButton
-        signUp.setOnClickListener {
-            signInWithEmailAndPassword(view, emailField.text.toString(), passwordField.text.toString())
+        binding.button.setOnClickListener {
+            signInWithEmailAndPassword(view,
+                    binding.emailEditText.text.toString(),
+                    binding.passwordEditText.text.toString())
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun signInWithEmailAndPassword(view: View, email: String, password: String) {
@@ -65,7 +60,6 @@ class LogInFragment : Fragment() {
         }
         showProgressBar()
 
-        
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task: Task<AuthResult?> ->
                     if (task.isSuccessful) {
@@ -77,33 +71,38 @@ class LogInFragment : Fragment() {
                         Toast.makeText(view.context, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show()
                         hideProgressBar()
-                    } 
+                    }
                 }
     }
 
     private fun showProgressBar() {
-        progressBar.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.VISIBLE
     }
 
     private fun hideProgressBar() {
-        progressBar.visibility = View.INVISIBLE
+        binding.progressBar.visibility = View.INVISIBLE
     }
 
     private fun validateForm(): Boolean {
         var valid = true
-        val email = emailField.text.toString()
-        if (TextUtils.isEmpty(email)) {
-            emailField.error = "Required."
-            valid = false
-        } else {
-            emailField.error = null
+        binding.emailEditText.let {
+            val email = it.text.toString()
+            if (TextUtils.isEmpty(email)) {
+                it.error = "Required."
+                valid = false
+            } else {
+                it.error = null
+            }
         }
-        val password = passwordField.text.toString()
-        if (TextUtils.isEmpty(password)) {
-            passwordField.error = "Required."
-            valid = false
-        } else {
-            passwordField.error = null
+
+        binding.passwordEditText.let {
+            val password = it.text.toString()
+            if (TextUtils.isEmpty(password)) {
+                it.error = "Required."
+                valid = false
+            } else {
+                it.error = null
+            }
         }
         return valid
     }
@@ -112,7 +111,7 @@ class LogInFragment : Fragment() {
         if (user != null) {
             val activity: Activity? = activity
             val intent = Intent(activity, MainActivity::class.java)
-            Log.d(TAG,"updateUI")
+            Log.d(TAG, "updateUI")
             startActivity(intent)
             activity!!.finish()
         }
