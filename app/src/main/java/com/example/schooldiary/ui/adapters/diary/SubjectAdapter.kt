@@ -22,35 +22,4 @@ class SubjectAdapter(private val subjects: List<Subject>, private val listener: 
     override fun getItemCount(): Int {
         return subjects.size
     }
-
 }
-//public class SubjectAdapter extends RecyclerView.Adapter<SubjectHolder> {
-//
-//    private List<Subject> subjects;
-//    private SubjectHolder.SubjectClickListener listener;
-//
-//    public SubjectAdapter(List<Subject> subjects, SubjectHolder.SubjectClickListener listener) {
-//        this.subjects = subjects;
-//        this.listener = listener;
-//    }
-//
-//    @NonNull
-//    @Override
-//    public SubjectHolder onCreateViewHolder(ViewGroup group, int i) {
-//
-//        View view = LayoutInflater.from(group.getContext())
-//                .inflate(R.layout.item_subject, group, false);
-//
-//        return new SubjectHolder(view, listener);
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull SubjectHolder holder, int position) {
-//        holder.bindData(subjects.get(position));
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return subjects.size();
-//    }
-//}
