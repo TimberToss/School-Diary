@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink"
+    android:background="@color/colorPrimaryLight"
     android:paddingBottom="56dp"
     tools:context=".ui.bottomNavigation.ShowSubjectFragment">
 
@@ -22,10 +22,10 @@
             android:background="@drawable/layout_rounded_background">
 
             <TextView
-                android:id="@+id/subject_name"
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
                 android:text="@string/subject"
                 android:textColor="@color/colorPrimary"
                 android:textSize="30sp"
@@ -42,7 +42,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/subject_name"
+                app:layout_constraintTop_toBottomOf="@+id/name"
                 app:layout_constraintVertical_bias="0.15"
                 android:orientation="vertical">
 
@@ -67,7 +67,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/gray_light"
-                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
                         android:paddingVertical="10dp"
                         android:orientation="vertical">
 
@@ -82,7 +82,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="5dp"
-                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
                             android:textColor="@color/black"
                             android:text="@string/subject" />
 
@@ -124,7 +124,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/gray_light"
-                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
                         android:paddingVertical="10dp"
                         android:orientation="vertical">
 
@@ -135,11 +135,11 @@
                             android:textColor="@color/colorAccent"/>
 
                         <TextView
-                            android:id="@+id/subject_homework"
+                            android:id="@+id/homework"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="5dp"
-                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
                             android:textColor="@color/black"
                             android:text="@string/subject" />
 
@@ -181,7 +181,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/gray_light"
-                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
                         android:paddingVertical="10dp"
                         android:orientation="vertical">
 
@@ -192,7 +192,7 @@
                             android:textColor="@color/colorPrimaryDark"/>
 
                         <TextView
-                            android:id="@+id/subject_teacher"
+                            android:id="@+id/teacher"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="5dp"
@@ -237,7 +237,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/gray_light"
-                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
                         android:paddingVertical="10dp"
                         android:orientation="vertical">
 
@@ -248,7 +248,7 @@
                             android:textColor="@color/purple"/>
 
                         <TextView
-                            android:id="@+id/subject_classroom"
+                            android:id="@+id/classroom"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="5dp"
