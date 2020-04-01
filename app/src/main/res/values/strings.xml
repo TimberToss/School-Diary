@@ -49,4 +49,6 @@
     <string name="theme">Theme</string>
     <string name="school_name">Gymnasuim 77</string>
     <string name="caution">Caution: this is copied text from random english website just to give an example </string>
+    <string name="call_schedule">Call schedule</string>
+    <string name="holiday_schedule">Holiday schedule</string>
 </resources>
