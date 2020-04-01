@@ -22,10 +22,10 @@ class MoreFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val navController = Navigation.findNavController(activity!!, R.id.nav_host_fragment)
         binding.callSchedule.setOnClickListener{
-            navController.navigate(R.id.navigation_timetable_of_rings)
+            navController.navigate(R.id.navigation_call_schedule)
         }
         binding.holidaySchedule.setOnClickListener{
-            navController.navigate(R.id.navigation_timetable_of_vacation)
+            navController.navigate(R.id.navigation_holidays_schedule)
         }
         binding.finalGrades.setOnClickListener{
             navController.navigate(R.id.navigation_final_grades)

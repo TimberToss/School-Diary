@@ -21,15 +21,15 @@
         android:label="Marks"
         tools:layout="@layout/fragment_marks" />
     <fragment
-        android:id="@+id/navigation_timetable_of_rings"
-        android:name="com.example.schooldiary.ui.bottomNavigation.more.TimetableOfRingsFragment"
-        android:label="Timetable of rings"
-        tools:layout="@layout/fragment_timetable_of_rings" />
+        android:id="@+id/navigation_call_schedule"
+        android:name="com.example.schooldiary.ui.bottomNavigation.more.CallScheduleFragment"
+        android:label="School call schedule"
+        tools:layout="@layout/fragment_call_schedule" />
     <fragment
-        android:id="@+id/navigation_timetable_of_vacation"
-        android:name="com.example.schooldiary.ui.bottomNavigation.more.TimetableOfVacationFragment"
-        android:label="Timetable of vacation"
-        tools:layout="@layout/fragment_timetable_of_vacation" />
+        android:id="@+id/navigation_holidays_schedule"
+        android:name="com.example.schooldiary.ui.bottomNavigation.more.HolidaysScheduleFragment"
+        android:label="Holidays schedule"
+        tools:layout="@layout/fragment_holidays_schedule" />
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.schooldiary.ui.bottomNavigation.more.SettingsFragment"

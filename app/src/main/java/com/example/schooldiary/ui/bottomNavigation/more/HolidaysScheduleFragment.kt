@@ -7,43 +7,45 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
-import com.example.schooldiary.databinding.FragmentTimetableOfRingsBinding
+import com.example.schooldiary.databinding.FragmentHolidaysScheduleBinding
 import com.example.schooldiary.model.Dates
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
-import com.example.schooldiary.ui.adapters.rings.RingsHolder
+import com.example.schooldiary.ui.adapters.holidays.HolidaysHolder
 import com.google.firebase.firestore.FirebaseFirestore
 
-class TimetableOfRingsFragment : Fragment() {
-    private var _binding: FragmentTimetableOfRingsBinding? = null
+class HolidaysScheduleFragment : Fragment() {
+    private var _binding: FragmentHolidaysScheduleBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: FirestoreRecyclerAdapter<Dates, RingsHolder>
+    private lateinit var adapter: FirestoreRecyclerAdapter<Dates, HolidaysHolder>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        _binding = FragmentTimetableOfRingsBinding.inflate(inflater, container, false)
+        _binding = FragmentHolidaysScheduleBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val firestore = FirebaseFirestore.getInstance()
-        val query = firestore.collection("rings")
+        val query = firestore.collection("holidays")
                 .orderBy("serialNumber")
         val options = FirestoreRecyclerOptions.Builder<Dates>()
                 .setQuery(query, Dates::class.java)
                 .build()
 
-        adapter = object : FirestoreRecyclerAdapter<Dates, RingsHolder>(options) {
-            override fun onCreateViewHolder(group: ViewGroup, i: Int): RingsHolder {
+        adapter = object : FirestoreRecyclerAdapter<Dates, HolidaysHolder>(options) {
+
+            override fun onCreateViewHolder(group: ViewGroup, i: Int): HolidaysHolder {
                 val itemView = LayoutInflater.from(group.context)
-                        .inflate(R.layout.item_ring, group, false)
-                return RingsHolder(itemView)
+                        .inflate(R.layout.item_holidays, group, false)
+                return HolidaysHolder(itemView)
             }
 
-            public override fun onBindViewHolder(holder: RingsHolder, position: Int, model: Dates) {
+            public override fun onBindViewHolder(holder: HolidaysHolder, position: Int, model: Dates) {
                 holder.bindData(model)
             }
         }
+
         binding.recyclerView.let {
             it.adapter = adapter
             it.layoutManager = LinearLayoutManager(activity)

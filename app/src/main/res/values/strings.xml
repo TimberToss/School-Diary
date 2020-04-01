@@ -51,4 +51,6 @@
     <string name="caution">Caution: this is copied text from random english website just to give an example </string>
     <string name="call_schedule">Call schedule</string>
     <string name="holiday_schedule">Holiday schedule</string>
+    <string name="example_average">1.00</string>
+    <string name="example_marks">1111</string>
 </resources>

@@ -5,17 +5,17 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/day_name"
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="4dp"
-        android:paddingStart="5dp"
+        android:paddingLeft="5dp"
         android:textSize="18sp"
         android:hint="@string/example_day"
         android:background="@color/gray" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/subjects_recycler_view"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
