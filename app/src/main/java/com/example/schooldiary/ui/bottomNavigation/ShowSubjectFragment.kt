@@ -30,4 +30,9 @@ class ShowSubjectFragment : Fragment() {
             binding.classroom.text = classroom
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
