@@ -14,14 +14,15 @@ class SubjectHolder(itemView: View, private val listener: SubjectClickListener) 
 
     fun bindData(subject: Subject) {
         val binding = ItemSubjectBinding.bind(itemView)
-        binding.startTime.text = calculateTime(subject.serialNumber)
-        binding.name.text = subject.name
+        binding.startTime.text = calculateTime(subject.serialNumber ?: 0)
+        binding.name.text = subject.name ?: UNKNOWN
+        // Firebase still doesn't have the classroom number and teacher's name
         binding.classroom.text = "557"
         itemView.setOnClickListener {
             listener.openFragment(R.id.show_subject_fragment,
-                    subject.name,
-                    subject.homework,
-                    binding.classroom.text.toString(),
+                    subject.name ?: UNKNOWN,
+                    subject.homework ?: UNKNOWN,
+                    "557",
                     "Birukova Tatyana Leontyevna")
         }
     }
@@ -38,5 +39,9 @@ class SubjectHolder(itemView: View, private val listener: SubjectClickListener) 
             8 -> "14:50"
             else -> "00:00"
         }
+    }
+
+    companion object {
+        private const val UNKNOWN = "Unknown"
     }
 }

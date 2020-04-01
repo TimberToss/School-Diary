@@ -18,7 +18,7 @@ class MarksHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private fun calculateAverage(str: String): String {
         var sum = 0.0
         for (element in str) {
-            sum += element.toDouble()
+            sum += element.toString().toDouble()
         }
         sum = (sum / str.length * 100.0).roundToInt() / 100.0
         return sum.toString()

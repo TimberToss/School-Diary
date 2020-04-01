@@ -14,29 +14,30 @@ class DayHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindData(day: Day, listener: SubjectHolder.SubjectClickListener) {
         val binding = ItemDayBinding.bind(itemView)
-        binding.name.text = StringBuilder().append(day.name).append(", 16 September").toString()
+        if (day.name != null) {
+            binding.name.text = StringBuilder().append(day.name).append(", 16 September").toString()
+            val query = FirebaseFirestore.getInstance()
+                    .collection("days")
+                    .document(day.name!!)                        //add check for day's name
+                    .collection("subjects")
+                    .orderBy("serialNumber")
 
-        val query = FirebaseFirestore.getInstance()
-                .collection("days")
-                .document(day.name)
-                .collection("subjects")
-                .orderBy("serialNumber")
-
-        query.get(Source.CACHE) // this data don't disappear by clear cache, but by clear data of app
-                .addOnCompleteListener{task ->
-                    val querySnapshot = task.result
-                    if (!querySnapshot?.isEmpty!!) {
-                        inflateAdapter(querySnapshot, binding.recyclerView, listener)
-                    } else {
-                        query.get(Source.SERVER)
-                                .addOnCompleteListener{newTask ->
-                                    val documentSnapshot = newTask.result
-                                    if (documentSnapshot != null) {
-                                        inflateAdapter(documentSnapshot, binding.recyclerView, listener)
+            query.get(Source.CACHE) // this data don't disappear by clear cache, but by clear data of app
+                    .addOnCompleteListener { task ->
+                        val querySnapshot = task.result
+                        if (!querySnapshot?.isEmpty!!) {
+                            inflateAdapter(querySnapshot, binding.recyclerView, listener)
+                        } else {
+                            query.get(Source.SERVER)
+                                    .addOnCompleteListener { newTask ->
+                                        val documentSnapshot = newTask.result
+                                        if (documentSnapshot != null) {
+                                            inflateAdapter(documentSnapshot, binding.recyclerView, listener)
+                                        }
                                     }
-                                }
+                        }
                     }
-                }
+        }
     }
 
     private fun inflateAdapter(snapshot: QuerySnapshot, recyclerView: RecyclerView,

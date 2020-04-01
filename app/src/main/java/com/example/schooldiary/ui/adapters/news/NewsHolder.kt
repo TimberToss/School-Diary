@@ -15,16 +15,26 @@ class NewsHolder(itemView: View, private val listener: NewsClickListener) : Recy
 
     fun bindData(news: News) {
         val binding = ItemNewsBinding.bind(itemView)
-        binding.photo.let {
-            Glide.with(it.context)
-                    .load(news.photo)
-                    .into(it)
+        if (news.photo != null) {
+            binding.photo.let {
+                Glide.with(it.context)
+                        .load(news.photo)
+                        .into(it)
+            }
         }
-        binding.title.text = news.title
-        binding.date.text = news.time
+        binding.title.text = news.title ?: UNKNOWN
+        binding.date.text = news.time ?: UNKNOWN
+
         itemView.setOnClickListener {
             listener.openFragment(R.id.show_news_fragment,
-                    news.photo, news.time, news.title, news.text)
+                    news.photo ?: UNKNOWN,
+                    news.time ?: UNKNOWN,
+                    news.title ?: UNKNOWN,
+                    news.text ?: UNKNOWN)
         }
+    }
+
+    companion object {
+        private const val UNKNOWN = "Unknown"
     }
 }

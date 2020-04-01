@@ -22,11 +22,14 @@ class ShowNewsFragment : Fragment() {
         val bundle = this.arguments
         if (bundle != null) {
             val photo = bundle.getString("Photo")
-            binding.photo.let {
-                Glide.with(it.context)
-                        .load(photo)
-                        .into(it)
+            if (photo != UNKNOWN) {
+                binding.photo.let {
+                    Glide.with(it.context)
+                            .load(photo)
+                            .into(it)
+                }
             }
+
             val time = bundle.getString("Time")
             binding.time.text = time
             val title = bundle.getString("Title")
@@ -39,5 +42,9 @@ class ShowNewsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        private const val UNKNOWN = "Unknown"
     }
 }
