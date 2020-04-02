@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -60,11 +61,8 @@ class NewsFragment : Fragment(), NewsClickListener {
     }
 
     override fun openFragment(id: Int, photo: String, time: String, title: String, text: String) {
-        val bundle = Bundle()
-        bundle.putString("Photo", photo)
-        bundle.putString("Time", time)
-        bundle.putString("Title", title)
-        bundle.putString("Text", text)
+        val bundle = bundleOf("news" to News(photo, time, title, text))
+//        val bundle2 = Bundle().putParcelable("news", News(photo, time, title, text))
         val navController = Navigation.findNavController(activity!!, R.id.nav_host_fragment)
         navController.navigate(id, bundle)
     }

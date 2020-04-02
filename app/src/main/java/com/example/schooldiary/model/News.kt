@@ -1,9 +1,11 @@
 package com.example.schooldiary.model
 
-class News {
-    var title: String? = null
-    var text: String? = null
-    var photo: String? = null
-    var time: String? = null
-    var serialNumber: Int? = null
-}
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+class News(var photo: String = "",
+           var time: String = "",
+           var title: String = "",
+           var text: String = "",
+           var serialNumber: Int = 0) : Parcelable

@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.schooldiary.databinding.FragmentShowNewsBinding
+import com.example.schooldiary.model.News
 
 class ShowNewsFragment : Fragment() {
     private var _binding: FragmentShowNewsBinding? = null
     private val binding get() = _binding!!
+
+    private var news: News? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -19,23 +22,19 @@ class ShowNewsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val bundle = this.arguments
-        if (bundle != null) {
-            val photo = bundle.getString("Photo")
-            if (photo != UNKNOWN) {
-                binding.photo.let {
-                    Glide.with(it.context)
-                            .load(photo)
-                            .into(it)
-                }
-            }
+        arguments?.let {
+            news = it.getParcelable(ARGS_NEWS)
+        }
 
-            val time = bundle.getString("Time")
-            binding.time.text = time
-            val title = bundle.getString("Title")
-            binding.title.text = title
-            val text = bundle.getString("Text")
-            binding.text.text = text
+        news?.let {
+            if (it.photo != UNKNOWN) {
+                Glide.with(binding.photo.context)
+                        .load(it.photo)
+                        .into(binding.photo)
+            }
+            binding.time.text = it.time
+            binding.title.text = it.title
+            binding.text.text = it.text
         }
     }
 
@@ -46,5 +45,6 @@ class ShowNewsFragment : Fragment() {
 
     companion object {
         private const val UNKNOWN = "Unknown"
+        private const val ARGS_NEWS = "news"
     }
 }
