@@ -62,7 +62,6 @@ class NewsFragment : Fragment(), NewsClickListener {
 
     override fun openFragment(id: Int, photo: String, time: String, title: String, text: String) {
         val bundle = bundleOf("news" to News(photo, time, title, text))
-//        val bundle2 = Bundle().putParcelable("news", News(photo, time, title, text))
         val navController = Navigation.findNavController(activity!!, R.id.nav_host_fragment)
         navController.navigate(id, bundle)
     }

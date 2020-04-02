@@ -1,7 +1,11 @@
 package com.example.schooldiary.model.subject
 
-class Subject {
-    var name: String? = null
-    var homework: String? = null
-    var serialNumber: Int? = null
-}
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class Subject(var name: String = "",
+                   var homework: String = "",
+                   var teacher: String = "",
+                   var classroom: String = "",
+                   var serialNumber: Int = 0) : Parcelable
