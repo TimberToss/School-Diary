@@ -3,7 +3,7 @@ package com.example.schooldiary.ui.adapters.rings
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.schooldiary.databinding.ItemSchoolCallBinding
-import com.example.schooldiary.model.Dates
+import com.example.schooldiary.model.dates.Dates
 
 class SchoolCallHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

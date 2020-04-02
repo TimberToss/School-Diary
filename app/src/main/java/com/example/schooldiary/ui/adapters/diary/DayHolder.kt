@@ -4,8 +4,8 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.schooldiary.databinding.ItemDayBinding
-import com.example.schooldiary.model.Day
-import com.example.schooldiary.model.Subject
+import com.example.schooldiary.model.day.Day
+import com.example.schooldiary.model.subject.Subject
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.Source

@@ -3,7 +3,7 @@ package com.example.schooldiary.ui.adapters.diary
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.schooldiary.R
-import com.example.schooldiary.model.Day
+import com.example.schooldiary.model.day.Day
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
 

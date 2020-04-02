@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.schooldiary.databinding.FragmentShowNewsBinding
-import com.example.schooldiary.model.News
+import com.example.schooldiary.model.news.News
 
 class ShowNewsFragment : Fragment() {
     private var _binding: FragmentShowNewsBinding? = null
     private val binding get() = _binding!!
-
     private var news: News? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

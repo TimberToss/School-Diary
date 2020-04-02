@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentFinalGradesBinding
-import com.example.schooldiary.model.Marks
+import com.example.schooldiary.model.marks.Marks
 import com.example.schooldiary.ui.adapters.finalGrades.FinalGradesHolder
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions

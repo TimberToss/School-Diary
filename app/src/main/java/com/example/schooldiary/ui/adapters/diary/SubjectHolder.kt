@@ -4,7 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.ItemSubjectBinding
-import com.example.schooldiary.model.Subject
+import com.example.schooldiary.model.subject.Subject
 
 class SubjectHolder(itemView: View, private val listener: SubjectClickListener) : RecyclerView.ViewHolder(itemView) {
 

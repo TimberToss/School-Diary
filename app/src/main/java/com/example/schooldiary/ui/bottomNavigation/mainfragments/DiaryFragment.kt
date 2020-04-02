@@ -9,7 +9,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentDiaryBinding
-import com.example.schooldiary.model.Day
+import com.example.schooldiary.model.day.Day
 import com.example.schooldiary.ui.adapters.diary.DayHolder
 import com.example.schooldiary.ui.adapters.diary.DiaryFragmentAdapter
 import com.example.schooldiary.ui.adapters.diary.SubjectHolder.SubjectClickListener

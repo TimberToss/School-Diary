@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentHolidaysScheduleBinding
-import com.example.schooldiary.model.Dates
+import com.example.schooldiary.model.dates.Dates
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
 import com.example.schooldiary.ui.adapters.holidays.HolidaysHolder

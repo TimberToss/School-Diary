@@ -3,7 +3,7 @@ package com.example.schooldiary.ui.adapters.news
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.schooldiary.R
-import com.example.schooldiary.model.News
+import com.example.schooldiary.model.news.News
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
 import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
 import com.example.schooldiary.ui.adapters.news.NewsHolder.NewsClickListener
