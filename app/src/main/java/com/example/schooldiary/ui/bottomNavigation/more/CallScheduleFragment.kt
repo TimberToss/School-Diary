@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentCallScheduleBinding
 import com.example.schooldiary.model.dates.Dates
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
 import com.example.schooldiary.ui.adapters.rings.SchoolCallHolder
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 
 class CallScheduleFragment : Fragment() {

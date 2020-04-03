@@ -10,8 +10,8 @@ import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentFinalGradesBinding
 import com.example.schooldiary.model.marks.Marks
 import com.example.schooldiary.ui.adapters.finalGrades.FinalGradesHolder
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 

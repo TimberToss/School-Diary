@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentNewsBinding
 import com.example.schooldiary.model.news.News
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
 import com.example.schooldiary.ui.adapters.news.NewsFragmentAdapter
 import com.example.schooldiary.ui.adapters.news.NewsHolder
 import com.example.schooldiary.ui.adapters.news.NewsHolder.NewsClickListener
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 

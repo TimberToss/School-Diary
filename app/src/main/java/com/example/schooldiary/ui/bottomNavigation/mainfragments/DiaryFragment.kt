@@ -15,8 +15,8 @@ import com.example.schooldiary.model.subject.Subject
 import com.example.schooldiary.ui.adapters.diary.DayHolder
 import com.example.schooldiary.ui.adapters.diary.DiaryFragmentAdapter
 import com.example.schooldiary.ui.adapters.diary.SubjectHolder.SubjectClickListener
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
