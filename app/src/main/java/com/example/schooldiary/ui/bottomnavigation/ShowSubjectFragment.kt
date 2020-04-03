@@ -1,4 +1,4 @@
-package com.example.schooldiary.ui.bottomNavigation
+package com.example.schooldiary.ui.bottomnavigation
 
 import android.os.Bundle
 import android.view.LayoutInflater

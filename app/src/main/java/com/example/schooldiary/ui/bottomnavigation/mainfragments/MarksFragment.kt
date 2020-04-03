@@ -1,4 +1,4 @@
-package com.example.schooldiary.ui.bottomNavigation.more
+package com.example.schooldiary.ui.bottomnavigation.mainfragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,40 +7,40 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
-import com.example.schooldiary.databinding.FragmentCallScheduleBinding
-import com.example.schooldiary.model.dates.Dates
-import com.example.schooldiary.ui.adapters.rings.SchoolCallHolder
+import com.example.schooldiary.databinding.FragmentMarksBinding
+import com.example.schooldiary.model.marks.Marks
+import com.example.schooldiary.ui.adapters.marks.MarksHolder
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
-class CallScheduleFragment : Fragment() {
-    private var _binding: FragmentCallScheduleBinding? = null
+class MarksFragment : Fragment() {
+    private var _binding: FragmentMarksBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: FirestoreRecyclerAdapter<Dates, SchoolCallHolder>
-
+    private lateinit var adapter: FirestoreRecyclerAdapter<Marks, MarksHolder>
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        _binding = FragmentCallScheduleBinding.inflate(inflater, container, false)
+        _binding = FragmentMarksBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val firestore = FirebaseFirestore.getInstance()
-        val query = firestore.collection("rings")
-                .orderBy("serialNumber")
-        val options = FirestoreRecyclerOptions.Builder<Dates>()
-                .setQuery(query, Dates::class.java)
+        val query = firestore.collection("subjects")
+                .orderBy("name", Query.Direction.ASCENDING)
+        val options = FirestoreRecyclerOptions.Builder<Marks>()
+                .setQuery(query, Marks::class.java)
                 .build()
 
-        adapter = object : FirestoreRecyclerAdapter<Dates, SchoolCallHolder>(options) {
-            override fun onCreateViewHolder(group: ViewGroup, i: Int): SchoolCallHolder {
+        adapter = object : FirestoreRecyclerAdapter<Marks, MarksHolder>(options) {
+            override fun onCreateViewHolder(group: ViewGroup, i: Int): MarksHolder {
                 val itemView = LayoutInflater.from(group.context)
-                        .inflate(R.layout.item_school_call, group, false)
-                return SchoolCallHolder(itemView)
+                        .inflate(R.layout.item_mark, group, false)
+                return MarksHolder(itemView)
             }
 
-            public override fun onBindViewHolder(holder: SchoolCallHolder, position: Int, model: Dates) {
+            public override fun onBindViewHolder(holder: MarksHolder, position: Int, model: Marks) {
                 holder.bindData(model)
             }
         }

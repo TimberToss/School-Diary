@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.bottomNavigation.mainfragments.MarksFragment">
+    tools:context=".ui.bottomnavigation.mainfragments.MarksFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.schooldiary.ui.adapters.finalGrades
+package com.example.schooldiary.ui.adapters.finalgrades
 
 import android.view.View
 import android.widget.TextView

@@ -1,4 +1,4 @@
-package com.example.schooldiary.ui.bottomNavigation.more
+package com.example.schooldiary.ui.bottomnavigation.more
 
 import android.app.Activity
 import android.content.Intent
