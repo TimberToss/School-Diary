@@ -25,7 +25,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@color/gray_dark"/>
+            android:background="@color/grayDark"/>
 
         <TextView
             android:id="@+id/first_mark"
@@ -41,7 +41,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@color/gray_dark"/>
+            android:background="@color/grayDark"/>
 
         <TextView
             android:id="@+id/second_mark"
@@ -57,7 +57,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@color/gray_dark"/>
+            android:background="@color/grayDark"/>
 
         <TextView
             android:id="@+id/third_mark"
@@ -73,7 +73,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@color/gray_dark"/>
+            android:background="@color/grayDark"/>
 
         <TextView
             android:id="@+id/forth_mark"
@@ -89,7 +89,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@color/gray_dark"/>
+            android:background="@color/grayDark"/>
 
         <TextView
             android:id="@+id/fifth_mark"
@@ -106,7 +106,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gray_dark"/>
+        android:background="@color/grayDark"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"

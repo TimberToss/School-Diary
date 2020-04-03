@@ -4,17 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentDiaryBinding
-import com.example.schooldiary.model.Day
+import com.example.schooldiary.model.day.Day
+import com.example.schooldiary.model.subject.Subject
 import com.example.schooldiary.ui.adapters.diary.DayHolder
 import com.example.schooldiary.ui.adapters.diary.DiaryFragmentAdapter
 import com.example.schooldiary.ui.adapters.diary.SubjectHolder.SubjectClickListener
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
@@ -60,11 +62,7 @@ class DiaryFragment : Fragment(), SubjectClickListener {
     }
 
     override fun openFragment(id: Int, name: String, homework: String, classroom: String, teacher: String) {
-        val bundle = Bundle()
-        bundle.putString("Name", name)
-        bundle.putString("Homework", homework)
-        bundle.putString("Classroom", classroom)
-        bundle.putString("Teacher", teacher)
+        val bundle = bundleOf("subject" to Subject(name, homework, teacher, classroom))
         val navController = Navigation.findNavController(activity!!, R.id.nav_host_fragment)
         navController.navigate(id, bundle)
     }

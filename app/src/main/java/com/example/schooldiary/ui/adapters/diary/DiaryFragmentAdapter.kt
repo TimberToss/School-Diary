@@ -3,9 +3,9 @@ package com.example.schooldiary.ui.adapters.diary
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.schooldiary.R
-import com.example.schooldiary.model.Day
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
+import com.example.schooldiary.model.day.Day
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 
 class DiaryFragmentAdapter(options: FirestoreRecyclerOptions<Day>, private val listener: SubjectHolder.SubjectClickListener)

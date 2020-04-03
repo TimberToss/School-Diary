@@ -1,4 +1,4 @@
-package com.example.schooldiary.model
+package com.example.schooldiary.model.marks
 
 class Marks {
     var name: String? = null

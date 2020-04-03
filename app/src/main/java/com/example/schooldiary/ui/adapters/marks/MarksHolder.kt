@@ -3,7 +3,7 @@ package com.example.schooldiary.ui.adapters.marks
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.schooldiary.databinding.ItemMarkBinding
-import com.example.schooldiary.model.Marks
+import com.example.schooldiary.model.marks.Marks
 import kotlin.math.roundToInt
 
 class MarksHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
