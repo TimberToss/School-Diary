@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.bottomNavigation.more.FinalGradesFragment">
+    tools:context=".ui.bottomnavigation.more.FinalGradesFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
