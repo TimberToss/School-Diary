@@ -1,20 +1,21 @@
-package com.example.schooldiary.ui.bottomNavigation.mainfragments
+package com.example.schooldiary.ui.bottomnavigation.mainfragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentNewsBinding
-import com.example.schooldiary.model.News
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
+import com.example.schooldiary.model.news.News
 import com.example.schooldiary.ui.adapters.news.NewsFragmentAdapter
 import com.example.schooldiary.ui.adapters.news.NewsHolder
 import com.example.schooldiary.ui.adapters.news.NewsHolder.NewsClickListener
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
@@ -60,11 +61,7 @@ class NewsFragment : Fragment(), NewsClickListener {
     }
 
     override fun openFragment(id: Int, photo: String, time: String, title: String, text: String) {
-        val bundle = Bundle()
-        bundle.putString("Photo", photo)
-        bundle.putString("Time", time)
-        bundle.putString("Title", title)
-        bundle.putString("Text", text)
+        val bundle = bundleOf("news" to News(photo, time, title, text))
         val navController = Navigation.findNavController(activity!!, R.id.nav_host_fragment)
         navController.navigate(id, bundle)
     }

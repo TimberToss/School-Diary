@@ -1,10 +1,10 @@
-package com.example.schooldiary.ui.adapters.finalGrades
+package com.example.schooldiary.ui.adapters.finalgrades
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.schooldiary.databinding.ItemFinalGradeBinding
-import com.example.schooldiary.model.Marks
+import com.example.schooldiary.model.marks.Marks
 import java.util.*
 
 class FinalGradesHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

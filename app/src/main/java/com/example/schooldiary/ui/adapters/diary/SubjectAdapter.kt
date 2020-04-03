@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.schooldiary.R
-import com.example.schooldiary.model.Subject
+import com.example.schooldiary.model.subject.Subject
 
 class SubjectAdapter(private val subjects: List<Subject>, private val listener: SubjectHolder.SubjectClickListener)
     : RecyclerView.Adapter<SubjectHolder>() {

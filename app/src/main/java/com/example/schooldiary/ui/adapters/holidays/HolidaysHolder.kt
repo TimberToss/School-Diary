@@ -3,7 +3,7 @@ package com.example.schooldiary.ui.adapters.holidays
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.schooldiary.databinding.ItemHolidaysBinding
-import com.example.schooldiary.model.Dates
+import com.example.schooldiary.model.dates.Dates
 
 class HolidaysHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

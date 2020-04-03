@@ -8,8 +8,8 @@
     <color name="pink">#ffc5c0</color>
     <color name="white">#ffffff</color>
     <color name="gray">#E7E7E7</color>
-    <color name="gray_light">#f2f2f2</color>
-    <color name="gray_dark">#AAAAAA</color>
+    <color name="grayLight">#f2f2f2</color>
+    <color name="grayDark">#AAAAAA</color>
     <color name="black">#000000</color>
     <color name="purple">#A186BE</color>
 </resources>

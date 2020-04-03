@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:paddingBottom="56dp"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.bottomNavigation.ShowNewsFragment">
+    tools:context=".ui.bottomnavigation.ShowNewsFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="20dp"
                 android:textSize="15sp"
-                android:textColor="@color/gray_dark"/>
+                android:textColor="@color/grayDark"/>
 
             <TextView
                 android:id="@+id/title"

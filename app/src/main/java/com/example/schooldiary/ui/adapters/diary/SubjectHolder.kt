@@ -4,7 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.ItemSubjectBinding
-import com.example.schooldiary.model.Subject
+import com.example.schooldiary.model.subject.Subject
 
 class SubjectHolder(itemView: View, private val listener: SubjectClickListener) : RecyclerView.ViewHolder(itemView) {
 
@@ -15,13 +15,13 @@ class SubjectHolder(itemView: View, private val listener: SubjectClickListener) 
     fun bindData(subject: Subject) {
         val binding = ItemSubjectBinding.bind(itemView)
         binding.startTime.text = calculateTime(subject.serialNumber ?: 0)
-        binding.name.text = subject.name ?: UNKNOWN
+        binding.name.text = subject.name
         // Firebase still doesn't have the classroom number and teacher's name
         binding.classroom.text = "557"
         itemView.setOnClickListener {
             listener.openFragment(R.id.show_subject_fragment,
-                    subject.name ?: UNKNOWN,
-                    subject.homework ?: UNKNOWN,
+                    subject.name,
+                    subject.homework,
                     "557",
                     "Birukova Tatyana Leontyevna")
         }
@@ -39,9 +39,5 @@ class SubjectHolder(itemView: View, private val listener: SubjectClickListener) 
             8 -> "14:50"
             else -> "00:00"
         }
-    }
-
-    companion object {
-        private const val UNKNOWN = "Unknown"
     }
 }

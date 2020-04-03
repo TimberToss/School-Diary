@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.bottomNavigation.more.SettingsFragment"
+    tools:context=".ui.bottomnavigation.more.SettingsFragment"
     android:paddingBottom="56dp">
 
     <Button

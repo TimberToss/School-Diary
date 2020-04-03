@@ -1,4 +1,4 @@
-package com.example.schooldiary.ui.bottomNavigation.more
+package com.example.schooldiary.ui.bottomnavigation.more
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentHolidaysScheduleBinding
-import com.example.schooldiary.model.Dates
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerAdapter
-import com.example.schooldiary.ui.adapters.firestorerecycler.FirestoreRecyclerOptions
+import com.example.schooldiary.model.dates.Dates
 import com.example.schooldiary.ui.adapters.holidays.HolidaysHolder
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 
 class HolidaysScheduleFragment : Fragment() {

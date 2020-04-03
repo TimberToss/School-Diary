@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.example.schooldiary"
         minSdkVersion 21
@@ -28,6 +28,10 @@ android {
     viewBinding {
         enabled = true
     }
+    androidExtensions {
+        experimental = true
+    }
+
 }
 
 dependencies {
@@ -45,6 +49,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.2.0'
     implementation 'com.google.firebase:firebase-storage:19.1.1'
     implementation 'com.google.firebase:firebase-firestore:21.4.0'
+    implementation 'com.firebaseui:firebase-ui-firestore:6.1.0'
 
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'

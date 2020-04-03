@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.bottomNavigation.mainfragments.MarksFragment">
+    tools:context=".ui.bottomnavigation.mainfragments.MarksFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@color/gray_dark"/>
+            android:background="@color/grayDark"/>
 
         <TextView
             android:id="@+id/all_marks"
@@ -41,7 +41,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:background="@color/gray_dark"/>
+            android:background="@color/grayDark"/>
 
         <TextView
             android:id="@+id/average_mark"
@@ -59,7 +59,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gray_dark"/>
+        android:background="@color/grayDark"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"

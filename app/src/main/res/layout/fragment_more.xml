@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.bottomNavigation.mainfragments.MoreFragment">
+    tools:context=".ui.bottomnavigation.mainfragments.MoreFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/gray_dark"/>
+                android:background="@color/grayDark"/>
 
             <LinearLayout
                 android:id="@+id/holiday_schedule"
@@ -70,7 +70,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/gray_dark"/>
+                android:background="@color/grayDark"/>
 
             <LinearLayout
                 android:id="@+id/final_grades"
@@ -98,7 +98,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/gray_dark"/>
+                android:background="@color/grayDark"/>
 
             <LinearLayout
                 android:id="@+id/settings"
@@ -126,7 +126,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/gray_dark"/>
+                android:background="@color/grayDark"/>
 
         </LinearLayout>
 
