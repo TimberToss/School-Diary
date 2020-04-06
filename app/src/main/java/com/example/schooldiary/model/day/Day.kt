@@ -1,6 +1,4 @@
 package com.example.schooldiary.model.day
 
-class Day {
-    var name: String? = null
-    var serialNumber: Int? = null
-}
+data class Day(var name: String = "",
+               var serialNumber: Int = 0)

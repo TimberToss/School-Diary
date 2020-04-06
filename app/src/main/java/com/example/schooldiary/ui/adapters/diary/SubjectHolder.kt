@@ -14,7 +14,7 @@ class SubjectHolder(itemView: View, private val listener: SubjectClickListener) 
 
     fun bindData(subject: Subject) {
         val binding = ItemSubjectBinding.bind(itemView)
-        binding.startTime.text = calculateTime(subject.serialNumber ?: 0)
+        binding.startTime.text = calculateTime(subject.serialNumber)
         binding.name.text = subject.name
         // Firebase still doesn't have the classroom number and teacher's name
         binding.classroom.text = "557"

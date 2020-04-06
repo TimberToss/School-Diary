@@ -11,8 +11,8 @@ class MarksHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bindData(mark: Marks) {
         val binding = ItemMarkBinding.bind(itemView)
         binding.name.text = mark.name
-        binding.marks.text = mark.marks ?: "0"
-        binding.averageMark.text = calculateAverage(mark.marks ?: "0")
+        binding.marks.text = mark.marks
+        binding.averageMark.text = calculateAverage(mark.marks)
     }
 
     private fun calculateAverage(str: String): String {
@@ -20,7 +20,9 @@ class MarksHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         for (element in str) {
             sum += element.toString().toDouble()
         }
-        sum = (sum / str.length * 100.0).roundToInt() / 100.0
+        if (str.isNotEmpty()) {
+            sum = (sum / str.length * 100.0).roundToInt() / 100.0
+        }
         return sum.toString()
     }
 }

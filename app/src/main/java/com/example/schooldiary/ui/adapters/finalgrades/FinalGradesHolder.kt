@@ -18,9 +18,9 @@ class FinalGradesHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         views.add(binding.forthMark)
         views.add(binding.fifthMark)
 
-        binding.name.text = mark.name ?: "Unknown"
+        binding.name.text = mark.name
 
-        val grades = mark.marks?.toCharArray() ?: charArrayOf(' ', ' ', ' ', ' ', ' ')
+        val grades = mark.marks.toCharArray()
         for (i in 0..4) {
             if (i < grades.size) {
                 views[i].text = grades[i].toString()

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentCallScheduleBinding
 import com.example.schooldiary.model.dates.Dates
+import com.example.schooldiary.ui.adapters.rings.CallScheduleFragmentAdapter
 import com.example.schooldiary.ui.adapters.rings.SchoolCallHolder
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -33,17 +34,7 @@ class CallScheduleFragment : Fragment() {
                 .setQuery(query, Dates::class.java)
                 .build()
 
-        adapter = object : FirestoreRecyclerAdapter<Dates, SchoolCallHolder>(options) {
-            override fun onCreateViewHolder(group: ViewGroup, i: Int): SchoolCallHolder {
-                val itemView = LayoutInflater.from(group.context)
-                        .inflate(R.layout.item_school_call, group, false)
-                return SchoolCallHolder(itemView)
-            }
-
-            public override fun onBindViewHolder(holder: SchoolCallHolder, position: Int, model: Dates) {
-                holder.bindData(model)
-            }
-        }
+        adapter = CallScheduleFragmentAdapter(options)
         binding.recyclerView.let {
             it.adapter = adapter
             it.layoutManager = LinearLayoutManager(activity)

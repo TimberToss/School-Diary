@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentFinalGradesBinding
 import com.example.schooldiary.model.marks.Marks
+import com.example.schooldiary.ui.adapters.finalgrades.FinalGradesFragmentAdapter
 import com.example.schooldiary.ui.adapters.finalgrades.FinalGradesHolder
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -33,18 +34,7 @@ class FinalGradesFragment : Fragment() {
                 .setQuery(query, Marks::class.java)
                 .build()
 
-        adapter = object : FirestoreRecyclerAdapter<Marks, FinalGradesHolder>(options) {
-            override fun onCreateViewHolder(group: ViewGroup, i: Int): FinalGradesHolder {
-                val itemView = LayoutInflater.from(group.context)
-                        .inflate(R.layout.item_final_grade, group, false)
-                return FinalGradesHolder(itemView)
-            }
-
-            public override fun onBindViewHolder(holder: FinalGradesHolder, position: Int, model: Marks) {
-                holder.bindData(model)
-            }
-        }
-
+        adapter = FinalGradesFragmentAdapter(options)
         binding.recyclerView.let {
             it.adapter = adapter
             it.layoutManager = LinearLayoutManager(activity)
