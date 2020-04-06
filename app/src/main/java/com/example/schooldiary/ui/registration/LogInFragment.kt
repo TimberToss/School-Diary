@@ -1,15 +1,14 @@
 package com.example.schooldiary.ui.registration
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentLogInBinding
 import com.example.schooldiary.ui.MainActivity
 import com.google.android.gms.tasks.Task
@@ -56,7 +55,6 @@ class LogInFragment : Fragment() {
     }
 
     private fun signInWithEmailAndPassword(view: View, email: String, password: String) {
-        Log.d(TAG, "signAccount:$email")
         if (!validateForm()) {
             return
         }
@@ -65,13 +63,11 @@ class LogInFragment : Fragment() {
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task: Task<AuthResult?> ->
                     if (task.isSuccessful) {
-                        Log.d(TAG, "signInWithEmail:success")
                         val user = auth.currentUser
                         updateUI(user)
-                    } else {
-                        Log.w(TAG, "signInWithEmail:failure", task.exception)
-                        Toast.makeText(view.context, "Authentication failed.",
-                                Toast.LENGTH_SHORT).show()
+                    } else { Toast.makeText(view.context,
+                            view.context.resources.getString(R.string.authentication_failed),
+                            Toast.LENGTH_SHORT).show()
                         hideProgressBar()
                     }
                 }
@@ -90,7 +86,7 @@ class LogInFragment : Fragment() {
         binding.emailEditText.let {
             val email = it.text.toString()
             if (TextUtils.isEmpty(email)) {
-                it.error = "Required."
+                it.error = it.context.resources.getString(R.string.required)
                 valid = false
             } else {
                 it.error = null
@@ -100,7 +96,7 @@ class LogInFragment : Fragment() {
         binding.passwordEditText.let {
             val password = it.text.toString()
             if (TextUtils.isEmpty(password)) {
-                it.error = "Required."
+                it.error = it.context.resources.getString(R.string.required)
                 valid = false
             } else {
                 it.error = null
@@ -113,14 +109,9 @@ class LogInFragment : Fragment() {
         if (user != null) {
             activity?.let {
                 val intent = Intent(it, MainActivity::class.java)
-                Log.d(TAG, "updateUI")
                 startActivity(intent)
                 it.finish()
             }
         }
-    }
-
-    companion object {
-        private const val TAG = "EmailPassword"
     }
 }

@@ -29,7 +29,7 @@ class FinalGradesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val firestore = FirebaseFirestore.getInstance()
-        val query: Query = firestore.collection("finalGrades")
+        val query: Query = firestore.collection(FIREBASE_FINAL_GRADES_COLLECTION)
         val options = FirestoreRecyclerOptions.Builder<Marks>()
                 .setQuery(query, Marks::class.java)
                 .build()
@@ -54,5 +54,9 @@ class FinalGradesFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        private const val FIREBASE_FINAL_GRADES_COLLECTION = "finalGrades"
     }
 }

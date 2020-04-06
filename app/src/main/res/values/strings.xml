@@ -58,4 +58,7 @@
     <string name="example_marks">1111</string>
 
     <string name="day_of_the_week">%1$s, 16 September</string>
+
+    <string name="authentication_failed">Authentication failed.</string>
+    <string name="required">Required</string>
 </resources>
