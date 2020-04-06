@@ -9,7 +9,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 
 class DiaryFragmentAdapter(options: FirestoreRecyclerOptions<Day>,
-                           private val listener: SubjectHolder.SubjectClickListener)
+                           private val listener: DayHolder.SubjectClickListener)
     : FirestoreRecyclerAdapter<Day, DayHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DayHolder {

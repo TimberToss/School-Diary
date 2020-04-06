@@ -12,7 +12,7 @@ import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentDiaryBinding
 import com.example.schooldiary.model.day.Day
 import com.example.schooldiary.model.subject.Subject
-import com.example.schooldiary.ui.main.diary.SubjectHolder.SubjectClickListener
+import com.example.schooldiary.ui.main.diary.DayHolder.SubjectClickListener
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
