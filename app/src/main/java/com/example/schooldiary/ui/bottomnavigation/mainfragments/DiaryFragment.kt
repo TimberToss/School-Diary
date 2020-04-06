@@ -33,8 +33,8 @@ class DiaryFragment : Fragment(), SubjectClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val firestore = FirebaseFirestore.getInstance()
-        val query = firestore.collection("days")
-                .orderBy("serialNumber", Query.Direction.ASCENDING)
+        val query = firestore.collection(FIREBASE_DAYS_COLLECTION)
+                .orderBy(FIREBASE_SERIAL_NUMBER_FIELD, Query.Direction.ASCENDING)
         val options = FirestoreRecyclerOptions.Builder<Day>()
                 .setQuery(query, Day::class.java)
                 .build()
@@ -63,10 +63,16 @@ class DiaryFragment : Fragment(), SubjectClickListener {
 
     override fun openFragment(id: Int, name: String, homework: String, classroom: String,
                               teacher: String) {
-        val bundle = bundleOf("subject" to Subject(name, homework, teacher, classroom))
+        val bundle = bundleOf(ARG_SUBJECT to Subject(name, homework, teacher, classroom))
         activity?.let {
             val navController = Navigation.findNavController(it, R.id.nav_host_fragment)
             navController.navigate(id, bundle)
         }
+    }
+
+    companion object {
+        private const val FIREBASE_SERIAL_NUMBER_FIELD = "serialNumber"
+        private const val FIREBASE_DAYS_COLLECTION = "days"
+        private const val ARG_SUBJECT = "subject"
     }
 }
