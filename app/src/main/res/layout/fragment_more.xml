@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:ignore="RtlHardcoded,RtlSymmetry, ContentDescription"
-    tools:context=".ui.bottomnavigation.mainfragments.MoreFragment">
+    tools:context=".ui.main.more.MoreFragment">
 
     <ScrollView
         android:layout_width="match_parent"

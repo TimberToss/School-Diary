@@ -7,50 +7,50 @@
 
     <fragment
         android:id="@+id/navigation_news"
-        android:name="com.example.schooldiary.ui.bottomnavigation.mainfragments.NewsFragment"
+        android:name="com.example.schooldiary.ui.main.news.NewsFragment"
         android:label="News"
         tools:layout="@layout/fragment_news" />
     <fragment
         android:id="@+id/navigation_diary"
-        android:name="com.example.schooldiary.ui.bottomnavigation.mainfragments.DiaryFragment"
+        android:name="com.example.schooldiary.ui.main.diary.DiaryFragment"
         android:label="Diary"
         tools:layout="@layout/fragment_diary" />
     <fragment
         android:id="@+id/navigation_marks"
-        android:name="com.example.schooldiary.ui.bottomnavigation.mainfragments.MarksFragment"
+        android:name="com.example.schooldiary.ui.main.marks.MarksFragment"
         android:label="Marks"
         tools:layout="@layout/fragment_marks" />
     <fragment
         android:id="@+id/navigation_call_schedule"
-        android:name="com.example.schooldiary.ui.bottomnavigation.more.CallScheduleFragment"
+        android:name="com.example.schooldiary.ui.main.rings.CallScheduleFragment"
         android:label="School call schedule"
         tools:layout="@layout/fragment_call_schedule" />
     <fragment
         android:id="@+id/navigation_holidays_schedule"
-        android:name="com.example.schooldiary.ui.bottomnavigation.more.HolidaysScheduleFragment"
+        android:name="com.example.schooldiary.ui.main.holidays.HolidaysScheduleFragment"
         android:label="Holidays schedule"
         tools:layout="@layout/fragment_holidays_schedule" />
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.schooldiary.ui.bottomnavigation.more.SettingsFragment"
+        android:name="com.example.schooldiary.ui.main.settings.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/navigation_final_grades"
-        android:name="com.example.schooldiary.ui.bottomnavigation.more.FinalGradesFragment"
+        android:name="com.example.schooldiary.ui.main.finalgrades.FinalGradesFragment"
         android:label="Final grades"
         tools:layout="@layout/fragment_final_grades" />
     <fragment
         android:id="@+id/navigation_more"
-        android:name="com.example.schooldiary.ui.bottomnavigation.mainfragments.MoreFragment"
+        android:name="com.example.schooldiary.ui.main.more.MoreFragment"
         android:label="More"
         tools:layout="@layout/fragment_more" />
     <fragment
         android:id="@+id/show_news_fragment"
-        android:name="com.example.schooldiary.ui.bottomnavigation.ShowNewsFragment"
+        android:name="com.example.schooldiary.ui.main.shownews.ShowNewsFragment"
         tools:layout="@layout/fragment_show_news" />
     <fragment
         android:id="@+id/show_subject_fragment"
-        android:name="com.example.schooldiary.ui.bottomnavigation.ShowSubjectFragment"
+        android:name="com.example.schooldiary.ui.main.showsubject.ShowSubjectFragment"
         tools:layout="@layout/fragment_show_subject" />
 </navigation>
