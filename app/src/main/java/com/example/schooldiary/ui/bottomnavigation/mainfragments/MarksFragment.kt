@@ -28,8 +28,7 @@ class MarksFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val firestore = FirebaseFirestore.getInstance()
-        val query = firestore.collection("subjects")
-                .orderBy("name", Query.Direction.ASCENDING)
+        val query = firestore.collection(FIREBASE_SUBJECTS_COLLECTION)
         val options = FirestoreRecyclerOptions.Builder<Marks>()
                 .setQuery(query, Marks::class.java)
                 .build()
@@ -54,5 +53,9 @@ class MarksFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        private const val FIREBASE_SUBJECTS_COLLECTION = "subjects"
     }
 }

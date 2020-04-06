@@ -32,8 +32,8 @@ class NewsFragment : Fragment(), NewsClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val firestore = FirebaseFirestore.getInstance()
-        val query = firestore.collection("news")
-                .orderBy("serialNumber", Query.Direction.DESCENDING)
+        val query = firestore.collection(FIREBASE_NEWS_COLLECTION)
+                .orderBy(FIREBASE_SERIAL_NUMBER_FIELD, Query.Direction.DESCENDING)
         val options = FirestoreRecyclerOptions.Builder<News>()
                 .setQuery(query, News::class.java)
                 .build()
@@ -61,10 +61,16 @@ class NewsFragment : Fragment(), NewsClickListener {
     }
 
     override fun openFragment(id: Int, photo: String, time: String, title: String, text: String) {
-        val bundle = bundleOf("news" to News(photo, time, title, text))
+        val bundle = bundleOf(ARG_NEWS to News(photo, time, title, text))
         activity?.let {
             val navController = Navigation.findNavController(it, R.id.nav_host_fragment)
             navController.navigate(id, bundle)
         }
+    }
+
+    companion object {
+        private const val FIREBASE_SERIAL_NUMBER_FIELD = "serialNumber"
+        private const val FIREBASE_NEWS_COLLECTION = "news"
+        private const val ARG_NEWS = "news"
     }
 }

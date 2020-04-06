@@ -28,8 +28,8 @@ class HolidaysScheduleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val firestore = FirebaseFirestore.getInstance()
-        val query = firestore.collection("holidays")
-                .orderBy("serialNumber")
+        val query = firestore.collection(FIREBASE_HOLIDAYS_COLLECTION)
+                .orderBy(FIREBASE_SERIAL_NUMBER_FIELD)
         val options = FirestoreRecyclerOptions.Builder<Dates>()
                 .setQuery(query, Dates::class.java)
                 .build()
@@ -54,5 +54,10 @@ class HolidaysScheduleFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        private const val FIREBASE_SERIAL_NUMBER_FIELD = "serialNumber"
+        private const val FIREBASE_HOLIDAYS_COLLECTION = "holidays"
     }
 }
