@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentHolidaysScheduleBinding
 import com.example.schooldiary.model.dates.Dates
+import com.example.schooldiary.ui.adapters.holidays.HolidaysFragmentAdapter
 import com.example.schooldiary.ui.adapters.holidays.HolidaysHolder
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -33,19 +34,7 @@ class HolidaysScheduleFragment : Fragment() {
                 .setQuery(query, Dates::class.java)
                 .build()
 
-        adapter = object : FirestoreRecyclerAdapter<Dates, HolidaysHolder>(options) {
-
-            override fun onCreateViewHolder(group: ViewGroup, i: Int): HolidaysHolder {
-                val itemView = LayoutInflater.from(group.context)
-                        .inflate(R.layout.item_holidays, group, false)
-                return HolidaysHolder(itemView)
-            }
-
-            public override fun onBindViewHolder(holder: HolidaysHolder, position: Int, model: Dates) {
-                holder.bindData(model)
-            }
-        }
-
+        adapter = HolidaysFragmentAdapter(options)
         binding.recyclerView.let {
             it.adapter = adapter
             it.layoutManager = LinearLayoutManager(activity)

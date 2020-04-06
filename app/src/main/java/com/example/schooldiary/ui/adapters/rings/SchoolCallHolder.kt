@@ -9,7 +9,7 @@ class SchoolCallHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindData(dates: Dates) {
         val binding = ItemSchoolCallBinding.bind(itemView)
-        binding.name.text = dates.name ?: " "
-        binding.time.text = dates.time ?: " "
+        binding.name.text = dates.name
+        binding.time.text = dates.time
     }
 }

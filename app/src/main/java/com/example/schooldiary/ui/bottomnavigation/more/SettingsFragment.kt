@@ -22,12 +22,13 @@ class SettingsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val activity: Activity? = activity
         binding.button.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(activity, RegistrationActivity::class.java)
-            startActivity(intent)
-            activity!!.finish()
+            activity?.let {
+                val intent = Intent(it, RegistrationActivity::class.java)
+                startActivity(intent)
+                it.finish()
+            }
         }
     }
 

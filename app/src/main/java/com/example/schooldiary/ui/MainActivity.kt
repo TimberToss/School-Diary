@@ -25,8 +25,9 @@ class MainActivity : AppCompatActivity() {
 
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration.Builder(
-                R.id.navigation_news, R.id.navigation_diary, R.id.navigation_marks, R.id.navigation_more,
-                R.id.navigation_call_schedule, R.id.navigation_holidays_schedule, R.id.navigation_final_grades,
+                R.id.navigation_news, R.id.navigation_diary, R.id.navigation_marks,
+                R.id.navigation_more, R.id.navigation_call_schedule,
+                R.id.navigation_holidays_schedule, R.id.navigation_final_grades,
                 R.id.show_news_fragment, R.id.show_news_fragment, R.id.navigation_settings)
                 .build()
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)

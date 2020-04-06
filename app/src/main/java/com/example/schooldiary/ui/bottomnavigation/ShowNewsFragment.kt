@@ -26,11 +26,9 @@ class ShowNewsFragment : Fragment() {
         }
 
         news?.let {
-            if (it.photo != UNKNOWN) {
-                Glide.with(binding.photo.context)
-                        .load(it.photo)
-                        .into(binding.photo)
-            }
+            Glide.with(binding.photo.context)
+                    .load(it.photo)
+                    .into(binding.photo)
             binding.time.text = it.time
             binding.title.text = it.title
             binding.text.text = it.text
@@ -43,7 +41,6 @@ class ShowNewsFragment : Fragment() {
     }
 
     companion object {
-        private const val UNKNOWN = "Unknown"
         private const val ARGS_NEWS = "news"
     }
 }

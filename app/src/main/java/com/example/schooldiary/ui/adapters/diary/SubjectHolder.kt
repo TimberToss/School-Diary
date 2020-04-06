@@ -6,15 +6,17 @@ import com.example.schooldiary.R
 import com.example.schooldiary.databinding.ItemSubjectBinding
 import com.example.schooldiary.model.subject.Subject
 
-class SubjectHolder(itemView: View, private val listener: SubjectClickListener) : RecyclerView.ViewHolder(itemView) {
+class SubjectHolder(itemView: View, private val listener: SubjectClickListener)
+    : RecyclerView.ViewHolder(itemView) {
 
     interface SubjectClickListener {
-        fun openFragment(id: Int, name: String, homework: String, classroom: String, teacher: String)
+        fun openFragment(id: Int, name: String, homework: String, classroom: String,
+                         teacher: String)
     }
 
     fun bindData(subject: Subject) {
         val binding = ItemSubjectBinding.bind(itemView)
-        binding.startTime.text = calculateTime(subject.serialNumber ?: 0)
+        binding.startTime.text = calculateTime(subject.serialNumber)
         binding.name.text = subject.name
         // Firebase still doesn't have the classroom number and teacher's name
         binding.classroom.text = "557"
