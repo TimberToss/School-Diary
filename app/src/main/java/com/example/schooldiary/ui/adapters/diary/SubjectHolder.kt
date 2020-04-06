@@ -6,10 +6,12 @@ import com.example.schooldiary.R
 import com.example.schooldiary.databinding.ItemSubjectBinding
 import com.example.schooldiary.model.subject.Subject
 
-class SubjectHolder(itemView: View, private val listener: SubjectClickListener) : RecyclerView.ViewHolder(itemView) {
+class SubjectHolder(itemView: View, private val listener: SubjectClickListener)
+    : RecyclerView.ViewHolder(itemView) {
 
     interface SubjectClickListener {
-        fun openFragment(id: Int, name: String, homework: String, classroom: String, teacher: String)
+        fun openFragment(id: Int, name: String, homework: String, classroom: String,
+                         teacher: String)
     }
 
     fun bindData(subject: Subject) {

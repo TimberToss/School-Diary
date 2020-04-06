@@ -31,7 +31,9 @@ class LogInFragment : Fragment() {
         updateUI(currentUser)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
         _binding = FragmentLogInBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -109,11 +111,12 @@ class LogInFragment : Fragment() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            val activity: Activity? = activity
-            val intent = Intent(activity, MainActivity::class.java)
-            Log.d(TAG, "updateUI")
-            startActivity(intent)
-            activity!!.finish()
+            activity?.let {
+                val intent = Intent(it, MainActivity::class.java)
+                Log.d(TAG, "updateUI")
+                startActivity(intent)
+                it.finish()
+            }
         }
     }
 

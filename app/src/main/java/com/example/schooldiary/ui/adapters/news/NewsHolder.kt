@@ -7,7 +7,8 @@ import com.example.schooldiary.R
 import com.example.schooldiary.databinding.ItemNewsBinding
 import com.example.schooldiary.model.news.News
 
-class NewsHolder(itemView: View, private val listener: NewsClickListener) : RecyclerView.ViewHolder(itemView) {
+class NewsHolder(itemView: View, private val listener: NewsClickListener)
+    : RecyclerView.ViewHolder(itemView) {
 
     interface NewsClickListener {
         fun openFragment(id: Int, photo: String, time: String, title: String, text: String)

@@ -9,7 +9,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 
-class NewsFragmentAdapter(options: FirestoreRecyclerOptions<News>, private val listener: NewsClickListener)
+class NewsFragmentAdapter(options: FirestoreRecyclerOptions<News>,
+                          private val listener: NewsClickListener)
     : FirestoreRecyclerAdapter<News, NewsHolder>(options) {
 
     override fun onCreateViewHolder(group: ViewGroup, i: Int): NewsHolder {

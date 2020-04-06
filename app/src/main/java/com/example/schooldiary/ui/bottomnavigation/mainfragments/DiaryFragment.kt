@@ -61,7 +61,8 @@ class DiaryFragment : Fragment(), SubjectClickListener {
         _binding = null
     }
 
-    override fun openFragment(id: Int, name: String, homework: String, classroom: String, teacher: String) {
+    override fun openFragment(id: Int, name: String, homework: String, classroom: String,
+                              teacher: String) {
         val bundle = bundleOf("subject" to Subject(name, homework, teacher, classroom))
         activity?.let {
             val navController = Navigation.findNavController(it, R.id.nav_host_fragment)
