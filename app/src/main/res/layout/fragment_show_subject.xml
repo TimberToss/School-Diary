@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryLight"
     android:paddingBottom="56dp"
-    tools:context=".ui.bottomnavigation.ShowSubjectFragment">
+    tools:context=".ui.main.showsubject.ShowSubjectFragment">
 
     <ScrollView
         android:layout_width="match_parent"
