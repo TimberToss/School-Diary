@@ -16,6 +16,7 @@ class MarksFragment : Fragment() {
     private var _binding: FragmentMarksBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: FirestoreRecyclerAdapter<Marks, MarksHolder>
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         _binding = FragmentMarksBinding.inflate(inflater, container, false)
