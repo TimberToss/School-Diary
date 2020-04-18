@@ -1,109 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.main.finalgrades.FinalGradesFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:padding="10dp"
-            android:textSize="15sp"
-            android:textColor="@color/black"
-            android:hint="@string/subject" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/grayDark"/>
-
-        <TextView
-            android:id="@+id/first_mark"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:hint="@string/single_mark_example" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/grayDark"/>
-
-        <TextView
-            android:id="@+id/second_mark"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:hint="@string/single_mark_example" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/grayDark"/>
-
-        <TextView
-            android:id="@+id/third_mark"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:hint="@string/single_mark_example" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/grayDark"/>
-
-        <TextView
-            android:id="@+id/forth_mark"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:hint="@string/single_mark_example" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/grayDark"/>
-
-        <TextView
-            android:id="@+id/fifth_mark"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:hint="@string/single_mark_example" />
-
-    </LinearLayout>
+        android:hint="@string/subject"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+        app:layout_constraintEnd_toStartOf="@id/first_divider"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grayDark"/>
+        android:id="@+id/first_divider"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/grayDark"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+        app:layout_constraintEnd_toStartOf="@id/first_mark"
+        app:layout_constraintStart_toEndOf="@id/name"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/first_mark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:hint="@string/single_mark_example"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+        app:layout_constraintEnd_toStartOf="@id/second_divider"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/first_divider"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/second_divider"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/grayDark"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+        app:layout_constraintEnd_toStartOf="@id/second_mark"
+        app:layout_constraintStart_toEndOf="@id/first_mark"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/second_mark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:hint="@string/single_mark_example"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+        app:layout_constraintEnd_toStartOf="@id/third_divider"
+        app:layout_constraintHorizontal_weight="1"
+
+        app:layout_constraintStart_toEndOf="@id/second_divider"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/third_divider"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/grayDark"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+        app:layout_constraintEnd_toStartOf="@id/third_mark"
+        app:layout_constraintStart_toEndOf="@id/second_mark"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/third_mark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:hint="@string/single_mark_example"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+        app:layout_constraintEnd_toStartOf="@id/forth_divider"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/third_divider"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/forth_divider"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/grayDark"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+        app:layout_constraintEnd_toStartOf="@id/forth_mark"
+        app:layout_constraintStart_toEndOf="@id/third_mark"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/forth_mark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:hint="@string/single_mark_example"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+        app:layout_constraintEnd_toStartOf="@id/fifth_divider"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/forth_divider"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/fifth_divider"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/grayDark"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+        app:layout_constraintEnd_toStartOf="@id/fifth_mark"
+        app:layout_constraintStart_toEndOf="@id/forth_mark"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fifth_mark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:hint="@string/single_mark_example"
+        android:paddingRight="10dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toEndOf="@id/fifth_divider"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+    <View
+        android:id="@+id/horizontal_divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/grayDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
