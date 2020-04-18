@@ -15,7 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 class MarksFragment : Fragment() {
     private var _binding: FragmentMarksBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: FirestoreRecyclerAdapter<Marks, MarksHolder>
+    private lateinit var marksFragmentAdapter: FirestoreRecyclerAdapter<Marks, MarksHolder>
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         _binding = FragmentMarksBinding.inflate(inflater, container, false)
@@ -29,21 +30,22 @@ class MarksFragment : Fragment() {
                 .setQuery(query, Marks::class.java)
                 .build()
 
-        adapter = MarksFragmentAdapter(options)
-        binding.recyclerView.let {
-            it.adapter = adapter
-            it.layoutManager = LinearLayoutManager(activity)
+        marksFragmentAdapter = MarksFragmentAdapter(options)
+
+        with(binding.recyclerView) {
+            adapter = marksFragmentAdapter
+            layoutManager = LinearLayoutManager(activity)
         }
     }
 
     override fun onStart() {
         super.onStart()
-        adapter.startListening()
+        marksFragmentAdapter.startListening()
     }
 
     override fun onStop() {
         super.onStop()
-        adapter.stopListening()
+        marksFragmentAdapter.stopListening()
     }
 
     override fun onDestroyView() {

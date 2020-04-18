@@ -51,11 +51,11 @@ class DayHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private fun inflateAdapter(snapshot: QuerySnapshot, recyclerView: RecyclerView,
                                listener: SubjectHolder.SubjectClickListener) {
         val subjects: List<Subject> = snapshot.toObjects(Subject::class.java)
-        val adapter = SubjectAdapter(subjects, listener)
-        recyclerView.let {
-            it.adapter = adapter
-            it.layoutManager = LinearLayoutManager(recyclerView.context)
-            it.isNestedScrollingEnabled = false
+        val subjectAdapter = SubjectAdapter(subjects, listener)
+        with(recyclerView) {
+            adapter = subjectAdapter
+            layoutManager = LinearLayoutManager(recyclerView.context)
+            isNestedScrollingEnabled = false
         }
     }
 }

@@ -20,7 +20,7 @@ import com.google.firebase.firestore.Query
 class NewsFragment : Fragment(), NewsClickListener {
     private var _binding: FragmentNewsBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: FirestoreRecyclerAdapter<News, NewsHolder>
+    private lateinit var newsFragmentAdapter: FirestoreRecyclerAdapter<News, NewsHolder>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -35,22 +35,22 @@ class NewsFragment : Fragment(), NewsClickListener {
         val options = FirestoreRecyclerOptions.Builder<News>()
                 .setQuery(query, News::class.java)
                 .build()
-        adapter = NewsFragmentAdapter(options, this)
+        newsFragmentAdapter = NewsFragmentAdapter(options, this)
 
-        binding.recyclerView.let {
-            it.adapter = adapter
-            it.layoutManager = LinearLayoutManager(activity)
+        with(binding.recyclerView) {
+            adapter = newsFragmentAdapter
+            layoutManager = LinearLayoutManager(activity)
         }
     }
 
     override fun onStart() {
         super.onStart()
-        adapter.startListening()
+        newsFragmentAdapter.startListening()
     }
 
     override fun onStop() {
         super.onStop()
-        adapter.stopListening()
+        newsFragmentAdapter.stopListening()
     }
 
     override fun onDestroyView() {

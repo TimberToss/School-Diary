@@ -17,10 +17,8 @@ class SubjectAdapter(private val subjects: List<Subject>,
     }
 
     override fun onBindViewHolder(holder: SubjectHolder, position: Int) {
-        holder.bindData(subjects[position])
+        holder.bindData(subjects[holder.adapterPosition])
     }
 
-    override fun getItemCount(): Int {
-        return subjects.size
-    }
+    override fun getItemCount() = subjects.size
 }

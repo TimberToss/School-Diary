@@ -15,7 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class HolidaysScheduleFragment : Fragment() {
     private var _binding: FragmentHolidaysScheduleBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: FirestoreRecyclerAdapter<Dates, HolidaysHolder>
+    private lateinit var holidaysFragmentAdapter: FirestoreRecyclerAdapter<Dates, HolidaysHolder>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -31,21 +31,22 @@ class HolidaysScheduleFragment : Fragment() {
                 .setQuery(query, Dates::class.java)
                 .build()
 
-        adapter = HolidaysFragmentAdapter(options)
-        binding.recyclerView.let {
-            it.adapter = adapter
-            it.layoutManager = LinearLayoutManager(activity)
+        holidaysFragmentAdapter = HolidaysFragmentAdapter(options)
+
+        with(binding.recyclerView) {
+            adapter = holidaysFragmentAdapter
+            layoutManager = LinearLayoutManager(activity)
         }
     }
 
     override fun onStart() {
         super.onStart()
-        adapter.startListening()
+        holidaysFragmentAdapter.startListening()
     }
 
     override fun onStop() {
         super.onStop()
-        adapter.stopListening()
+        holidaysFragmentAdapter.stopListening()
     }
 
     override fun onDestroyView() {

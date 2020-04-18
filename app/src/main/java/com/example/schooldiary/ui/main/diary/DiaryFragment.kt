@@ -21,7 +21,7 @@ import com.google.firebase.firestore.Query
 class DiaryFragment : Fragment(), SubjectClickListener {
     private var _binding: FragmentDiaryBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: FirestoreRecyclerAdapter<Day, DayHolder>
+    private lateinit var diaryFragmentAdapter: FirestoreRecyclerAdapter<Day, DayHolder>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -36,22 +36,22 @@ class DiaryFragment : Fragment(), SubjectClickListener {
         val options = FirestoreRecyclerOptions.Builder<Day>()
                 .setQuery(query, Day::class.java)
                 .build()
-        adapter = DiaryFragmentAdapter(options, this)
+        diaryFragmentAdapter = DiaryFragmentAdapter(options, this)
 
-        binding.recyclerView.let {
-            it.adapter = adapter
-            it.layoutManager = LinearLayoutManager(activity)
+        with(binding.recyclerView) {
+            adapter = diaryFragmentAdapter
+            layoutManager = LinearLayoutManager(activity)
         }
     }
 
     override fun onStart() {
         super.onStart()
-        adapter.startListening()
+        diaryFragmentAdapter.startListening()
     }
 
     override fun onStop() {
         super.onStop()
-        adapter.stopListening()
+        diaryFragmentAdapter.stopListening()
     }
 
     override fun onDestroyView() {

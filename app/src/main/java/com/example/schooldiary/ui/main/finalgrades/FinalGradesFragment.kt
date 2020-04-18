@@ -16,7 +16,8 @@ import com.google.firebase.firestore.Query
 class FinalGradesFragment : Fragment() {
     private var _binding: FragmentFinalGradesBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: FirestoreRecyclerAdapter<Marks, FinalGradesHolder>
+    private lateinit var finalGradesFragmentAdapter:
+            FirestoreRecyclerAdapter<Marks, FinalGradesHolder>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -31,21 +32,22 @@ class FinalGradesFragment : Fragment() {
                 .setQuery(query, Marks::class.java)
                 .build()
 
-        adapter = FinalGradesFragmentAdapter(options)
-        binding.recyclerView.let {
-            it.adapter = adapter
-            it.layoutManager = LinearLayoutManager(activity)
+        finalGradesFragmentAdapter = FinalGradesFragmentAdapter(options)
+
+        with(binding.recyclerView) {
+            adapter = finalGradesFragmentAdapter
+            layoutManager = LinearLayoutManager(activity)
         }
     }
 
     override fun onStart() {
         super.onStart()
-        adapter.startListening()
+        finalGradesFragmentAdapter.startListening()
     }
 
     override fun onStop() {
         super.onStop()
-        adapter.stopListening()
+        finalGradesFragmentAdapter.stopListening()
     }
 
     override fun onDestroyView() {

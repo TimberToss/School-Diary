@@ -29,17 +29,16 @@ class SubjectHolder(itemView: View, private val listener: SubjectClickListener)
         }
     }
 
-    private fun calculateTime(number: Int): String {
-        return when (number) {
-            1 -> "08:00"
-            2 -> "08:55"
-            3 -> "09:50"
-            4 -> "10:55"
-            5 -> "12:00"
-            6 -> "13:00"
-            7 -> "13:55"
-            8 -> "14:50"
-            else -> "00:00"
-        }
-    }
+    private fun calculateTime(number: Int) =
+            when (number) {
+                1 -> "08:00"
+                2 -> "08:55"
+                3 -> "09:50"
+                4 -> "10:55"
+                5 -> "12:00"
+                6 -> "13:00"
+                7 -> "13:55"
+                8 -> "14:50"
+                else -> "00:00"
+            }
 }

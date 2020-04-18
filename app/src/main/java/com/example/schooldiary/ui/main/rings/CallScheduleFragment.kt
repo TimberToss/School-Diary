@@ -15,7 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 class CallScheduleFragment : Fragment() {
     private var _binding: FragmentCallScheduleBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: FirestoreRecyclerAdapter<Dates, SchoolCallHolder>
+    private lateinit var callScheduleFragmentAdapter:
+            FirestoreRecyclerAdapter<Dates, SchoolCallHolder>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -31,21 +32,21 @@ class CallScheduleFragment : Fragment() {
                 .setQuery(query, Dates::class.java)
                 .build()
 
-        adapter = CallScheduleFragmentAdapter(options)
-        binding.recyclerView.let {
-            it.adapter = adapter
-            it.layoutManager = LinearLayoutManager(activity)
+        callScheduleFragmentAdapter = CallScheduleFragmentAdapter(options)
+        with(binding.recyclerView) {
+            adapter = callScheduleFragmentAdapter
+            layoutManager = LinearLayoutManager(activity)
         }
     }
 
     override fun onStart() {
         super.onStart()
-        adapter.startListening()
+        callScheduleFragmentAdapter.startListening()
     }
 
     override fun onStop() {
         super.onStop()
-        adapter.stopListening()
+        callScheduleFragmentAdapter.stopListening()
     }
 
     override fun onDestroyView() {

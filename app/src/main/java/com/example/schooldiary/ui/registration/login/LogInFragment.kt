@@ -83,23 +83,23 @@ class LogInFragment : Fragment() {
 
     private fun validateForm(): Boolean {
         var valid = true
-        binding.emailEditText.let {
-            val email = it.text.toString()
+        with(binding.emailEditText) {
+            val email = text.toString()
             if (TextUtils.isEmpty(email)) {
-                it.error = it.context.resources.getString(R.string.required)
+                error = context.resources.getString(R.string.required)
                 valid = false
             } else {
-                it.error = null
+                error = null
             }
         }
 
-        binding.passwordEditText.let {
-            val password = it.text.toString()
+        with(binding.passwordEditText) {
+            val password = text.toString()
             if (TextUtils.isEmpty(password)) {
-                it.error = it.context.resources.getString(R.string.required)
+                error = context.resources.getString(R.string.required)
                 valid = false
             } else {
-                it.error = null
+                error = null
             }
         }
         return valid
