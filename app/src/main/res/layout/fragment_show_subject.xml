@@ -1,272 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryLight"
-    tools:context=".ui.main.showsubject.ShowSubjectFragment">
+    tools:context=".ui.main.showsubject.ShowSubjectFragment"
+    tools:ignore="RtlHardcoded,RtlSymmetry,ContentDescription">
 
-    <ScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/layout_rounded_background"
+        android:paddingBottom="50dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <TextView
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="10dp"
-            android:paddingBottom="50dp"
-            android:background="@drawable/layout_rounded_background">
+            android:paddingLeft="20dp"
+            android:text="@string/subject"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1" />
 
-            <TextView
-                android:id="@+id/name"
+        <LinearLayout
+            android:id="@+id/theme_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintVertical_bias="0.15">
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="@string/subject"
-                android:textColor="@color/colorPrimary"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.1" />
+                android:layout_height="1dp"
+                android:background="@color/grayDark" />
 
             <LinearLayout
-                android:id="@+id/theme_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                app:layout_constraintVertical_bias="0.15"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grayDark"/>
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:paddingHorizontal="5dp"
+                    android:src="@drawable/open_book_24dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:background="@color/grayLight"
+                    android:orientation="vertical"
+                    android:paddingVertical="10dp"
+                    android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:paddingHorizontal="5dp"
-                        android:background="@color/colorPrimary"
-                        android:src="@drawable/open_book_24dp"/>
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/grayLight"
-                        android:paddingLeft="10dp"
-                        android:paddingVertical="10dp"
-                        android:orientation="vertical">
+                        android:text="@string/theme"
+                        android:textColor="@color/colorPrimary" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/theme"
-                            android:textColor="@color/colorPrimary"/>
-
-                        <TextView
-                            android:id="@+id/subject_theme"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="5dp"
-                            android:paddingRight="10dp"
-                            android:textColor="@color/black"
-                            android:text="@string/subject" />
-
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/subject_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/subject"
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grayDark"/>
-
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grayDark" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/homework_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/theme_layout"
+            app:layout_constraintVertical_bias="0.0">
+
             <LinearLayout
-                android:id="@+id/homework_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/theme_layout"
-                app:layout_constraintVertical_bias="0.0"
-                android:orientation="vertical">
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorAccent"
+                    android:paddingHorizontal="5dp"
+                    android:src="@drawable/diary_24dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:background="@color/grayLight"
+                    android:orientation="vertical"
+                    android:paddingVertical="10dp"
+                    android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:paddingHorizontal="5dp"
-                        android:background="@color/colorAccent"
-                        android:src="@drawable/diary_24dp"/>
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/grayLight"
-                        android:paddingLeft="10dp"
-                        android:paddingVertical="10dp"
-                        android:orientation="vertical">
+                        android:text="@string/homework"
+                        android:textColor="@color/colorAccent" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/homework"
-                            android:textColor="@color/colorAccent"/>
-
-                        <TextView
-                            android:id="@+id/homework"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="5dp"
-                            android:paddingRight="10dp"
-                            android:textColor="@color/black"
-                            android:text="@string/subject" />
-
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/homework"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/subject"
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grayDark"/>
-
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grayDark" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/teacher_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homework_layout"
+            app:layout_constraintVertical_bias="0.0">
+
             <LinearLayout
-                android:id="@+id/teacher_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/homework_layout"
-                app:layout_constraintVertical_bias="0.0"
-                android:orientation="vertical">
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:paddingHorizontal="5dp"
+                    android:src="@drawable/marks_24dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:background="@color/grayLight"
+                    android:orientation="vertical"
+                    android:paddingVertical="10dp"
+                    android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:paddingHorizontal="5dp"
-                        android:background="@color/colorPrimaryDark"
-                        android:src="@drawable/marks_24dp"/>
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/grayLight"
-                        android:paddingLeft="10dp"
-                        android:paddingVertical="10dp"
-                        android:orientation="vertical">
+                        android:text="@string/teacher"
+                        android:textColor="@color/colorPrimaryDark" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/teacher"
-                            android:textColor="@color/colorPrimaryDark"/>
-
-                        <TextView
-                            android:id="@+id/teacher"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="5dp"
-                            android:textColor="@color/black"
-                            android:text="@string/subject"/>
-
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/teacher"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="@string/subject"
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grayDark"/>
-
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grayDark" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/classroom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/teacher_layout"
+            app:layout_constraintVertical_bias="0.0">
+
             <LinearLayout
-                android:id="@+id/classroom_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_layout"
-                app:layout_constraintVertical_bias="0.0"
-                android:orientation="vertical">
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple"
+                    android:paddingHorizontal="5dp"
+                    android:src="@drawable/place_24dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:background="@color/grayLight"
+                    android:orientation="vertical"
+                    android:paddingVertical="10dp"
+                    android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:paddingHorizontal="5dp"
-                        android:background="@color/purple"
-                        android:src="@drawable/place_24dp"/>
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/grayLight"
-                        android:paddingLeft="10dp"
-                        android:paddingVertical="10dp"
-                        android:orientation="vertical">
+                        android:text="@string/classroom"
+                        android:textColor="@color/purple" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/classroom"
-                            android:textColor="@color/purple"/>
-
-                        <TextView
-                            android:id="@+id/classroom"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="5dp"
-                            android:textColor="@color/black"
-                            android:text="@string/subject" />
-
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/classroom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="@string/subject"
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grayDark"/>
-
             </LinearLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grayDark" />
 
-    </ScrollView>
+        </LinearLayout>
 
-</FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
