@@ -23,8 +23,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:textColor="@color/grayDark"
-            android:textSize="15sp"
-            tools:ignore="RtlHardcoded" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/title"

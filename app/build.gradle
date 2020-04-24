@@ -31,7 +31,9 @@ android {
     androidExtensions {
         experimental = true
     }
-
+    lintOptions {
+        disable 'RtlHardcoded', 'RtlSymmetry'
+    }
 }
 
 dependencies {

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -11,9 +10,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="start"
+        android:hint="@string/subject"
         android:paddingVertical="10dp"
         android:paddingLeft="10dp"
-        android:hint="@string/subject"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
@@ -21,8 +20,7 @@
         app:layout_constraintHorizontal_weight="3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:ignore="RtlHardcoded,RtlSymmetry" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <View
         android:id="@+id/first_divider"
@@ -41,8 +39,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:paddingVertical="10dp"
         android:hint="@string/example_marks"
+        android:paddingVertical="10dp"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
@@ -76,8 +74,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toEndOf="@id/second_divider"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlHardcoded,RtlSymmetry" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <View
