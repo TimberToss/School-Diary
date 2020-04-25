@@ -11,14 +11,15 @@
         android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="left"
         android:hint="@string/subject"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
-        app:layout_constraintEnd_toStartOf="@id/first_divider"
-        app:layout_constraintHorizontal_weight="4"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/first_divider"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
@@ -26,11 +27,10 @@
         android:id="@+id/first_divider"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="10dp"
         android:background="@color/grayDark"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
-        app:layout_constraintEnd_toStartOf="@id/first_mark"
-        app:layout_constraintStart_toEndOf="@id/name"
+        app:layout_constraintLeft_toRightOf="@id/name"
+        app:layout_constraintRight_toLeftOf="@id/first_mark"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -42,20 +42,19 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
-        app:layout_constraintEnd_toStartOf="@id/second_divider"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/first_divider"
+        app:layout_constraintLeft_toRightOf="@id/first_divider"
+        app:layout_constraintRight_toLeftOf="@id/second_divider"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/second_divider"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="10dp"
         android:background="@color/grayDark"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
-        app:layout_constraintEnd_toStartOf="@id/second_mark"
-        app:layout_constraintStart_toEndOf="@id/first_mark"
+        app:layout_constraintLeft_toRightOf="@id/first_mark"
+        app:layout_constraintRight_toLeftOf="@id/second_mark"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -67,21 +66,20 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
-        app:layout_constraintEnd_toStartOf="@id/third_divider"
         app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/second_divider"
 
-        app:layout_constraintStart_toEndOf="@id/second_divider"
+        app:layout_constraintRight_toLeftOf="@id/third_divider"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/third_divider"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="10dp"
         android:background="@color/grayDark"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
-        app:layout_constraintEnd_toStartOf="@id/third_mark"
-        app:layout_constraintStart_toEndOf="@id/second_mark"
+        app:layout_constraintLeft_toRightOf="@id/second_mark"
+        app:layout_constraintRight_toLeftOf="@id/third_mark"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -93,20 +91,19 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
-        app:layout_constraintEnd_toStartOf="@id/forth_divider"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/third_divider"
+        app:layout_constraintLeft_toRightOf="@id/third_divider"
+        app:layout_constraintRight_toLeftOf="@id/forth_divider"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/forth_divider"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="10dp"
         android:background="@color/grayDark"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
-        app:layout_constraintEnd_toStartOf="@id/forth_mark"
-        app:layout_constraintStart_toEndOf="@id/third_mark"
+        app:layout_constraintLeft_toRightOf="@id/third_mark"
+        app:layout_constraintRight_toLeftOf="@id/forth_mark"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -118,20 +115,19 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
-        app:layout_constraintEnd_toStartOf="@id/fifth_divider"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/forth_divider"
+        app:layout_constraintLeft_toRightOf="@id/forth_divider"
+        app:layout_constraintRight_toLeftOf="@id/fifth_divider"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/fifth_divider"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="10dp"
         android:background="@color/grayDark"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
-        app:layout_constraintEnd_toStartOf="@id/fifth_mark"
-        app:layout_constraintStart_toEndOf="@id/forth_mark"
+        app:layout_constraintLeft_toRightOf="@id/forth_mark"
+        app:layout_constraintRight_toLeftOf="@id/fifth_mark"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -140,23 +136,21 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:hint="@string/single_mark_example"
-        android:paddingRight="10dp"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintStart_toEndOf="@id/fifth_divider"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlHardcoded,RtlSymmetry" />
+        app:layout_constraintLeft_toRightOf="@id/fifth_divider"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/horizontal_divider"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="@color/grayDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
