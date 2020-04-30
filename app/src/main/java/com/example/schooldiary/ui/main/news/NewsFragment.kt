@@ -6,12 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.R
 import com.example.schooldiary.databinding.FragmentNewsBinding
+import com.example.schooldiary.model.dates.Dates
 import com.example.schooldiary.model.news.News
 import com.example.schooldiary.ui.main.news.NewsHolder.NewsClickListener
+import com.example.schooldiary.viewmodel.news.NewsViewModel
+import com.example.schooldiary.viewmodel.rings.CallScheduleViewModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
@@ -29,12 +33,11 @@ class NewsFragment : Fragment(), NewsClickListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val firestore = FirebaseFirestore.getInstance()
-        val query = firestore.collection(FIREBASE_NEWS_COLLECTION)
-                .orderBy(FIREBASE_SERIAL_NUMBER_FIELD, Query.Direction.DESCENDING)
-        val options = FirestoreRecyclerOptions.Builder<News>()
-                .setQuery(query, News::class.java)
-                .build()
+        val viewModel: NewsViewModel by viewModels()
+        val options = viewModel.getFirestoreRecyclerOptionsWithOrder<News>(
+                collectionName = FIREBASE_NEWS_COLLECTION,
+                order = FIREBASE_SERIAL_NUMBER_FIELD,
+                queryDirection = Query.Direction.DESCENDING)
         newsFragmentAdapter = NewsFragmentAdapter(options, this)
 
         with(binding.recyclerView) {

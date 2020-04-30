@@ -11,7 +11,6 @@ import com.example.schooldiary.model.subject.Subject
 class ShowSubjectFragment : Fragment() {
     private var _binding: FragmentShowSubjectBinding? = null
     private val binding get() = _binding!!
-    private var subject: Subject? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -20,6 +19,8 @@ class ShowSubjectFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        var subject: Subject? = null
+
         arguments?.let {
             subject = it.getParcelable(ARG_SUBJECT)
         }

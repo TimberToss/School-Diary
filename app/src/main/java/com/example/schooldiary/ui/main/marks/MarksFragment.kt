@@ -5,31 +5,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.schooldiary.databinding.FragmentMarksBinding
 import com.example.schooldiary.model.marks.Marks
+import com.example.schooldiary.viewmodel.marks.MarksViewModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
-import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.firestore.FirebaseFirestore
 
 class MarksFragment : Fragment() {
     private var _binding: FragmentMarksBinding? = null
     private val binding get() = _binding!!
     private lateinit var marksFragmentAdapter: FirestoreRecyclerAdapter<Marks, MarksHolder>
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentMarksBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val firestore = FirebaseFirestore.getInstance()
-        val query = firestore.collection(FIREBASE_SUBJECTS_COLLECTION)
-        val options = FirestoreRecyclerOptions.Builder<Marks>()
-                .setQuery(query, Marks::class.java)
-                .build()
-
+        val viewModel: MarksViewModel by viewModels()
+        val options = viewModel.getFirestoreRecyclerOptions<Marks>(FIREBASE_SUBJECTS_COLLECTION)
         marksFragmentAdapter = MarksFragmentAdapter(options)
 
         with(binding.recyclerView) {
@@ -53,7 +52,7 @@ class MarksFragment : Fragment() {
         _binding = null
     }
 
-    companion object {
+    private companion object {
         private const val FIREBASE_SUBJECTS_COLLECTION = "subjects"
     }
 }
