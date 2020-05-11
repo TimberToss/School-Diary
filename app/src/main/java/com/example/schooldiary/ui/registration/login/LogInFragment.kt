@@ -3,6 +3,7 @@ package com.example.schooldiary.ui.registration.login
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,8 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.iid.FirebaseInstanceId
 
 class LogInFragment : Fragment() {
 
@@ -64,6 +67,7 @@ class LogInFragment : Fragment() {
                 .addOnCompleteListener { task: Task<AuthResult?> ->
                     if (task.isSuccessful) {
                         val user = auth.currentUser
+                        addToken()
                         updateUI(user)
                     } else { Toast.makeText(view.context,
                             view.context.resources.getString(R.string.authentication_failed),
@@ -112,6 +116,17 @@ class LogInFragment : Fragment() {
                 startActivity(intent)
                 it.finish()
             }
+        }
+    }
+
+    private fun addToken() {
+        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener {
+            val token = it.token
+            Log.d("Current FCM token", token)
+            val email = FirebaseAuth.getInstance().currentUser?.email ?: return@addOnSuccessListener
+            FirebaseFirestore.getInstance().collection("users")
+                    .document(email)
+                    .set(mapOf("fcmToken" to token))
         }
     }
 }
